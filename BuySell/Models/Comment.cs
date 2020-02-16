@@ -28,11 +28,11 @@ namespace BuySell.Models
         public DateTime? DeletedDate { get; set; }
         [Required]
         [MaxLength(20)]
-        public string AddedBy { get; set; }
+        public Roles AddedBy { get; set; }
         [MaxLength(20)]
-        public string ModifiedBy { get; set; }
+        public Roles ModifiedBy { get; set; }
         [MaxLength(20)]
-        public string DeletedBy { get; set; }
+        public Roles DeletedBy { get; set; }
         public ProductViewModel Product { get; set; }
         public int? ProductId { get; set; }
         public Blog Blog { get; set; }

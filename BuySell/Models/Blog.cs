@@ -21,10 +21,10 @@ namespace BuySell.Models
         public DateTime? DeletedDate { get; set; }
         [Required]
         [MaxLength(20)]
-        public string AddedBy { get; set; }
+        public Roles AddedBy { get; set; }
         [MaxLength(20)]
-        public string ModifiedBy { get; set; }
-        public string DeletedBy { get; set; }
+        public Roles ModifiedBy { get; set; }
+        public Roles DeletedBy { get; set; }
         public ICollection<PhotoViewModel> Photos { get; set; }
         public ICollection<CommentViewModel> Comments { get; set; }
     }

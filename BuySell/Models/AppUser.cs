@@ -10,10 +10,7 @@ namespace BuySell.Models
     {
         [Required]
         [MaxLength(100)]
-        public string Name { get; set; }
-        [Required]
-        [MaxLength(100)]
-        public string Surname { get; set; }
+        public string UserSurname { get; set; }
         [Required]
         [MaxLength(20)]
         public string Password { get; set; }

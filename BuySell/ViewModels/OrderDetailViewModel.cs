@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BuySell.ViewModels
 {
-    public class OrderDetail
+    public class OrderDetailViewModel
     {
         public ProductViewModel Product { get; set; }
         [Required]
