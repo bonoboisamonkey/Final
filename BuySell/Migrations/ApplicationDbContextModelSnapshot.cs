@@ -159,7 +159,7 @@ namespace BuySell.Migrations
                     b.ToTable("Blogs");
                 });
 
-            modelBuilder.Entity("BuySell.Models.CategoryViewModel", b =>
+            modelBuilder.Entity("BuySell.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -181,7 +181,7 @@ namespace BuySell.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("BuySell.Models.CommentViewModel", b =>
+            modelBuilder.Entity("BuySell.Models.Comment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -244,25 +244,7 @@ namespace BuySell.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("BuySell.Models.OrderDetail", b =>
-                {
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("OrderUnitPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("OrderId", "ProductId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("OrderDetails");
-                });
-
-            modelBuilder.Entity("BuySell.Models.OrderViewModel", b =>
+            modelBuilder.Entity("BuySell.Models.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -290,7 +272,25 @@ namespace BuySell.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("BuySell.Models.PhotoViewModel", b =>
+            modelBuilder.Entity("BuySell.Models.OrderDetail", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("OrderUnitPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("OrderId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderDetails");
+                });
+
+            modelBuilder.Entity("BuySell.Models.Photo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -317,7 +317,7 @@ namespace BuySell.Migrations
                     b.ToTable("Photos");
                 });
 
-            modelBuilder.Entity("BuySell.Models.ProductViewModel", b =>
+            modelBuilder.Entity("BuySell.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -358,7 +358,7 @@ namespace BuySell.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("BuySell.Models.StockViewModel", b =>
+            modelBuilder.Entity("BuySell.Models.Stock", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -506,40 +506,25 @@ namespace BuySell.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("BuySell.Models.CategoryViewModel", b =>
+            modelBuilder.Entity("BuySell.Models.Category", b =>
                 {
-                    b.HasOne("BuySell.Models.CategoryViewModel", "Parent")
+                    b.HasOne("BuySell.Models.Category", "Parent")
                         .WithMany("Categories")
                         .HasForeignKey("ParentId");
                 });
 
-            modelBuilder.Entity("BuySell.Models.CommentViewModel", b =>
+            modelBuilder.Entity("BuySell.Models.Comment", b =>
                 {
                     b.HasOne("BuySell.Models.Blog", "Blog")
                         .WithMany("Comments")
                         .HasForeignKey("BlogId");
 
-                    b.HasOne("BuySell.Models.ProductViewModel", "Product")
+                    b.HasOne("BuySell.Models.Product", "Product")
                         .WithMany("Comments")
                         .HasForeignKey("ProductId");
                 });
 
-            modelBuilder.Entity("BuySell.Models.OrderDetail", b =>
-                {
-                    b.HasOne("BuySell.Models.OrderViewModel", "Order")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BuySell.Models.ProductViewModel", "Product")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BuySell.Models.OrderViewModel", b =>
+            modelBuilder.Entity("BuySell.Models.Order", b =>
                 {
                     b.HasOne("BuySell.Models.AppUser", "Customer")
                         .WithMany("Orders")
@@ -548,26 +533,41 @@ namespace BuySell.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BuySell.Models.PhotoViewModel", b =>
+            modelBuilder.Entity("BuySell.Models.OrderDetail", b =>
+                {
+                    b.HasOne("BuySell.Models.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BuySell.Models.Product", "Product")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("BuySell.Models.Photo", b =>
                 {
                     b.HasOne("BuySell.Models.Blog", "Blog")
                         .WithMany("Photos")
                         .HasForeignKey("BlogId");
 
-                    b.HasOne("BuySell.Models.ProductViewModel", "Product")
+                    b.HasOne("BuySell.Models.Product", "Product")
                         .WithMany("Photos")
                         .HasForeignKey("ProductId");
                 });
 
-            modelBuilder.Entity("BuySell.Models.ProductViewModel", b =>
+            modelBuilder.Entity("BuySell.Models.Product", b =>
                 {
-                    b.HasOne("BuySell.Models.CategoryViewModel", "Category")
+                    b.HasOne("BuySell.Models.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BuySell.Models.StockViewModel", "Stock")
+                    b.HasOne("BuySell.Models.Stock", "Stock")
                         .WithMany("Products")
                         .HasForeignKey("StockId")
                         .OnDelete(DeleteBehavior.Cascade)

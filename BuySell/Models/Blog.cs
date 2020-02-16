@@ -25,7 +25,7 @@ namespace BuySell.Models
         [MaxLength(20)]
         public Roles ModifiedBy { get; set; }
         public Roles DeletedBy { get; set; }
-        public ICollection<PhotoViewModel> Photos { get; set; }
-        public ICollection<CommentViewModel> Comments { get; set; }
+        public ICollection<Photo> Photos { get; set; }
+        public ICollection<Comment> Comments { get; set; }
     }
 }

@@ -26,6 +26,6 @@ namespace BuySell.Models
         [Required]
         public DateTime RegistredDate { get; set; }
         public bool IsSubscribed { get; set; }
-        public ICollection<OrderViewModel> Orders { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

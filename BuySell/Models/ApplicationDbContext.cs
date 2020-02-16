@@ -13,14 +13,14 @@ namespace BuySell.Models
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options){}
 
-        public DbSet<ProductViewModel> Products { set; get; }
+        public DbSet<Product> Products { set; get; }
         public DbSet<Blog> Blogs { get; set; }
-        public DbSet<CategoryViewModel> Categories { get; set; }
-        public DbSet<CommentViewModel> Comments { get; set; }
-        public DbSet<OrderViewModel> Orders { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<PhotoViewModel> Photos { get; set; }
-        public DbSet<StockViewModel> Stocks { get; set; }
+        public DbSet<Photo> Photos { get; set; }
+        public DbSet<Stock> Stocks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

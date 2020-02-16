@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BuySell.Models
 {
-    public class StockViewModel
+    public class Stock
     {
         [Required]
         public int Id { get; set; }
@@ -13,10 +13,10 @@ namespace BuySell.Models
         public int Count { get; set; }
         [Required]
         public bool IsAvailable { get; set; }
-        public ICollection<ProductViewModel> Products { get; set; }
-        public StockViewModel()
+        public ICollection<Product> Products { get; set; }
+        public Stock()
         {
-            Products = new HashSet<ProductViewModel>();
+            Products = new HashSet<Product>();
         }
     }
 }

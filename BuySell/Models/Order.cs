@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BuySell.Models
 {
-    public class OrderViewModel
+    public class Order
     {
         [Required]
         public int Id { get; set; }
@@ -23,7 +23,7 @@ namespace BuySell.Models
         public int CustomerId { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; }
 
-        public OrderViewModel()
+        public Order()
         {
             OrderDetails = new HashSet<OrderDetail>();
         }

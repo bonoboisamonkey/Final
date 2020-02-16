@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BuySell.ViewModels;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BuySell.Controllers
+namespace BuySell.Areas.Admin.Controllers
 {
-    [Authorize]
-    public class AdminController : Controller
+    public class BlogController : Controller
     {
         public IActionResult Index()
         {

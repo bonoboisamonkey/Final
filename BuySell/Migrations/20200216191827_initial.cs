@@ -42,8 +42,7 @@ namespace BuySell.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(maxLength: 100, nullable: false),
-                    Surname = table.Column<string>(maxLength: 100, nullable: false),
+                    UserSurname = table.Column<string>(maxLength: 100, nullable: false),
                     Password = table.Column<string>(maxLength: 20, nullable: false),
                     City = table.Column<string>(maxLength: 50, nullable: false),
                     Address = table.Column<string>(maxLength: 50, nullable: false),
@@ -67,9 +66,9 @@ namespace BuySell.Migrations
                     AddedDate = table.Column<DateTime>(nullable: false),
                     ModifiedDate = table.Column<DateTime>(nullable: true),
                     DeletedDate = table.Column<DateTime>(nullable: true),
-                    AddedBy = table.Column<string>(maxLength: 20, nullable: false),
-                    ModifiedBy = table.Column<string>(maxLength: 20, nullable: true),
-                    DeletedBy = table.Column<string>(nullable: true)
+                    AddedBy = table.Column<int>(maxLength: 20, nullable: false),
+                    ModifiedBy = table.Column<int>(maxLength: 20, nullable: false),
+                    DeletedBy = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -282,9 +281,9 @@ namespace BuySell.Migrations
                     AddedDate = table.Column<DateTime>(nullable: false),
                     ModifiedDate = table.Column<DateTime>(nullable: true),
                     DeletedDate = table.Column<DateTime>(nullable: true),
-                    AddedBy = table.Column<string>(maxLength: 20, nullable: false),
-                    ModifiedBy = table.Column<string>(maxLength: 20, nullable: true),
-                    DeletedBy = table.Column<string>(maxLength: 20, nullable: true),
+                    AddedBy = table.Column<int>(maxLength: 20, nullable: false),
+                    ModifiedBy = table.Column<int>(maxLength: 20, nullable: false),
+                    DeletedBy = table.Column<int>(maxLength: 20, nullable: false),
                     ProductId = table.Column<int>(nullable: true),
                     BlogId = table.Column<int>(nullable: true)
                 },
