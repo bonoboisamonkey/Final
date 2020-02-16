@@ -346,14 +346,9 @@ namespace BuySell.Migrations
                     b.Property<byte>("ProductRating")
                         .HasColumnType("tinyint");
 
-                    b.Property<int>("StockId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("StockId");
 
                     b.ToTable("Products");
                 });
@@ -371,7 +366,12 @@ namespace BuySell.Migrations
                     b.Property<bool>("IsAvailable")
                         .HasColumnType("bit");
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Stocks");
                 });
@@ -566,10 +566,13 @@ namespace BuySell.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
 
-                    b.HasOne("BuySell.Models.Stock", "Stock")
-                        .WithMany("Products")
-                        .HasForeignKey("StockId")
+            modelBuilder.Entity("BuySell.Models.Stock", b =>
+                {
+                    b.HasOne("BuySell.Models.Product", "Product")
+                        .WithMany("Stocks")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

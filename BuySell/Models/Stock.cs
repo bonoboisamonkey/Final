@@ -13,10 +13,8 @@ namespace BuySell.Models
         public int Count { get; set; }
         [Required]
         public bool IsAvailable { get; set; }
-        public ICollection<Product> Products { get; set; }
-        public Stock()
-        {
-            Products = new HashSet<Product>();
-        }
+        public Product Product { get; set; }
+        [Required]
+        public int ProductId { get; set; }
     }
 }

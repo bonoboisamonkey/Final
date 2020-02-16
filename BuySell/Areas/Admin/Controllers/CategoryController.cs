@@ -22,16 +22,16 @@ namespace BuySell.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-           var categories = await _context.Categories
-                .Include(c => c.Parent)
-                .ToListAsync();
+            var categories = await _context.Categories
+                 .Include(c => c.Parent)
+                 .ToListAsync();
             return View(categories);
         }
         [HttpGet]
         public IActionResult Create()
         {
             List<SelectListItem> items = new SelectList(_context.Categories, "Id", "Name").ToList();
-            items.Insert(0, (new SelectListItem { Text = "[None]", Value = "0" }));
+            items.Insert(0, (new SelectListItem { Text = "None", Value = "0" }));
             ViewData["ParentId"] = items;
 
             return View();
@@ -59,12 +59,12 @@ namespace BuySell.Areas.Admin.Controllers
                     });
                     await _context.SaveChangesAsync();
                 }
-                
+
                 return RedirectToAction(nameof(Index));
             }
 
             List<SelectListItem> items = new SelectList(_context.Categories, "Id", "Name").ToList();
-            items.Insert(0, (new SelectListItem { Text = "[None]", Value = "0" }));
+            items.Insert(0, (new SelectListItem { Text = "None", Value = "0" }));
             ViewData["ParentId"] = items;
 
             return View(model);
@@ -132,17 +132,17 @@ namespace BuySell.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            ViewData["ParentId"] = new SelectList(_context.Categories, "Id", "Name");
+            List<SelectListItem> items = new SelectList(_context.Categories, "Id", "Name").ToList();
+            items.Insert(0, (new SelectListItem { Text = "None", Value = "0" }));
+            ViewData["ParentId"] = items;
             return View(category);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, CategoryViewModel model)
+        public async Task<IActionResult> Edit(int id, Category model)
         {
             if (ModelState.IsValid)
             {
-                //_context.Attach(model).State = EntityState.Modified;
-
                 try
                 {
                     _context.Update(model);
@@ -164,7 +164,9 @@ namespace BuySell.Areas.Admin.Controllers
 
             }
 
-            ViewData["ParentId"] = new SelectList(_context.Categories, "Id", "Name");
+            List<SelectListItem> items = new SelectList(_context.Categories, "Id", "Name").ToList();
+            items.Insert(0, (new SelectListItem { Text = "None", Value = "0" }));
+            ViewData["ParentId"] = items;
             return View(model);
         }
 

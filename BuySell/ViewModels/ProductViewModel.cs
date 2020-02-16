@@ -12,9 +12,6 @@ namespace BuySell.ViewModels
         public CategoryViewModel Category { get; set; }
         [Required]
         public int CategoryId { get; set; }
-        public StockViewModel Stock { get; set; }
-        [Required]
-        public int StockId { get; set; }
         [Required]
         [MaxLength(50)]
         public string ProductName { get; set; }

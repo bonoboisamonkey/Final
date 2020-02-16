@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BuySell.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -93,20 +93,6 @@ namespace BuySell.Migrations
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Stocks",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Count = table.Column<int>(nullable: false),
-                    IsAvailable = table.Column<bool>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Stocks", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -244,7 +230,6 @@ namespace BuySell.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryId = table.Column<int>(nullable: false),
-                    StockId = table.Column<int>(nullable: false),
                     ProductName = table.Column<string>(maxLength: 50, nullable: false),
                     ProductPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ProductDiscount = table.Column<int>(nullable: false),
@@ -258,12 +243,6 @@ namespace BuySell.Migrations
                         name: "FK_Products_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Products_Stocks_StockId",
-                        column: x => x.StockId,
-                        principalTable: "Stocks",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -356,6 +335,27 @@ namespace BuySell.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Stocks",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Count = table.Column<int>(nullable: false),
+                    IsAvailable = table.Column<bool>(nullable: false),
+                    ProductId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Stocks", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Stocks_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -436,9 +436,9 @@ namespace BuySell.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_StockId",
-                table: "Products",
-                column: "StockId");
+                name: "IX_Stocks_ProductId",
+                table: "Stocks",
+                column: "ProductId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -468,6 +468,9 @@ namespace BuySell.Migrations
                 name: "Photos");
 
             migrationBuilder.DropTable(
+                name: "Stocks");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
@@ -484,9 +487,6 @@ namespace BuySell.Migrations
 
             migrationBuilder.DropTable(
                 name: "Categories");
-
-            migrationBuilder.DropTable(
-                name: "Stocks");
         }
     }
 }

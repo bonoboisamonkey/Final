@@ -14,9 +14,6 @@ namespace BuySell.Models
         public Category Category { get; set; }
         [Required]
         public int CategoryId { get; set; }
-        public Stock Stock { get; set; }
-        [Required]
-        public int StockId { get; set; }
         [Required]
         [MaxLength(50)]
         public string ProductName { get; set; }
@@ -33,6 +30,7 @@ namespace BuySell.Models
         public string ProductDetails { get; set; }
         public ICollection<Photo> Photos { get; set; }
         public ICollection<Comment> Comments { get; set; }
+        public ICollection<Stock> Stocks { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; }
         public Product()
         {

@@ -11,5 +11,8 @@ namespace BuySell.ViewModels
         public int Count { get; set; }
         [Required]
         public bool IsAvailable { get; set; }
+        public ProductViewModel Product { get; set; }
+        [Required]
+        public int ProductId { get; set; }
     }
 }
