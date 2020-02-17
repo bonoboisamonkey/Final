@@ -31,7 +31,7 @@ namespace BuySell.Areas.Admin.Controllers
         public IActionResult Create()
         {
             List<SelectListItem> items = new SelectList(_context.Categories, "Id", "Name").ToList();
-            items.Insert(0, (new SelectListItem { Text = "None", Value = "0" }));
+            items.Insert(0, (new SelectListItem { Text = "None", Value = null }));
             ViewData["ParentId"] = items;
 
             return View();
@@ -41,30 +41,17 @@ namespace BuySell.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (model.ParentId != 0)
+                _context.Categories.Add(new Category
                 {
-                    _context.Categories.Add(new Category
-                    {
-                        Name = model.Name,
-                        ParentId = model.ParentId
-                    });
-                    await _context.SaveChangesAsync();
-                }
-                else
-                {
-                    _context.Categories.Add(new Category
-                    {
-                        Name = model.Name,
-                        ParentId = null
-                    });
-                    await _context.SaveChangesAsync();
-                }
-
+                    Name = model.Name,
+                    ParentId = model.ParentId
+                });
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
             List<SelectListItem> items = new SelectList(_context.Categories, "Id", "Name").ToList();
-            items.Insert(0, (new SelectListItem { Text = "None", Value = "0" }));
+            items.Insert(0, (new SelectListItem { Text = "None", Value = null }));
             ViewData["ParentId"] = items;
 
             return View(model);
@@ -133,7 +120,7 @@ namespace BuySell.Areas.Admin.Controllers
             }
 
             List<SelectListItem> items = new SelectList(_context.Categories, "Id", "Name").ToList();
-            items.Insert(0, (new SelectListItem { Text = "None", Value = "0" }));
+            items.Insert(0, (new SelectListItem { Text = "None", Value = null }));
             ViewData["ParentId"] = items;
             return View(category);
         }
@@ -145,8 +132,21 @@ namespace BuySell.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(model);
-                    await _context.SaveChangesAsync();
+                    if (model.ParentId != 0)
+                    {
+                        _context.Update(model);
+                        await _context.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        _context.Update(new Category
+                        {
+                            Name = model.Name,
+                            ParentId = null
+                        });
+                        await _context.SaveChangesAsync();
+                    }
+
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -165,7 +165,7 @@ namespace BuySell.Areas.Admin.Controllers
             }
 
             List<SelectListItem> items = new SelectList(_context.Categories, "Id", "Name").ToList();
-            items.Insert(0, (new SelectListItem { Text = "None", Value = "0" }));
+            items.Insert(0, (new SelectListItem { Text = "None", Value = null }));
             ViewData["ParentId"] = items;
             return View(model);
         }

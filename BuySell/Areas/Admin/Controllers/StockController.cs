@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BuySell.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class StockController : Controller
     {
         private readonly ApplicationDbContext _context;
