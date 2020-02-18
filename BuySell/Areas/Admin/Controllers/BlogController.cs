@@ -81,8 +81,6 @@ namespace BuySell.Areas.Admin.Controllers
             return View(blog);
         }
 
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
         public async Task<IActionResult> Edit(int id, Blog model)
         {
