@@ -12,9 +12,6 @@ namespace BuySell.Models
         [MaxLength(100)]
         public string UserSurname { get; set; }
         [Required]
-        [MaxLength(20)]
-        public string Password { get; set; }
-        [Required]
         [MaxLength(50)]
         public string City { get; set; }
         [Required]

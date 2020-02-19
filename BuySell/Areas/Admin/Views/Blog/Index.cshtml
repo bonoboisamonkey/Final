@@ -35,7 +35,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.DeletedBy)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -64,6 +66,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DeletedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

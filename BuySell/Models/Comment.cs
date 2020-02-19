@@ -22,17 +22,13 @@ namespace BuySell.Models
         [MaxLength(50)]
         [EmailAddress]
         public string Email { get; set; }
-        [Required]
         public DateTime AddedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public DateTime? DeletedDate { get; set; }
-        [Required]
-        [MaxLength(20)]
         public Roles AddedBy { get; set; }
-        [MaxLength(20)]
         public Roles ModifiedBy { get; set; }
-        [MaxLength(20)]
         public Roles DeletedBy { get; set; }
+        public bool IsDeleted { get; set; }
         public Product Product { get; set; }
         public int? ProductId { get; set; }
         public Blog Blog { get; set; }

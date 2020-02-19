@@ -90,11 +90,11 @@ namespace BuySell.Areas.Admin.Controllers
                 return NotFound();
             }
             List<SelectListItem> blogItems = new SelectList(_context.Blogs, "Id", "BlogBody").ToList();
-            blogItems.Insert(0, new SelectListItem { Text = "none", Value = null });
+            blogItems.Insert(0, new SelectListItem { Text = "none", Value = "0" });
             ViewData["BlogId"] = blogItems;
 
             List<SelectListItem> photoItems = new SelectList(_context.Products, "Id", "ProductName").ToList();
-            photoItems.Insert(0, new SelectListItem { Text = "none", Value = null });
+            photoItems.Insert(0, new SelectListItem { Text = "none", Value = "0" });
             ViewData["ProductId"] = photoItems;
             return View(photo);
         }
@@ -105,7 +105,37 @@ namespace BuySell.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(model);
+                    if(model.BlogId==0 && model.ProductId == 0)
+                    {
+                        throw new Exception("Wrong data");
+                    }
+                    else
+                    {
+
+                        if (model.BlogId == 0)
+                        {
+                            _context.Update(new Photo
+                            {
+                                PhotoPath = model.PhotoPath,
+                                BlogId = null,
+                                ProductId = model.ProductId
+                            });
+                        }else
+                            if(model.ProductId == 0)
+                        {
+                            _context.Update(new Photo
+                            {
+                                PhotoPath = model.PhotoPath,
+                                BlogId = model.BlogId,
+                                ProductId = null
+                            });
+                        }
+                        else
+                        {
+                            _context.Update(model);
+                        }
+                    }
+                    
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -125,11 +155,11 @@ namespace BuySell.Areas.Admin.Controllers
             }
 
             List<SelectListItem> blogItems = new SelectList(_context.Blogs, "Id", "BlogBody").ToList();
-            blogItems.Insert(0, new SelectListItem { Text = "none", Value = null });
+            blogItems.Insert(0, new SelectListItem { Text = "none", Value = "0" });
             ViewData["BlogId"] = blogItems;
 
             List<SelectListItem> photoItems = new SelectList(_context.Products, "Id", "ProductName").ToList();
-            photoItems.Insert(0, new SelectListItem { Text = "none", Value = null });
+            photoItems.Insert(0, new SelectListItem { Text = "none", Value = "0" });
             ViewData["ProductId"] = photoItems;
             return View(model);
         }
@@ -142,11 +172,11 @@ namespace BuySell.Areas.Admin.Controllers
         public IActionResult Create()
         {
             List<SelectListItem> blogItems = new SelectList(_context.Blogs, "Id", "BlogBody").ToList();
-            blogItems.Insert(0, new SelectListItem { Text = "none", Value = null });
+            blogItems.Insert(0, new SelectListItem { Text = "none", Value = "0" });
             ViewData["BlogId"] = blogItems;
 
             List<SelectListItem> photoItems = new SelectList(_context.Products, "Id", "ProductName").ToList();
-            photoItems.Insert(0, new SelectListItem { Text = "none", Value = null });
+            photoItems.Insert(0, new SelectListItem { Text = "none", Value = "0" });
             ViewData["ProductId"] = photoItems;
             return View();
         }
@@ -162,11 +192,11 @@ namespace BuySell.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             List<SelectListItem> blogItems = new SelectList(_context.Blogs, "Id", "BlogBody").ToList();
-            blogItems.Insert(0, new SelectListItem { Text = "none", Value = null });
+            blogItems.Insert(0, new SelectListItem { Text = "none", Value = "0" });
             ViewData["BlogId"] = blogItems;
 
             List<SelectListItem> photoItems = new SelectList(_context.Products, "Id", "ProductName").ToList();
-            photoItems.Insert(0, new SelectListItem { Text = "none", Value = null });
+            photoItems.Insert(0, new SelectListItem { Text = "none", Value = "0" });
             ViewData["ProductId"] = photoItems;
             return View(model);
         }

@@ -31,7 +31,7 @@ namespace BuySell.Areas.Admin.Controllers
         public IActionResult Create()
         {
             List<SelectListItem> items = new SelectList(_context.Categories, "Id", "Name").ToList();
-            items.Insert(0, (new SelectListItem { Text = "None", Value = null }));
+            items.Insert(0, (new SelectListItem { Text = "None", Value = "0" }));
             ViewData["ParentId"] = items;
 
             return View();
@@ -41,17 +41,28 @@ namespace BuySell.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Categories.Add(new Category
+                if (model.ParentId != 0)
                 {
-                    Name = model.Name,
-                    ParentId = model.ParentId
-                });
+                    _context.Categories.Add(new Category
+                    {
+                        Name = model.Name,
+                        ParentId = model.ParentId
+                    });
+                }
+                else
+                {
+                    _context.Categories.Add(new Category
+                    {
+                        Name = model.Name,
+                        ParentId = null
+                    });
+                }
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
             List<SelectListItem> items = new SelectList(_context.Categories, "Id", "Name").ToList();
-            items.Insert(0, (new SelectListItem { Text = "None", Value = null }));
+            items.Insert(0, (new SelectListItem { Text = "None", Value = "0" }));
             ViewData["ParentId"] = items;
 
             return View(model);
@@ -120,7 +131,7 @@ namespace BuySell.Areas.Admin.Controllers
             }
 
             List<SelectListItem> items = new SelectList(_context.Categories, "Id", "Name").ToList();
-            items.Insert(0, (new SelectListItem { Text = "None", Value = null }));
+            items.Insert(0, (new SelectListItem { Text = "None", Value = "0" }));
             ViewData["ParentId"] = items;
             return View(category);
         }
@@ -165,7 +176,7 @@ namespace BuySell.Areas.Admin.Controllers
             }
 
             List<SelectListItem> items = new SelectList(_context.Categories, "Id", "Name").ToList();
-            items.Insert(0, (new SelectListItem { Text = "None", Value = null }));
+            items.Insert(0, (new SelectListItem { Text = "None", Value = "0" }));
             ViewData["ParentId"] = items;
             return View(model);
         }

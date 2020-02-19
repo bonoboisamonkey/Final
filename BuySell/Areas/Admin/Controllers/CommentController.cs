@@ -43,8 +43,8 @@ namespace BuySell.Areas.Admin.Controllers
             }
             return View(comment);
         }
-        [HttpPost, ActionName("Delete")]
-        public async Task<IActionResult> DeleteComment(int? id)
+        [HttpPost]
+        public async Task<IActionResult> Delete(int? id, Comment model)
         {
             var comment = await _context.Comments.FindAsync(id);
 
@@ -88,11 +88,11 @@ namespace BuySell.Areas.Admin.Controllers
                 return NotFound();
             }
             List<SelectListItem> blogItems = new SelectList(_context.Blogs, "Id", "BlogBody").ToList();
-            blogItems.Insert(0, new SelectListItem { Text = "none", Value = null });
+            blogItems.Insert(0, new SelectListItem { Text = "none", Value = "0" });
             ViewData["BlogId"] = blogItems;
 
             List<SelectListItem> productItems = new SelectList(_context.Products, "Id", "ProductName").ToList();
-            productItems.Insert(0, new SelectListItem { Value = null, Text = "none" });
+            productItems.Insert(0, new SelectListItem { Value = "0", Text = "none" });
             ViewData["ProductId"] = productItems;
             return View(comment);
         }
@@ -104,13 +104,51 @@ namespace BuySell.Areas.Admin.Controllers
             {
                 try
                 {
-                    if (model.BlogId==null && model.ProductId==null)
+                    if (model.BlogId==0 && model.ProductId==0)
                     {
                         throw new Exception("wrong data");
                     }
                     else
                     {
-                        _context.Update(model);
+                        if (model.BlogId == 0)
+                        {
+                            _context.Update(new Comment
+                            {
+                                CommentatorName = model.CommentatorName,
+                                CommentBody = model.CommentBody,
+                                CommentTitle = model.CommentTitle,
+                                Email = model.Email,
+                                AddedDate = model.AddedDate,
+                                ModifiedDate = DateTime.Now,
+                                DeletedDate = model.DeletedDate,
+                                AddedBy = model.AddedBy,
+                                ModifiedBy = model.ModifiedBy,
+                                DeletedBy = model.DeletedBy,
+                                ProductId = model.ProductId,
+                                BlogId = null
+                            });
+                        }else if (model.ProductId == 0)
+                        {
+                            _context.Update(new Comment
+                            {
+                                CommentatorName = model.CommentatorName,
+                                CommentBody = model.CommentBody,
+                                CommentTitle = model.CommentTitle,
+                                Email = model.Email,
+                                AddedDate = model.AddedDate,
+                                ModifiedDate = DateTime.Now,
+                                DeletedDate = model.DeletedDate,
+                                AddedBy = model.AddedBy,
+                                ModifiedBy = model.ModifiedBy,
+                                DeletedBy = model.DeletedBy,
+                                ProductId = null,
+                                BlogId = model.BlogId
+                            });
+                        }
+                        else
+                        {
+                            _context.Update(model);
+                        }
                         await _context.SaveChangesAsync();
                     }                    
                 }
@@ -130,11 +168,11 @@ namespace BuySell.Areas.Admin.Controllers
             }
 
             List<SelectListItem> blogItems = new SelectList(_context.Blogs, "Id", "BlogBody").ToList();
-            blogItems.Insert(0, new SelectListItem { Text = "none", Value = null });
+            blogItems.Insert(0, new SelectListItem { Text = "none", Value = "0" });
             ViewData["BlogId"] = blogItems;
 
             List<SelectListItem> productItems = new SelectList(_context.Products, "Id", "ProductName").ToList();
-            productItems.Insert(0, new SelectListItem { Value = null, Text = "none" });
+            productItems.Insert(0, new SelectListItem { Value = "0", Text = "none" });
             ViewData["ProductId"] = productItems;
             return View();
         }
