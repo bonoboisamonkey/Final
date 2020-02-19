@@ -57,6 +57,15 @@
     
     <form method="post">
         <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="BlogTitle" />
+        <input type="hidden" asp-for="BlogBody" />
+        <input type="hidden" asp-for="AddedDate" />
+        <input type="hidden" asp-for="ModifiedDate" />
+        <input type="hidden" asp-for="DeletedDate" value="@DateTime.Now" />
+        @if (!Model.IsDeleted)
+        {
+            <input type="hidden" asp-for="IsDeleted" value="true">
+        }
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>
