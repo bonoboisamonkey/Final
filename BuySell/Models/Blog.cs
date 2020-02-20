@@ -15,7 +15,6 @@ namespace BuySell.Models
         [Required]
         [MaxLength(300)]
         public string BlogBody { get; set; }
-        [Required]
         public DateTime AddedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public DateTime? DeletedDate { get; set; }

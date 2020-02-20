@@ -54,9 +54,16 @@ namespace BuySell.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            
+
+            if (!product.IsDeleted)
+            {
+                product.IsDeleted = true;
+                product.DeletedDate = DateTime.Now;
+            }
+
+            _context.Attach(product).State = EntityState.Modified;
             await _context.SaveChangesAsync();
-            
+
             return RedirectToAction(nameof(Index));
         }
 
@@ -96,25 +103,51 @@ namespace BuySell.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, Product model)
+        public async Task<IActionResult> Edit(int? id, Product model)
         {
             if (ModelState.IsValid)
             {
+                if (id == null)
+                {
+                    return NotFound();
+                }
+                var product = await _context.Products.FindAsync(id);
+
+                if (product == null)
+                {
+                    return NotFound();
+                }
+
                 try
                 {
-                    _context.Update(model);
+                    if (!model.IsDeleted)
+                    {
+                        product.DeletedDate = null;
+                    }
+                    else
+                    {
+                        if (product.DeletedDate == null)
+                        {
+                            product.DeletedDate = DateTime.Now;
+                        }
+                    }
+
+                    product.CategoryId = model.CategoryId;
+                    product.ProductName = model.ProductName;
+                    product.ProductPrice = model.ProductPrice;
+                    product.ProductDiscount = model.ProductDiscount;
+                    product.ProductRating = model.ProductRating;
+                    product.ProductDetails = model.ProductDetails;
+                    product.ProductCount = model.ProductCount;
+                    product.IsAvailable = model.IsAvailable;
+                    product.ModifiedDate = DateTime.Now;
+
+                    _context.Attach(product).State = EntityState.Modified;
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
 
                 return RedirectToAction(nameof(Index));
@@ -125,10 +158,6 @@ namespace BuySell.Areas.Admin.Controllers
             return View(model);
         }
 
-        private bool ProductExists(int id)
-        {
-            return _context.Products.Any(e => e.Id == id);
-        }
         [HttpGet]
         public IActionResult Create()
         {
@@ -141,6 +170,7 @@ namespace BuySell.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                model.AddedDate = DateTime.Now;
                 _context.Products.Add(model);
                 await _context.SaveChangesAsync();
 

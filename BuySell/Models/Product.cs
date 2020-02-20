@@ -32,6 +32,10 @@ namespace BuySell.Models
         public int ProductCount { get; set; }
         [Required]
         public bool IsAvailable { get; set; }
+        public bool IsDeleted { get; set; }
+        public DateTime AddedDate { get; set; }
+        public DateTime? ModifiedDate { get; set; }
+        public DateTime? DeletedDate { get; set; }
         public ICollection<Photo> Photos { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; }
