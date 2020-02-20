@@ -39,12 +39,24 @@ namespace BuySell.Areas.Admin.Controllers
             }
             return View(blog);
         }
-        [HttpPost]
-        public async Task<IActionResult> Delete(Blog model)
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteBlog(int? id)
         {
-            if (model.IsDeleted)
+            if (id == null)
             {
-                _context.Attach(model).State = EntityState.Modified;
+                return NotFound();
+            }
+            var blog = await _context.Blogs.FindAsync(id);
+
+            if(blog == null)
+            {
+                return NotFound();
+            }
+            if (!blog.IsDeleted)
+            {
+                blog.IsDeleted = true;
+                blog.DeletedDate = DateTime.Now;
+                _context.Attach(blog).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction(nameof(Index));
@@ -83,36 +95,50 @@ namespace BuySell.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, Blog model)
+        public async Task<IActionResult> Edit(int? id, Blog model)
         {
             if (ModelState.IsValid)
             {
-                _context.Attach(model).State = EntityState.Modified;
+                if (id == null)
+                {
+                    return NotFound();
+                }
+                var blog = await _context.Blogs.FindAsync(id);
+
+                if(blog == null)
+                {
+                    return NotFound();
+                }
                 try
                 {
+                    blog.BlogTitle = model.BlogTitle;
+                    blog.BlogBody = model.BlogBody;
+                    blog.IsDeleted = model.IsDeleted;
+                    blog.ModifiedDate = DateTime.Now;
+                    if (!model.IsDeleted)
+                    {
+                        blog.DeletedDate = null;
+                    }
+                    else
+                    {
+                        if (blog.DeletedDate == null)
+                        {
+                            blog.DeletedDate = DateTime.Now;
+                        }
+                    }
+                    _context.Attach(blog).State = EntityState.Modified;
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BlogExists(id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
                 return RedirectToAction(nameof(Index));
             }
 
             return View(model);
         }
-
-        private bool BlogExists(int id)
-        {
-            return _context.Blogs.Any(e => e.Id == id);
-        }
+       
         [HttpGet]
         public IActionResult Create()
         {
@@ -123,6 +149,7 @@ namespace BuySell.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                model.AddedDate = DateTime.Now;
                 _context.Blogs.Add(model);
                 await _context.SaveChangesAsync();
 

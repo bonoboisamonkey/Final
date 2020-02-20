@@ -45,11 +45,22 @@ namespace BuySell.Areas.Admin.Controllers
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeletePhoto(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
             var photo = await _context.Photos.FindAsync(id);
 
-            if (photo != null)
+            if (photo == null)
             {
-                _context.Photos.Remove(photo);
+                return NotFound();
+            }
+            if (!photo.IsDeleted)
+            {
+                photo.IsDeleted = true;
+                photo.DeletedDate = DateTime.Now;
+                _context.Attach(photo).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
             }
 
@@ -99,55 +110,62 @@ namespace BuySell.Areas.Admin.Controllers
             return View(photo);
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, Photo model)
+        public async Task<IActionResult> Edit(int? id, Photo model)
         {
             if (ModelState.IsValid)
             {
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                var photo = await _context.Photos.FindAsync(id);
+
+                if (photo == null)
+                {
+                    return NotFound();
+                }
+
                 try
                 {
-                    if(model.BlogId==0 && model.ProductId == 0)
+                    if (model.BlogId == 0 && model.ProductId == 0)
                     {
                         throw new Exception("Wrong data");
                     }
                     else
                     {
-
                         if (model.BlogId == 0)
                         {
-                            _context.Update(new Photo
-                            {
-                                PhotoPath = model.PhotoPath,
-                                BlogId = null,
-                                ProductId = model.ProductId
-                            });
-                        }else
-                            if(model.ProductId == 0)
+                            photo.BlogId = null;
+                        }
+                        else if(model.ProductId == 0)
                         {
-                            _context.Update(new Photo
-                            {
-                                PhotoPath = model.PhotoPath,
-                                BlogId = model.BlogId,
-                                ProductId = null
-                            });
+                            photo.ProductId = null;
+                        }
+
+                        photo.PhotoPath = model.PhotoPath;
+                        photo.IsDeleted = model.IsDeleted;
+
+                        if (!model.IsDeleted)
+                        {
+                            photo.DeletedDate = null;
                         }
                         else
                         {
-                            _context.Update(model);
+                            if (photo.DeletedDate == null)
+                            {
+                                photo.DeletedDate = DateTime.Now;
+                            }
                         }
+                        photo.ModifiedDate = DateTime.Now;
+                        _context.Attach(photo).State = EntityState.Modified;
                     }
-                    
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PhotoExists(id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
 
                 return RedirectToAction(nameof(Index));
@@ -164,10 +182,6 @@ namespace BuySell.Areas.Admin.Controllers
             return View(model);
         }
 
-        private bool PhotoExists(int id)
-        {
-            return _context.Photos.Any(e => e.Id == id);
-        }
         [HttpGet]
         public IActionResult Create()
         {
@@ -186,6 +200,15 @@ namespace BuySell.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (model.BlogId == 0)
+                {
+                    model.BlogId = null;
+                }
+                else if (model.ProductId == 0)
+                {
+                    model.ProductId = null;
+                }
+                model.AddedDate = DateTime.Now;
                 _context.Photos.Add(model);
                 await _context.SaveChangesAsync();
 

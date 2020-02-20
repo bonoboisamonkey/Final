@@ -28,9 +28,6 @@
                     <input class="form-check-input" asp-for="IsDeleted" /> @Html.DisplayNameFor(model => model.IsDeleted)
                 </label>
             </div>
-            <input asp-for="AddedDate" type="hidden" />
-            <input asp-for="ModifiedDate" value="@DateTime.Now" type="hidden" />
-
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

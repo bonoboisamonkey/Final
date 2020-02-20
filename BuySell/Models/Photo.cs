@@ -16,6 +16,13 @@ namespace BuySell.Models
         public int? ProductId { get; set; }
         public Blog Blog { get; set; }
         public int? BlogId { get; set; }
-
+        [Required]
+        public bool IsDeleted { get; set; }
+        public DateTime AddedDate { get; set; }
+        public DateTime? ModifiedDate { get; set; }
+        public DateTime? DeletedDate { get; set; }
+        public Roles AddedBy { get; set; }
+        public Roles ModifiedBy { get; set; }
+        public Roles DeletedBy { get; set; }
     }
 }

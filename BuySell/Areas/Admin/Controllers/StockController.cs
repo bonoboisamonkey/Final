@@ -73,7 +73,7 @@ namespace BuySell.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(StockViewModel model)
+        public async Task<IActionResult> Create(Stock model)
         {
             if (ModelState.IsValid)
             {

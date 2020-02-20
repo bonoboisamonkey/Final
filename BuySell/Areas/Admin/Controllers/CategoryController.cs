@@ -37,26 +37,15 @@ namespace BuySell.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(CategoryViewModel model)
+        public async Task<IActionResult> Create(Category model)
         {
             if (ModelState.IsValid)
             {
-                if (model.ParentId != 0)
+                if (model.ParentId == 0)
                 {
-                    _context.Categories.Add(new Category
-                    {
-                        Name = model.Name,
-                        ParentId = model.ParentId
-                    });
+                    model.ParentId = null;
                 }
-                else
-                {
-                    _context.Categories.Add(new Category
-                    {
-                        Name = model.Name,
-                        ParentId = null
-                    });
-                }
+                _context.Categories.Add(model);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -141,27 +130,22 @@ namespace BuySell.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (id != model.Id)
+                {
+                    return NotFound();
+                }
                 try
                 {
-                    if (model.ParentId != 0)
+                    if (model.ParentId == 0)
                     {
-                        _context.Update(model);
-                        await _context.SaveChangesAsync();
+                        model.ParentId = null;
                     }
-                    else
-                    {
-                        _context.Update(new Category
-                        {
-                            Name = model.Name,
-                            ParentId = null
-                        });
-                        await _context.SaveChangesAsync();
-                    }
-
+                    _context.Attach(model).State = EntityState.Modified;
+                    await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CategoryViewModelExists(id))
+                    if (!CategoryViewModelExists(model.Id))
                     {
                         return NotFound();
                     }
