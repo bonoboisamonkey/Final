@@ -28,9 +28,12 @@ namespace BuySell.Models
         [Required]
         [MaxLength(500)]
         public string ProductDetails { get; set; }
+        [Required]
+        public int ProductCount { get; set; }
+        [Required]
+        public bool IsAvailable { get; set; }
         public ICollection<Photo> Photos { get; set; }
         public ICollection<Comment> Comments { get; set; }
-        public ICollection<Stock> Stocks { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; }
         public Product()
         {
