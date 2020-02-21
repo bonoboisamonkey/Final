@@ -42,9 +42,23 @@ namespace BuySell.Areas.Admin.Controllers
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteOrder(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
             var order = await _context.Orders.FindAsync(id);
 
-            _context.Orders.Remove(order);
+            if (order == null)
+            {
+                return NotFound();
+            }
+            if (!order.IsCanceled)
+            {
+                order.CancelationDate = DateTime.Now;
+                order.IsCanceled = true;
+            }
+            _context.Attach(order).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
 
@@ -82,41 +96,58 @@ namespace BuySell.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "UserName");
+            //ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "UserName");
             return View(order);
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, Order model)
+        public async Task<IActionResult> Edit(int? id, Order model)
         {
             if (ModelState.IsValid)
             {
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                var order = await _context.Orders.FindAsync(id);
+
+                if (order == null)
+                {
+                    return NotFound();
+                }
                 try
                 {
-                    _context.Update(model);
+                    order.TrackingNumber = model.TrackingNumber;
+                    order.OrderDate = model.OrderDate;
+                    order.OrderTotalPrice = model.OrderTotalPrice;
+                    order.IsCanceled = model.IsCanceled;
+
+                    if (!model.IsCanceled)
+                    {
+                        order.CancelationDate = null;
+                    }
+                    else
+                    {
+                        if (order.CancelationDate == null)
+                        {
+                            order.CancelationDate = DateTime.Now;
+                        }
+                    }
+                    _context.Attach(order).State = EntityState.Modified;
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!OrderExists(id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+
+                    throw;
+
                 }
 
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "UserName");
+            //ViewData["CustomerId"] = new SelectList(_context.Users, "Id", "UserName");
             return View(model);
-        }
-
-        private bool OrderExists(int id)
-        {
-            return _context.Orders.Any(e => e.Id == id);
         }
     }
 }

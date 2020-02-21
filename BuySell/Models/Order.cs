@@ -18,6 +18,9 @@ namespace BuySell.Models
         [Required]
         [Column(TypeName = "decimal(18,2)")]
         public decimal OrderTotalPrice { get; set; }
+        [Required]
+        public bool IsCanceled { get; set; }
+        public DateTime? CancelationDate { get; set; }
         public AppUser Customer { get; set; }
         [Required]
         public int CustomerId { get; set; }

@@ -28,10 +28,15 @@
                 <input asp-for="OrderTotalPrice" class="form-control" />
                 <span asp-validation-for="OrderTotalPrice" class="text-danger"></span>
             </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsCanceled" /> @Html.DisplayNameFor(model => model.IsCanceled)
+                </label>
+            </div>
             <div class="form-group">
-                <label asp-for="CustomerId" class="control-label"></label>
-                <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
-                <span asp-validation-for="CustomerId" class="text-danger"></span>
+                <label asp-for="CancelationDate" class="control-label"></label>
+                <input asp-for="CancelationDate" class="form-control" />
+                <span asp-validation-for="CancelationDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

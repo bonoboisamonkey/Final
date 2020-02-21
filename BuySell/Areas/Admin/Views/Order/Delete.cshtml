@@ -35,6 +35,18 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Customer.Address)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsCanceled)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IsCanceled)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CancelationDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CancelationDate)
+        </dd>
     </dl>
     
     <form method="post">
