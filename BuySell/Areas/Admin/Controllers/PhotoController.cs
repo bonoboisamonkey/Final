@@ -185,7 +185,7 @@ namespace BuySell.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            List<SelectListItem> blogItems = new SelectList(_context.Blogs, "Id", "BlogBody").ToList();
+            List<SelectListItem> blogItems = new SelectList(_context.Blogs, "Id", "BlogTitle").ToList();
             blogItems.Insert(0, new SelectListItem { Text = "none", Value = "0" });
             ViewData["BlogId"] = blogItems;
 
@@ -214,7 +214,7 @@ namespace BuySell.Areas.Admin.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            List<SelectListItem> blogItems = new SelectList(_context.Blogs, "Id", "BlogBody").ToList();
+            List<SelectListItem> blogItems = new SelectList(_context.Blogs, "Id", "BlogTitle").ToList();
             blogItems.Insert(0, new SelectListItem { Text = "none", Value = "0" });
             ViewData["BlogId"] = blogItems;
 

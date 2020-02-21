@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BuySell.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class OrderController : Controller
     {
         private readonly ApplicationDbContext _context;
