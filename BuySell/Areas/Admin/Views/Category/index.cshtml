@@ -30,13 +30,13 @@
             </td>
             @if (item.ParentId == null)
             {
-                <td class="col-sm-10">
+                <td class="col-sm-8">
                     None
                 </td>
             }
             else
             {
-                <td class="col-sm-10">
+                <td class="col-sm-8">
                     @Html.DisplayFor(modelItem => item.Parent.Name)
                 </td>
             }

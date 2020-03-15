@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BuySell.Models;
+using BuySell.ViewModels;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +16,13 @@ namespace BuySell.Areas.Admin.Controllers
     public class PhotoController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment hostingEnvironment;
 
-        public PhotoController(ApplicationDbContext context)
+        public PhotoController(ApplicationDbContext context
+                                , IWebHostEnvironment environment)
         {
             _context = context;
+            hostingEnvironment = environment;
         }
         public async Task<IActionResult> Index()
         {
@@ -138,7 +144,7 @@ namespace BuySell.Areas.Admin.Controllers
                         {
                             photo.BlogId = null;
                         }
-                        else if(model.ProductId == 0)
+                        else if (model.ProductId == 0)
                         {
                             photo.ProductId = null;
                         }
@@ -196,7 +202,7 @@ namespace BuySell.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Photo model)
+        public async Task<IActionResult> Create(PhotoViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -208,8 +214,24 @@ namespace BuySell.Areas.Admin.Controllers
                 {
                     model.ProductId = null;
                 }
-                model.AddedDate = DateTime.Now;
-                _context.Photos.Add(model);
+                if (model.PhotoPath != null)
+                {
+                    var uniqueFileName = Guid.NewGuid().ToString() + "_" + model.PhotoPath.FileName;
+                    var uploads = Path.Combine(hostingEnvironment.WebRootPath, "uploads");
+                    var filePath = Path.Combine(uploads, uniqueFileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        model.PhotoPath.CopyTo(fileStream);
+                    }
+
+                    _context.Photos.Add(new Photo()
+                    {
+                        PhotoPath = uniqueFileName,
+                        ProductId = model.ProductId,
+                        BlogId = model.BlogId,
+                        AddedDate = DateTime.Now
+                    });
+                }
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));

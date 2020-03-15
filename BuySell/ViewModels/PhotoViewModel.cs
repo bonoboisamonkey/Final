@@ -1,16 +1,19 @@
-﻿using System;
+﻿using BuySell.Models;
+using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace BuySell.Models
+namespace BuySell.ViewModels
 {
-    public class Photo
+    public class PhotoViewModel
     {
         [Required]
         public int Id { get; set; }
         [Required]
-        public string PhotoPath { get; set; }
+        public IFormFile PhotoPath { get; set; }
         public Product Product { get; set; }
         public int? ProductId { get; set; }
         public Blog Blog { get; set; }
