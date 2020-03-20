@@ -10,10 +10,10 @@ namespace BuySell.Models
         [Required]
         public int Id { get; set; }
         [Required]
-        [MaxLength(100)]
+        [MaxLength(200)]
         public string BlogTitle { get; set; }
         [Required]
-        [MaxLength(300)]
+        [MaxLength(500)]
         public string BlogBody { get; set; }
         public DateTime AddedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }

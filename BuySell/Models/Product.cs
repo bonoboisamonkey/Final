@@ -15,7 +15,7 @@ namespace BuySell.Models
         [Required]
         public int CategoryId { get; set; }
         [Required]
-        [MaxLength(50)]
+        [MaxLength(200)]
         [DisplayName("Product Name")]
         public string ProductName { get; set; }
         [Required]

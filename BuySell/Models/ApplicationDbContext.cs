@@ -64,10 +64,9 @@ namespace BuySell.Models
                 , new Category { Id = 26, Name = "Periferiya Qurğuları", ParentId = 22 }
 
                 , new Category { Id = 27, Name = "Printerlər", ParentId = 25 }
-                , new Category { Id = 28, Name = "Skanerlər", ParentId = 25 }
+                , new Category { Id = 28, Name = "Xarici disklər", ParentId = 25 }
                 , new Category { Id = 29, Name = "Secondary Hardware", ParentId = 25 }
                 , new Category { Id = 30, Name = "Monitorlar", ParentId = 25 }
-                , new Category { Id = 31, Name = "Digər", ParentId = 25 }
                 );
 
             builder.Entity<Blog>().HasData(
@@ -75,49 +74,49 @@ namespace BuySell.Models
                 {
                     Id = 1,
                     BlogTitle = "Hələdə smartfonu ən sərfəli qiymətə haradan alacağını düşünürsən?",
-                    BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                    BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
                     IsDeleted = false
                 }
                 , new Blog
                 {
                     Id = 2,
                     BlogTitle = "Kampaniya başa çatana qədər yalnız bir neçə gün qaldı!",
-                    BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                    BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
                     IsDeleted = false
                 }
                 , new Blog
                 {
                     Id = 3,
                     BlogTitle = "Sifarişçilərin nəzərinə!",
-                    BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                    BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
                     IsDeleted = false
                 }
                 , new Blog
                 {
                     Id = 4,
                     BlogTitle = "Hörmətlə , saytın administrasiyası !",
-                    BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                    BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
                     IsDeleted = false
                 }
                 , new Blog
                 {
                     Id = 5,
                     BlogTitle = "Fiziki şəxslər üçün mobil telefonlu bağlamaların Gömrük idarəsi tərəfindən təhvil verilmə qaydaları dəyişdirilmişdir.",
-                    BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                    BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
                     IsDeleted = false
                 }
                 , new Blog
                 {
                     Id = 6,
                     BlogTitle = "From.ae - dən hər kəsə 10$ hədiyyə",
-                    BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                    BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
                     IsDeleted = false
                 }
                 , new Blog
                 {
                     Id = 7,
                     BlogTitle = "Qutu açılımı çək - endirim qazan!",
-                    BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                    BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
                     IsDeleted = false
                 }
                 ); ;
@@ -171,12 +170,40 @@ namespace BuySell.Models
                 , new Product { Id = 29, CategoryId = 17, ProductName = "Anker PowerCore 10000mAh Compact High-Capacity ", ProductPrice = 20, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 200, IsDeleted = false, ProductDetails = "ayfonla əla gedir" }
 
                 //tv və audio
-                , new Product { Id = 30, CategoryId = 18, ProductName = "Apple TV 4K 32GB (MQD22) ", ProductPrice = 200, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 20, IsDeleted = false, ProductDetails = "ayfonla əla gedir" }
-                , new Product { Id = 31, CategoryId = 19, ProductName = "Apple iPod touch 32GB 7th Generation (Pink) ", ProductPrice = 240, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 20, IsDeleted = false, ProductDetails = "ayfonla əla gedir" }
-                , new Product { Id = 32, CategoryId = 20, ProductName = "LG 43-Inch 4K UHD TV 43UK6400 Black ", ProductPrice = 370, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 20, IsDeleted = false, ProductDetails = "ayfonla əla gedir" }
-                , new Product { Id = 33, CategoryId = 20, ProductName = "Sony 55-inch 4K Ultra HD LED TV 55X9000E Black ", ProductPrice = 1400, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 20, IsDeleted = false, ProductDetails = "ayfonla əla gedir" }
-                , new Product { Id = 34, CategoryId = 21, ProductName = "Epson EB-U42 ", ProductPrice = 880, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 20, IsDeleted = false, ProductDetails = "ayfonla əla gedir" }
+                , new Product { Id = 30, CategoryId = 18, ProductName = "Apple TV 4K 32GB (MQD22) ", ProductPrice = 200, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 20, IsDeleted = false, ProductDetails = "televizorun da ayfon olsun" }
+                , new Product { Id = 31, CategoryId = 19, ProductName = "Apple iPod touch 32GB 7th Generation (Pink) ", ProductPrice = 240, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 20, IsDeleted = false, ProductDetails = "Zəngdən başqa hərşey" }
+                , new Product { Id = 32, CategoryId = 20, ProductName = "LG 43-Inch 4K UHD TV 43UK6400 Black ", ProductPrice = 370, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 20, IsDeleted = false, ProductDetails = "Azərbaycan serialları artıq Türk serialı dadında" }
+                , new Product { Id = 33, CategoryId = 20, ProductName = "Sony 55-inch 4K Ultra HD LED TV 55X9000E Black ", ProductPrice = 1400, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 20, IsDeleted = false, ProductDetails = "pleysteyşn üçün yaradılıb elə bil" }
+                , new Product { Id = 34, CategoryId = 21, ProductName = "Epson EB-U42 ", ProductPrice = 880, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 20, IsDeleted = false, ProductDetails = "Futbol heç bu qədər maraqlı olmamışdı" }
 
+                //Kompüterlər
+
+                , new Product { Id = 35, CategoryId = 23, ProductName = "Lenovo IdeaPad 330S-81F400VFAX Grey ", ProductPrice = 880, ProductDiscount = 14, ProductRating = 5, IsAvailable = true, ProductCount = 150, IsDeleted = false, ProductDetails = "əsl smm üçün" }
+                , new Product { Id = 36, CategoryId = 23, ProductName = "ASUS ROG Zephyrus GX701GXR-HG122T Gaming ", ProductPrice = 3880, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "Geymrlar üçün" }
+                , new Product { Id = 37, CategoryId = 23, ProductName = "Acer Aspire A1 A114-006 Black (Celeron N4000, 4GB, 64GB, 14.0\" LED, Intel HD, Win10) Engl / Arab", ProductPrice = 259, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 250, IsDeleted = false, ProductDetails = "ucuz və sərfəli" }
+                , new Product { Id = 38, CategoryId = 23, ProductName = "HP Laptop 15-da1080ur 7SH99EA Black (Core i7, 8GB, 1TB, 15.6\"HD, NVIDIA GF, DOS) Eng / Rus ", ProductPrice = 830, ProductDiscount = 0, ProductRating = 3, IsAvailable = true, ProductCount = 150, IsDeleted = false, ProductDetails = "vintelyator bizlik deyil" }
+                , new Product { Id = 39, CategoryId = 23, ProductName = "Apple MacBook Pro 13.3\"  MV972 with Touch Bar(Mid 2019) Space Gray ", ProductPrice = 2040, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 250, IsDeleted = false, ProductDetails = "APPLE" }
+                
+                , new Product { Id = 40, CategoryId = 24, ProductName = "Lenovo ideacentre A340-24ICB F0E6009RAX ", ProductPrice = 838, ProductDiscount = 14, ProductRating = 4, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+                , new Product { Id = 41, CategoryId = 24, ProductName = "Apple iMac Pro 27\" MQ2Y2 with Retina 5K Display(Late 2017) Space Gray ", ProductPrice = 5040, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+                , new Product { Id = 42, CategoryId = 24, ProductName = "Microsoft Surface Studio 2 Multi-Touch All-in-One (Core i7, 16GB, 1TB SSD, 28\" PixelSense Touch, 6GB GTX, Win10 Pro) Engl / Arab ", ProductPrice = 3900, ProductDiscount = 0, ProductRating = 4, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+                , new Product { Id = 43, CategoryId = 24, ProductName = "HP 290 G2 Microtower 3VA90EA Black (Core i3, 4GB, 500GB, Intel HD, 18.5HD, DOS) Eng/Rus ", ProductPrice = 550, ProductDiscount = 0, ProductRating = 4, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+                , new Product { Id = 44, CategoryId = 24, ProductName = "Apple iMac 21.5\" MMQA2(Mid 2017) ", ProductPrice = 1040, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+
+                , new Product { Id = 45, CategoryId = 25, ProductName = "Apple iPad 10.2 Wi - Fi 32GB Gold ", ProductPrice = 315, ProductDiscount = 3, ProductRating = 5, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+                , new Product { Id = 46, CategoryId = 25, ProductName = "Apple iPad 10.2 Wi-Fi 32GB Gold ", ProductPrice = 630, ProductDiscount = 0, ProductRating = 4, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+
+                , new Product { Id = 47, CategoryId = 27, ProductName = "HP ScanJet Pro 2500 f1 (L2747A) ", ProductPrice = 330, ProductDiscount = 0, ProductRating = 4, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+                , new Product { Id = 48, CategoryId = 27, ProductName = "HP LaserJet Pro M227fdn Printer (G3Q79A) ", ProductPrice = 330, ProductDiscount = 0, ProductRating = 4, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+
+                , new Product { Id = 49, CategoryId = 28, ProductName = "Transcend 1TB StoreJet TS1TSJ25M3 Anti-Shock ", ProductPrice = 70, ProductDiscount = 0, ProductRating = 4, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+                , new Product { Id = 50, CategoryId = 28, ProductName = "WD 2TB My Passport USB 3.0 Secure Portable Hard ", ProductPrice = 80, ProductDiscount = 0, ProductRating = 4, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+                
+                , new Product { Id = 51, CategoryId = 29, ProductName = "Microsoft Surface Arc Wireless Mouse Black (2017) ", ProductPrice = 70, ProductDiscount = 0, ProductRating = 4, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+                , new Product { Id = 52, CategoryId = 29, ProductName = "Apple Magic Keyboard (MLA22) ", ProductPrice = 108, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+
+                , new Product { Id = 53, CategoryId = 30, ProductName = "HP 32s Monitor 2UD96AA Black/Silver ", ProductPrice = 290, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+                , new Product { Id = 54, CategoryId = 30, ProductName = "HP 27es 68.58 cm (27\") Monitor(T3M86AA) ", ProductPrice = 240, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
 
                 );
         }
