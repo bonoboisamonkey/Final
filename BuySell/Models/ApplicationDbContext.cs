@@ -67,6 +67,12 @@ namespace BuySell.Models
                 , new Category { Id = 28, Name = "Xarici disklər", ParentId = 25 }
                 , new Category { Id = 29, Name = "Secondary Hardware", ParentId = 25 }
                 , new Category { Id = 30, Name = "Monitorlar", ParentId = 25 }
+
+                , new Category { Id = 31, Name = "Oyunlar", ParentId = null }
+
+                , new Category { Id = 32, Name = "Oyun Konsolları", ParentId = 31 }
+                , new Category { Id = 33, Name = "Oyun Nəzarətçiləri", ParentId = 31 }
+                , new Category { Id = 34, Name = "Video Oyunlar", ParentId = 31 }
                 );
 
             builder.Entity<Blog>().HasData(
@@ -108,7 +114,7 @@ namespace BuySell.Models
                 , new Blog
                 {
                     Id = 6,
-                    BlogTitle = "From.ae - dən hər kəsə 10$ hədiyyə",
+                    BlogTitle = "Hər bir şəkildə gözəllik",
                     BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
                     IsDeleted = false
                 }
@@ -125,11 +131,11 @@ namespace BuySell.Models
 
                 //telefonlar
 
-                new Product { Id = 1, CategoryId = 5, ProductName = "Apple iPhone 11 128GB Black", ProductPrice = 810, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 100, IsDeleted = false, ProductDetails="Əla telefondu" }
+                new Product { Id = 1, CategoryId = 5, ProductName = "Apple iPhone 11 128GB Black", ProductPrice = 810, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 100, IsDeleted = false, ProductDetails = "Əla telefondu" }
                 , new Product { Id = 2, CategoryId = 5, ProductName = "Apple iPhone 11 128GB Red", ProductPrice = 810, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 100, IsDeleted = false, ProductDetails = "Əla telefondu" }
                 , new Product { Id = 3, CategoryId = 5, ProductName = "Apple iPhone 11 64GB Black", ProductPrice = 710, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 100, IsDeleted = false, ProductDetails = "Əla telefondu" }
                 , new Product { Id = 4, CategoryId = 5, ProductName = "Apple iPhone 11 64GB Green", ProductPrice = 750, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 100, IsDeleted = false, ProductDetails = "Əla telefondu" }
-                , new Product { Id = 5, CategoryId = 5, ProductName = "Apple iPhone 11 Dual SIM 64GB Green ", ProductPrice = 813, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 100, IsDeleted = false, ProductDetails = "Əla telefondu" }
+                , new Product { Id = 5, CategoryId = 5, ProductName = "Apple iPhone 11 Dual SIM 64GB Yellow ", ProductPrice = 813, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 100, IsDeleted = false, ProductDetails = "Əla telefondu" }
 
                 , new Product { Id = 6, CategoryId = 6, ProductName = "Samsung Galaxy A20s Dual Sim SM-A207F/DS 32GB 4G", ProductPrice = 162, ProductDiscount = 0, ProductRating = 2, IsAvailable = true, ProductCount = 200, IsDeleted = false, ProductDetails = "Əla telefondu" }
                 , new Product { Id = 7, CategoryId = 6, ProductName = "Samsung Galaxy S9 Plus Duos SM-G965F/DS 64GB ", ProductPrice = 521, ProductDiscount = 7, ProductRating = 4, IsAvailable = true, ProductCount = 200, IsDeleted = false, ProductDetails = "Əla telefondu" }
@@ -148,7 +154,7 @@ namespace BuySell.Models
                 , new Product { Id = 16, CategoryId = 10, ProductName = "LG V30 Dual H930D 64GB 4G LTE Black ", ProductPrice = 300, ProductDiscount = 8, ProductRating = 3, IsAvailable = true, ProductCount = 100, IsDeleted = false, ProductDetails = "Əla telefondu" }
 
                 , new Product { Id = 17, CategoryId = 11, ProductName = "Honor 8A Pro Dual JAT-L41 3GB/64GB 4G LTE Blue ", ProductPrice = 164, ProductDiscount = 0, ProductRating = 3, IsAvailable = true, ProductCount = 100, IsDeleted = false, ProductDetails = "Əla telefondu" }
-                
+
                 // mobil aksesualarlar
 
                 , new Product { Id = 18, CategoryId = 12, ProductName = "X-Doria iPhone XS/X Case Defense Defense Shield ", ProductPrice = 16, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 200, IsDeleted = false, ProductDetails = "Əla telefon qabıdı" }
@@ -183,7 +189,7 @@ namespace BuySell.Models
                 , new Product { Id = 37, CategoryId = 23, ProductName = "Acer Aspire A1 A114-006 Black (Celeron N4000, 4GB, 64GB, 14.0\" LED, Intel HD, Win10) Engl / Arab", ProductPrice = 259, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 250, IsDeleted = false, ProductDetails = "ucuz və sərfəli" }
                 , new Product { Id = 38, CategoryId = 23, ProductName = "HP Laptop 15-da1080ur 7SH99EA Black (Core i7, 8GB, 1TB, 15.6\"HD, NVIDIA GF, DOS) Eng / Rus ", ProductPrice = 830, ProductDiscount = 0, ProductRating = 3, IsAvailable = true, ProductCount = 150, IsDeleted = false, ProductDetails = "vintelyator bizlik deyil" }
                 , new Product { Id = 39, CategoryId = 23, ProductName = "Apple MacBook Pro 13.3\"  MV972 with Touch Bar(Mid 2019) Space Gray ", ProductPrice = 2040, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 250, IsDeleted = false, ProductDetails = "APPLE" }
-                
+
                 , new Product { Id = 40, CategoryId = 24, ProductName = "Lenovo ideacentre A340-24ICB F0E6009RAX ", ProductPrice = 838, ProductDiscount = 14, ProductRating = 4, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
                 , new Product { Id = 41, CategoryId = 24, ProductName = "Apple iMac Pro 27\" MQ2Y2 with Retina 5K Display(Late 2017) Space Gray ", ProductPrice = 5040, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
                 , new Product { Id = 42, CategoryId = 24, ProductName = "Microsoft Surface Studio 2 Multi-Touch All-in-One (Core i7, 16GB, 1TB SSD, 28\" PixelSense Touch, 6GB GTX, Win10 Pro) Engl / Arab ", ProductPrice = 3900, ProductDiscount = 0, ProductRating = 4, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
@@ -198,12 +204,99 @@ namespace BuySell.Models
 
                 , new Product { Id = 49, CategoryId = 28, ProductName = "Transcend 1TB StoreJet TS1TSJ25M3 Anti-Shock ", ProductPrice = 70, ProductDiscount = 0, ProductRating = 4, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
                 , new Product { Id = 50, CategoryId = 28, ProductName = "WD 2TB My Passport USB 3.0 Secure Portable Hard ", ProductPrice = 80, ProductDiscount = 0, ProductRating = 4, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
-                
+
                 , new Product { Id = 51, CategoryId = 29, ProductName = "Microsoft Surface Arc Wireless Mouse Black (2017) ", ProductPrice = 70, ProductDiscount = 0, ProductRating = 4, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
                 , new Product { Id = 52, CategoryId = 29, ProductName = "Apple Magic Keyboard (MLA22) ", ProductPrice = 108, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
 
                 , new Product { Id = 53, CategoryId = 30, ProductName = "HP 32s Monitor 2UD96AA Black/Silver ", ProductPrice = 290, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
                 , new Product { Id = 54, CategoryId = 30, ProductName = "HP 27es 68.58 cm (27\") Monitor(T3M86AA) ", ProductPrice = 240, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+
+                //Oyunlar
+                , new Product { Id = 55, CategoryId = 32, ProductName = "Nintendo Switch with Neon Blue and Red Joy-Con Controllers ", ProductPrice = 320, ProductDiscount = 0, ProductRating = 4, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+                , new Product { Id = 56, CategoryId = 32, ProductName = "Microsoft Xbox One S 1TB Gaming Console (White) ", ProductPrice = 240, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+                , new Product { Id = 57, CategoryId = 32, ProductName = "Sony PlayStation 4 Pro PS4 Pro 1TB Black ", ProductPrice = 360, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+
+                , new Product { Id = 58, CategoryId = 33, ProductName = "Microsoft Xbox One Wireless Controller ", ProductPrice = 43, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 150, IsDeleted = false, ProductDetails = "" }
+                , new Product { Id = 59, CategoryId = 33, ProductName = "Sony PlayStation 4 DualShock 4 Wireless ", ProductPrice = 53, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 150, IsDeleted = false, ProductDetails = "" }
+
+                , new Product { Id = 60, CategoryId = 34, ProductName = "Battle Chasers: Nightwar for PlayStation 4 (R2) ", ProductPrice = 27, ProductDiscount = 0, ProductRating = 3, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+                , new Product { Id = 61, CategoryId = 34, ProductName = "For Honor Deluxe Edition for PlayStation 4 (R2) ", ProductPrice = 27, ProductDiscount = 0, ProductRating = 3, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+                , new Product { Id = 62, CategoryId = 34, ProductName = "Cartoon Network: Battle Crashers for PlayStation 4 ", ProductPrice = 27, ProductDiscount = 0, ProductRating = 3, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "" }
+
+                );
+            builder.Entity<Photo>().HasData(
+                //Product photos
+                new Photo { Id=1, PhotoPath = "~image/products/product-id-1.jpeg", ProductId = 1 }
+                , new Photo { Id=2, PhotoPath = "~image/products/product-id-2.jpeg", ProductId = 2 }
+                , new Photo { Id=3, PhotoPath = "~image/products/product-id-3.jpeg", ProductId = 3 }
+                , new Photo { Id=4, PhotoPath = "~image/products/product-id-4.jpeg", ProductId = 4 }
+                , new Photo { Id=5, PhotoPath = "~image/products/product-id-5.jpeg", ProductId = 5 }
+                , new Photo { Id=6, PhotoPath = "~image/products/product-id-6.jpeg", ProductId = 6 }
+                , new Photo { Id=7, PhotoPath = "~image/products/product-id-7.jpeg", ProductId = 7 }
+                , new Photo { Id=8, PhotoPath = "~image/products/product-id-8.jpeg", ProductId = 8 }
+                , new Photo { Id=9, PhotoPath = "~image/products/product-id-9.jpeg", ProductId = 9 }
+                , new Photo { Id=10, PhotoPath = "~image/products/product-id-10.jpeg", ProductId = 10 }
+                , new Photo { Id=11, PhotoPath = "~image/products/product-id-11.jpeg", ProductId = 11 }
+                , new Photo { Id=12, PhotoPath = "~image/products/product-id-12.jpeg", ProductId = 12 }
+                , new Photo { Id=13, PhotoPath = "~image/products/product-id-13.jpeg", ProductId = 13 }
+                , new Photo { Id=14, PhotoPath = "~image/products/product-id-14.jpeg", ProductId = 14 }
+                , new Photo { Id=15, PhotoPath = "~image/products/product-id-15.jpeg", ProductId = 15 }
+                , new Photo { Id=16, PhotoPath = "~image/products/product-id-16.jpeg", ProductId = 16 }
+                , new Photo { Id=17, PhotoPath = "~image/products/product-id-17.jpeg", ProductId = 17 }
+                , new Photo { Id=18, PhotoPath = "~image/products/product-id-18.jpeg", ProductId = 18 }
+                , new Photo { Id=19, PhotoPath = "~image/products/product-id-19.jpeg", ProductId = 19 }
+                , new Photo { Id=20, PhotoPath = "~image/products/product-id-20.jpeg", ProductId = 20 }
+                , new Photo { Id=21, PhotoPath = "~image/products/product-id-21.jpeg", ProductId = 21 }
+                , new Photo { Id=22, PhotoPath = "~image/products/product-id-22.jpeg", ProductId = 22 }
+                , new Photo { Id=23, PhotoPath = "~image/products/product-id-23.jpeg", ProductId = 23 }
+                , new Photo { Id=24, PhotoPath = "~image/products/product-id-24.jpeg", ProductId = 24 }
+                , new Photo { Id=25, PhotoPath = "~image/products/product-id-25.jpeg", ProductId = 25 }
+                , new Photo { Id=26, PhotoPath = "~image/products/product-id-26.jpeg", ProductId = 26 }
+                , new Photo { Id=27, PhotoPath = "~image/products/product-id-27.jpeg", ProductId = 27 }
+                , new Photo { Id=28, PhotoPath = "~image/products/product-id-28.jpeg", ProductId = 28 }
+                , new Photo { Id=29, PhotoPath = "~image/products/product-id-29.jpeg", ProductId = 29 }
+                , new Photo { Id=30, PhotoPath = "~image/products/product-id-30.jpeg", ProductId = 30 }
+                , new Photo { Id=31, PhotoPath = "~image/products/product-id-31.jpeg", ProductId = 31 }
+                , new Photo { Id=32, PhotoPath = "~image/products/product-id-32.jpeg", ProductId = 32 }
+                , new Photo { Id=33, PhotoPath = "~image/products/product-id-33.jpeg", ProductId = 33 }
+                , new Photo { Id=34, PhotoPath = "~image/products/product-id-34.jpeg", ProductId = 34 }
+                , new Photo { Id=35, PhotoPath = "~image/products/product-id-35.jpeg", ProductId = 35 }
+                , new Photo { Id=36, PhotoPath = "~image/products/product-id-36.jpeg", ProductId = 36 }
+                , new Photo { Id=37, PhotoPath = "~image/products/product-id-37.jpeg", ProductId = 37 }
+                , new Photo { Id=38, PhotoPath = "~image/products/product-id-38.jpeg", ProductId = 38 }
+                , new Photo { Id=39, PhotoPath = "~image/products/product-id-39.jpeg", ProductId = 39 }
+                , new Photo { Id=40, PhotoPath = "~image/products/product-id-40.jpeg", ProductId = 40 }
+                , new Photo { Id=41, PhotoPath = "~image/products/product-id-41.jpeg", ProductId = 41 }
+                , new Photo { Id=42, PhotoPath = "~image/products/product-id-42.jpeg", ProductId = 42 }
+                , new Photo { Id=43, PhotoPath = "~image/products/product-id-43.jpeg", ProductId = 43 }
+                , new Photo { Id=44, PhotoPath = "~image/products/product-id-44.jpeg", ProductId = 44 }
+                , new Photo { Id=45, PhotoPath = "~image/products/product-id-45.jpeg", ProductId = 45 }
+                , new Photo { Id=46, PhotoPath = "~image/products/product-id-46.jpeg", ProductId = 46 }
+                , new Photo { Id=47, PhotoPath = "~image/products/product-id-47.jpeg", ProductId = 47 }
+                , new Photo { Id=48, PhotoPath = "~image/products/product-id-48.jpeg", ProductId = 48 }
+                , new Photo { Id=49, PhotoPath = "~image/products/product-id-49.jpeg", ProductId = 49 }
+                , new Photo { Id=50, PhotoPath = "~image/products/product-id-50.jpeg", ProductId = 50 }
+                , new Photo { Id=51, PhotoPath = "~image/products/product-id-51.jpeg", ProductId = 51 }
+                , new Photo { Id=52, PhotoPath = "~image/products/product-id-52.jpeg", ProductId = 52 }
+                , new Photo { Id=53, PhotoPath = "~image/products/product-id-53.jpeg", ProductId = 53 }
+                , new Photo { Id=54, PhotoPath = "~image/products/product-id-54.jpeg", ProductId = 54 }
+                , new Photo { Id=55, PhotoPath = "~image/products/product-id-55.jpeg", ProductId = 55 }
+                , new Photo { Id=56, PhotoPath = "~image/products/product-id-56.jpeg", ProductId = 56 }
+                , new Photo { Id=57, PhotoPath = "~image/products/product-id-57.jpeg", ProductId = 57 }
+                , new Photo { Id=58, PhotoPath = "~image/products/product-id-58.jpeg", ProductId = 58 }
+                , new Photo { Id=59, PhotoPath = "~image/products/product-id-59.jpeg", ProductId = 59 }
+                , new Photo { Id=60, PhotoPath = "~image/products/product-id-60.jpeg", ProductId = 60 }
+                , new Photo { Id=61, PhotoPath = "~image/products/product-id-61.jpeg", ProductId = 61 }
+                , new Photo { Id=62, PhotoPath = "~image/products/product-id-62.jpeg", ProductId = 62 }
+
+                //blog photos
+                , new Photo {Id=63, PhotoPath = "~image/products/blog-id-1.jpeg", BlogId = 1 }
+                , new Photo {Id=64, PhotoPath = "~image/products/blog-id-2.jpeg", BlogId = 2 }
+                , new Photo {Id=65, PhotoPath = "~image/products/blog-id-3.jpeg", BlogId = 3 }
+                , new Photo {Id=66, PhotoPath = "~image/products/blog-id-4.jpeg", BlogId = 4 }
+                , new Photo {Id=67, PhotoPath = "~image/products/blog-id-5.jpeg", BlogId = 5 }
+                , new Photo {Id=68, PhotoPath = "~image/products/blog-id-6.jpeg", BlogId = 6 }
+                , new Photo {Id=69, PhotoPath = "~image/products/blog-id-7.jpeg", BlogId = 7 }
 
                 );
         }

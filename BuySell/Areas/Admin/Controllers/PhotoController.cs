@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BuySell.Models;
 using BuySell.ViewModels;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -216,21 +217,31 @@ namespace BuySell.Areas.Admin.Controllers
                 }
                 if (model.PhotoPath != null)
                 {
-                    var uniqueFileName = Guid.NewGuid().ToString() + "_" + model.PhotoPath.FileName;
-                    var uploads = Path.Combine(hostingEnvironment.WebRootPath, "uploads");
-                    var filePath = Path.Combine(uploads, uniqueFileName);
-                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    switch (model.PhotoPath.ContentType)
                     {
-                        model.PhotoPath.CopyTo(fileStream);
-                    }
+                        case "image/jpg":
+                        case "image/gif":
+                        case "image/jpeg":
+                        case "image/png":
+                            var uniqueFileName = Guid.NewGuid().ToString() + "_" + model.PhotoPath.FileName;
+                            var uploads = Path.Combine(hostingEnvironment.WebRootPath, "uploads");
+                            var filePath = Path.Combine(uploads, uniqueFileName);
+                            using (var fileStream = new FileStream(filePath, FileMode.Create))
+                            {
+                                model.PhotoPath.CopyTo(fileStream);
+                            }
 
-                    _context.Photos.Add(new Photo()
-                    {
-                        PhotoPath = uniqueFileName,
-                        ProductId = model.ProductId,
-                        BlogId = model.BlogId,
-                        AddedDate = DateTime.Now
-                    });
+                            _context.Photos.Add(new Photo()
+                            {
+                                PhotoPath = uniqueFileName,
+                                ProductId = model.ProductId,
+                                BlogId = model.BlogId,
+                                AddedDate = DateTime.Now
+                            });
+                            break;
+                        default:
+                            throw new Exception("Wrong type of image");
+                    }
                 }
                 await _context.SaveChangesAsync();
 
