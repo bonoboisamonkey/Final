@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Product>
+
+<div class="block-header">
+    <h3 class="block-header__title">All Products</h3>
+    <div class="block-header__divider"></div>
+    <ul class="block-header__groups-list">
+        <li>
+            <button type="button" class="block-header__group block-header__group--active">All</button>
+        </li>
+        @*@foreach (var item in Model)
+        {
+            <li>
+                <button type="button" class="block-header__group">@item</button>
+            </li>
+        }*@
+    </ul>
+    <div class="block-header__arrows-list">
+        <button class="block-header__arrow block-header__arrow--left" type="button">
+            <svg width="7px" height="11px">
+                <use xlink:href="images/sprite.svg#arrow-rounded-left-7x11"></use>
+            </svg>
+        </button>
+        <button class="block-header__arrow block-header__arrow--right" type="button">
+            <svg width="7px" height="11px">
+                <use xlink:href="images/sprite.svg#arrow-rounded-right-7x11"></use>
+            </svg>
+        </button>
+    </div>
+</div>
+<div class="block-products-carousel__slider">
+    <div class="block-products-carousel__preloader"></div>
+    <div class="owl-carousel">
+        @foreach (var item in Model)
+        {
+            <div class="block-products-carousel__column">
+                <div class="block-products-carousel__cell">
+                    <div class="product-card">
+                        <div class="product-card__image">
+                            <a asp-action="Index" asp-controller="Product">
+                                <img src="@item.Photos.Where(y=>y.ProductId==item.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()" alt="@item.ProductName">
+                            </a>
+                        </div>
+                        <div class="product-card__info">
+                            <div class="product-card__name">
+                                <a href="#">@item.ProductName</a>
+                            </div>
+                            <div class="product-card__rating">
+                                <div class="product-card__rating-stars">
+                                    <div class="rating">
+                                        <div class="rating__body">
+                                            @for (int i = 0; i < item.ProductRating; i++)
+                                            {
+                                                <svg class="rating__star rating__star--active" width="13px" height="12px">
+                                                    <g class="rating__fill">
+                                                        <use xlink:href="images/sprite.svg#star-normal"></use>
+                                                    </g>
+                                                    <g class="rating__stroke">
+                                                        <use xlink:href="images/sprite.svg#star-normal-stroke"></use>
+                                                    </g>
+                                                </svg>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-card__rating-legend">9 Reviews</div>
+                            </div>
+                        </div>
+                        <div class="product-card__actions">
+                            <div class="product-card__prices">$@item.ProductPrice</div>
+                            <div class="product-card__buttons">
+                                <button class="btn btn-primary product-card__addtocart" type="button">Add To Cart</button>
+                                <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
+                                    <svg width="16px" height="16px">
+                                        <use xlink:href="images/sprite.svg#wishlist-16"></use>
+                                    </svg>
+                                    <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
+                                </button>
+                                <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button">
+                                    <svg width="16px" height="16px">
+                                        <use xlink:href="images/sprite.svg#compare-16"></use>
+                                    </svg>
+                                    <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+

@@ -226,77 +226,77 @@ namespace BuySell.Models
                 );
             builder.Entity<Photo>().HasData(
                 //Product photos
-                new Photo { Id=1, PhotoPath = "~image/products/product-id-1.jpeg", ProductId = 1 }
-                , new Photo { Id=2, PhotoPath = "~image/products/product-id-2.jpeg", ProductId = 2 }
-                , new Photo { Id=3, PhotoPath = "~image/products/product-id-3.jpeg", ProductId = 3 }
-                , new Photo { Id=4, PhotoPath = "~image/products/product-id-4.jpeg", ProductId = 4 }
-                , new Photo { Id=5, PhotoPath = "~image/products/product-id-5.jpeg", ProductId = 5 }
-                , new Photo { Id=6, PhotoPath = "~image/products/product-id-6.jpeg", ProductId = 6 }
-                , new Photo { Id=7, PhotoPath = "~image/products/product-id-7.jpeg", ProductId = 7 }
-                , new Photo { Id=8, PhotoPath = "~image/products/product-id-8.jpeg", ProductId = 8 }
-                , new Photo { Id=9, PhotoPath = "~image/products/product-id-9.jpeg", ProductId = 9 }
-                , new Photo { Id=10, PhotoPath = "~image/products/product-id-10.jpeg", ProductId = 10 }
-                , new Photo { Id=11, PhotoPath = "~image/products/product-id-11.jpeg", ProductId = 11 }
-                , new Photo { Id=12, PhotoPath = "~image/products/product-id-12.jpeg", ProductId = 12 }
-                , new Photo { Id=13, PhotoPath = "~image/products/product-id-13.jpeg", ProductId = 13 }
-                , new Photo { Id=14, PhotoPath = "~image/products/product-id-14.jpeg", ProductId = 14 }
-                , new Photo { Id=15, PhotoPath = "~image/products/product-id-15.jpeg", ProductId = 15 }
-                , new Photo { Id=16, PhotoPath = "~image/products/product-id-16.jpeg", ProductId = 16 }
-                , new Photo { Id=17, PhotoPath = "~image/products/product-id-17.jpeg", ProductId = 17 }
-                , new Photo { Id=18, PhotoPath = "~image/products/product-id-18.jpeg", ProductId = 18 }
-                , new Photo { Id=19, PhotoPath = "~image/products/product-id-19.jpeg", ProductId = 19 }
-                , new Photo { Id=20, PhotoPath = "~image/products/product-id-20.jpeg", ProductId = 20 }
-                , new Photo { Id=21, PhotoPath = "~image/products/product-id-21.jpeg", ProductId = 21 }
-                , new Photo { Id=22, PhotoPath = "~image/products/product-id-22.jpeg", ProductId = 22 }
-                , new Photo { Id=23, PhotoPath = "~image/products/product-id-23.jpeg", ProductId = 23 }
-                , new Photo { Id=24, PhotoPath = "~image/products/product-id-24.jpeg", ProductId = 24 }
-                , new Photo { Id=25, PhotoPath = "~image/products/product-id-25.jpeg", ProductId = 25 }
-                , new Photo { Id=26, PhotoPath = "~image/products/product-id-26.jpeg", ProductId = 26 }
-                , new Photo { Id=27, PhotoPath = "~image/products/product-id-27.jpeg", ProductId = 27 }
-                , new Photo { Id=28, PhotoPath = "~image/products/product-id-28.jpeg", ProductId = 28 }
-                , new Photo { Id=29, PhotoPath = "~image/products/product-id-29.jpeg", ProductId = 29 }
-                , new Photo { Id=30, PhotoPath = "~image/products/product-id-30.jpeg", ProductId = 30 }
-                , new Photo { Id=31, PhotoPath = "~image/products/product-id-31.jpeg", ProductId = 31 }
-                , new Photo { Id=32, PhotoPath = "~image/products/product-id-32.jpeg", ProductId = 32 }
-                , new Photo { Id=33, PhotoPath = "~image/products/product-id-33.jpeg", ProductId = 33 }
-                , new Photo { Id=34, PhotoPath = "~image/products/product-id-34.jpeg", ProductId = 34 }
-                , new Photo { Id=35, PhotoPath = "~image/products/product-id-35.jpeg", ProductId = 35 }
-                , new Photo { Id=36, PhotoPath = "~image/products/product-id-36.jpeg", ProductId = 36 }
-                , new Photo { Id=37, PhotoPath = "~image/products/product-id-37.jpeg", ProductId = 37 }
-                , new Photo { Id=38, PhotoPath = "~image/products/product-id-38.jpeg", ProductId = 38 }
-                , new Photo { Id=39, PhotoPath = "~image/products/product-id-39.jpeg", ProductId = 39 }
-                , new Photo { Id=40, PhotoPath = "~image/products/product-id-40.jpeg", ProductId = 40 }
-                , new Photo { Id=41, PhotoPath = "~image/products/product-id-41.jpeg", ProductId = 41 }
-                , new Photo { Id=42, PhotoPath = "~image/products/product-id-42.jpeg", ProductId = 42 }
-                , new Photo { Id=43, PhotoPath = "~image/products/product-id-43.jpeg", ProductId = 43 }
-                , new Photo { Id=44, PhotoPath = "~image/products/product-id-44.jpeg", ProductId = 44 }
-                , new Photo { Id=45, PhotoPath = "~image/products/product-id-45.jpeg", ProductId = 45 }
-                , new Photo { Id=46, PhotoPath = "~image/products/product-id-46.jpeg", ProductId = 46 }
-                , new Photo { Id=47, PhotoPath = "~image/products/product-id-47.jpeg", ProductId = 47 }
-                , new Photo { Id=48, PhotoPath = "~image/products/product-id-48.jpeg", ProductId = 48 }
-                , new Photo { Id=49, PhotoPath = "~image/products/product-id-49.jpeg", ProductId = 49 }
-                , new Photo { Id=50, PhotoPath = "~image/products/product-id-50.jpeg", ProductId = 50 }
-                , new Photo { Id=51, PhotoPath = "~image/products/product-id-51.jpeg", ProductId = 51 }
-                , new Photo { Id=52, PhotoPath = "~image/products/product-id-52.jpeg", ProductId = 52 }
-                , new Photo { Id=53, PhotoPath = "~image/products/product-id-53.jpeg", ProductId = 53 }
-                , new Photo { Id=54, PhotoPath = "~image/products/product-id-54.jpeg", ProductId = 54 }
-                , new Photo { Id=55, PhotoPath = "~image/products/product-id-55.jpeg", ProductId = 55 }
-                , new Photo { Id=56, PhotoPath = "~image/products/product-id-56.jpeg", ProductId = 56 }
-                , new Photo { Id=57, PhotoPath = "~image/products/product-id-57.jpeg", ProductId = 57 }
-                , new Photo { Id=58, PhotoPath = "~image/products/product-id-58.jpeg", ProductId = 58 }
-                , new Photo { Id=59, PhotoPath = "~image/products/product-id-59.jpeg", ProductId = 59 }
-                , new Photo { Id=60, PhotoPath = "~image/products/product-id-60.jpeg", ProductId = 60 }
-                , new Photo { Id=61, PhotoPath = "~image/products/product-id-61.jpeg", ProductId = 61 }
-                , new Photo { Id=62, PhotoPath = "~image/products/product-id-62.jpeg", ProductId = 62 }
+                new Photo { Id=1, PhotoPath = "images/products/product-id-1.jpeg", ProductId = 1 }
+                , new Photo { Id=2, PhotoPath = "images/products/product-id-2.jpeg", ProductId = 2 }
+                , new Photo { Id=3, PhotoPath = "images/products/product-id-3.jpeg", ProductId = 3 }
+                , new Photo { Id=4, PhotoPath = "images/products/product-id-4.jpeg", ProductId = 4 }
+                , new Photo { Id=5, PhotoPath = "images/products/product-id-5.jpeg", ProductId = 5 }
+                , new Photo { Id=6, PhotoPath = "images/products/product-id-6.jpeg", ProductId = 6 }
+                , new Photo { Id=7, PhotoPath = "images/products/product-id-7.jpeg", ProductId = 7 }
+                , new Photo { Id=8, PhotoPath = "images/products/product-id-8.jpeg", ProductId = 8 }
+                , new Photo { Id=9, PhotoPath = "images/products/product-id-9.jpeg", ProductId = 9 }
+                , new Photo { Id=10, PhotoPath = "images/products/product-id-10.jpeg", ProductId = 10 }
+                , new Photo { Id=11, PhotoPath = "images/products/product-id-11.jpeg", ProductId = 11 }
+                , new Photo { Id=12, PhotoPath = "images/products/product-id-12.jpeg", ProductId = 12 }
+                , new Photo { Id=13, PhotoPath = "images/products/product-id-13.jpeg", ProductId = 13 }
+                , new Photo { Id=14, PhotoPath = "images/products/product-id-14.jpeg", ProductId = 14 }
+                , new Photo { Id=15, PhotoPath = "images/products/product-id-15.jpeg", ProductId = 15 }
+                , new Photo { Id=16, PhotoPath = "images/products/product-id-16.jpeg", ProductId = 16 }
+                , new Photo { Id=17, PhotoPath = "images/products/product-id-17.jpeg", ProductId = 17 }
+                , new Photo { Id=18, PhotoPath = "images/products/product-id-18.jpeg", ProductId = 18 }
+                , new Photo { Id=19, PhotoPath = "images/products/product-id-19.jpeg", ProductId = 19 }
+                , new Photo { Id=20, PhotoPath = "images/products/product-id-20.jpeg", ProductId = 20 }
+                , new Photo { Id=21, PhotoPath = "images/products/product-id-21.jpeg", ProductId = 21 }
+                , new Photo { Id=22, PhotoPath = "images/products/product-id-22.jpeg", ProductId = 22 }
+                , new Photo { Id=23, PhotoPath = "images/products/product-id-23.jpeg", ProductId = 23 }
+                , new Photo { Id=24, PhotoPath = "images/products/product-id-24.jpeg", ProductId = 24 }
+                , new Photo { Id=25, PhotoPath = "images/products/product-id-25.jpeg", ProductId = 25 }
+                , new Photo { Id=26, PhotoPath = "images/products/product-id-26.jpeg", ProductId = 26 }
+                , new Photo { Id=27, PhotoPath = "images/products/product-id-27.jpeg", ProductId = 27 }
+                , new Photo { Id=28, PhotoPath = "images/products/product-id-28.jpeg", ProductId = 28 }
+                , new Photo { Id=29, PhotoPath = "images/products/product-id-29.jpeg", ProductId = 29 }
+                , new Photo { Id=30, PhotoPath = "images/products/product-id-30.jpeg", ProductId = 30 }
+                , new Photo { Id=31, PhotoPath = "images/products/product-id-31.jpeg", ProductId = 31 }
+                , new Photo { Id=32, PhotoPath = "images/products/product-id-32.jpeg", ProductId = 32 }
+                , new Photo { Id=33, PhotoPath = "images/products/product-id-33.jpeg", ProductId = 33 }
+                , new Photo { Id=34, PhotoPath = "images/products/product-id-34.jpeg", ProductId = 34 }
+                , new Photo { Id=35, PhotoPath = "images/products/product-id-35.jpeg", ProductId = 35 }
+                , new Photo { Id=36, PhotoPath = "images/products/product-id-36.jpeg", ProductId = 36 }
+                , new Photo { Id=37, PhotoPath = "images/products/product-id-37.jpeg", ProductId = 37 }
+                , new Photo { Id=38, PhotoPath = "images/products/product-id-38.jpeg", ProductId = 38 }
+                , new Photo { Id=39, PhotoPath = "images/products/product-id-39.jpeg", ProductId = 39 }
+                , new Photo { Id=40, PhotoPath = "images/products/product-id-40.jpeg", ProductId = 40 }
+                , new Photo { Id=41, PhotoPath = "images/products/product-id-41.jpeg", ProductId = 41 }
+                , new Photo { Id=42, PhotoPath = "images/products/product-id-42.jpeg", ProductId = 42 }
+                , new Photo { Id=43, PhotoPath = "images/products/product-id-43.jpeg", ProductId = 43 }
+                , new Photo { Id=44, PhotoPath = "images/products/product-id-44.jpeg", ProductId = 44 }
+                , new Photo { Id=45, PhotoPath = "images/products/product-id-45.jpeg", ProductId = 45 }
+                , new Photo { Id=46, PhotoPath = "images/products/product-id-46.jpeg", ProductId = 46 }
+                , new Photo { Id=47, PhotoPath = "images/products/product-id-47.jpeg", ProductId = 47 }
+                , new Photo { Id=48, PhotoPath = "images/products/product-id-48.jpeg", ProductId = 48 }
+                , new Photo { Id=49, PhotoPath = "images/products/product-id-49.jpeg", ProductId = 49 }
+                , new Photo { Id=50, PhotoPath = "images/products/product-id-50.jpeg", ProductId = 50 }
+                , new Photo { Id=51, PhotoPath = "images/products/product-id-51.jpeg", ProductId = 51 }
+                , new Photo { Id=52, PhotoPath = "images/products/product-id-52.jpeg", ProductId = 52 }
+                , new Photo { Id=53, PhotoPath = "images/products/product-id-53.jpeg", ProductId = 53 }
+                , new Photo { Id=54, PhotoPath = "images/products/product-id-54.jpeg", ProductId = 54 }
+                , new Photo { Id=55, PhotoPath = "images/products/product-id-55.jpeg", ProductId = 55 }
+                , new Photo { Id=56, PhotoPath = "images/products/product-id-56.jpeg", ProductId = 56 }
+                , new Photo { Id=57, PhotoPath = "images/products/product-id-57.jpeg", ProductId = 57 }
+                , new Photo { Id=58, PhotoPath = "images/products/product-id-58.jpeg", ProductId = 58 }
+                , new Photo { Id=59, PhotoPath = "images/products/product-id-59.jpeg", ProductId = 59 }
+                , new Photo { Id=60, PhotoPath = "images/products/product-id-60.jpeg", ProductId = 60 }
+                , new Photo { Id=61, PhotoPath = "images/products/product-id-61.jpeg", ProductId = 61 }
+                , new Photo { Id=62, PhotoPath = "images/products/product-id-62.jpeg", ProductId = 62 }
 
                 //blog photos
-                , new Photo {Id=63, PhotoPath = "~image/products/blog-id-1.jpeg", BlogId = 1 }
-                , new Photo {Id=64, PhotoPath = "~image/products/blog-id-2.jpeg", BlogId = 2 }
-                , new Photo {Id=65, PhotoPath = "~image/products/blog-id-3.jpeg", BlogId = 3 }
-                , new Photo {Id=66, PhotoPath = "~image/products/blog-id-4.jpeg", BlogId = 4 }
-                , new Photo {Id=67, PhotoPath = "~image/products/blog-id-5.jpeg", BlogId = 5 }
-                , new Photo {Id=68, PhotoPath = "~image/products/blog-id-6.jpeg", BlogId = 6 }
-                , new Photo {Id=69, PhotoPath = "~image/products/blog-id-7.jpeg", BlogId = 7 }
+                , new Photo {Id=63, PhotoPath = "images/slides/blog-id-1.jpeg", BlogId = 1 }
+                , new Photo {Id=64, PhotoPath = "images/slides/blog-id-2.jpeg", BlogId = 2 }
+                , new Photo {Id=65, PhotoPath = "images/slides/blog-id-3.jpeg", BlogId = 3 }
+                , new Photo {Id=66, PhotoPath = "images/slides/blog-id-4.jpeg", BlogId = 4 }
+                , new Photo {Id=67, PhotoPath = "images/slides/blog-id-5.jpeg", BlogId = 5 }
+                , new Photo {Id=68, PhotoPath = "images/slides/blog-id-6.jpeg", BlogId = 6 }
+                , new Photo {Id=69, PhotoPath = "images/slides/blog-id-7.jpeg", BlogId = 7 }
 
                 );
         }

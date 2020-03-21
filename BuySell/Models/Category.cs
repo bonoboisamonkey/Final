@@ -16,5 +16,10 @@ namespace BuySell.Models
         public int? ParentId { get; set; }
         public ICollection<Product> Products { get; set; }
         public ICollection<Category> Categories { get; set; }
+
+        public Category()
+        {
+            Products = new HashSet<Product>();
+        }
     }
 }
