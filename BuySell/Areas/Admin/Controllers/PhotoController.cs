@@ -217,30 +217,29 @@ namespace BuySell.Areas.Admin.Controllers
                 }
                 if (model.PhotoPath != null)
                 {
-                    switch (model.PhotoPath.ContentType)
+                    string allowedTypes = "image/png|image/jpeg|image/gif|image/jpg";
+                    if (!allowedTypes.Split('|').Contains(model.PhotoPath.ContentType))
                     {
-                        case "image/jpg":
-                        case "image/gif":
-                        case "image/jpeg":
-                        case "image/png":
-                            var uniqueFileName = Guid.NewGuid().ToString() + "_" + model.PhotoPath.FileName;
-                            var uploads = Path.Combine(hostingEnvironment.WebRootPath, "uploads");
-                            var filePath = Path.Combine(uploads, uniqueFileName);
-                            using (var fileStream = new FileStream(filePath, FileMode.Create))
-                            {
-                                model.PhotoPath.CopyTo(fileStream);
-                            }
+                        throw new Exception("File type is not acceptable");
+                    }
+                    else
+                    {
+                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + model.PhotoPath.FileName;
+                        var uploads = Path.Combine(hostingEnvironment.WebRootPath, "uploads");
+                        var filePath = Path.Combine(uploads, uniqueFileName);
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            model.PhotoPath.CopyTo(fileStream);
+                        }
 
-                            _context.Photos.Add(new Photo()
-                            {
-                                PhotoPath = uniqueFileName,
-                                ProductId = model.ProductId,
-                                BlogId = model.BlogId,
-                                AddedDate = DateTime.Now
-                            });
-                            break;
-                        default:
-                            throw new Exception("Wrong type of image");
+                        _context.Photos.Add(new Photo()
+                        {
+                            PhotoPath = uniqueFileName,
+                            ProductId = model.ProductId,
+                            BlogId = model.BlogId,
+                            AddedDate = DateTime.Now
+                        });
+
                     }
                 }
                 await _context.SaveChangesAsync();

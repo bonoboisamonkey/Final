@@ -63,10 +63,10 @@ namespace BuySell.Models
                 , new Category { Id = 25, Name = "Tabletlər", ParentId = 22 }
                 , new Category { Id = 26, Name = "Periferiya Qurğuları", ParentId = 22 }
 
-                , new Category { Id = 27, Name = "Printerlər", ParentId = 25 }
-                , new Category { Id = 28, Name = "Xarici disklər", ParentId = 25 }
-                , new Category { Id = 29, Name = "Secondary Hardware", ParentId = 25 }
-                , new Category { Id = 30, Name = "Monitorlar", ParentId = 25 }
+                , new Category { Id = 27, Name = "Printerlər", ParentId = 26 }
+                , new Category { Id = 28, Name = "Xarici disklər", ParentId = 26 }
+                , new Category { Id = 29, Name = "Secondary Hardware", ParentId = 26 }
+                , new Category { Id = 30, Name = "Monitorlar", ParentId = 26 }
 
                 , new Category { Id = 31, Name = "Oyunlar", ParentId = null }
 

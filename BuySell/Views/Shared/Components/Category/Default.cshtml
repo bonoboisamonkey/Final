@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Category>
+
+    <ul class="departments__links">
+        @foreach (var item in Model)
+        {
+            @if (item.ParentId == null)
+            {
+                <li class="departments__item">
+                    <a class="departments__item-link" href="#">
+                        @item.Name
+                        <svg class="departments__item-arrow" width="6px" height="9px">
+                            <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
+                        </svg>
+                    </a>
+                    <div class="departments__submenu departments__submenu--type--megamenu departments__submenu--size--nl">
+                        <!-- .megamenu -->
+                        <div class="megamenu megamenu--departments">
+                            <div class="megamenu__body" style="background-image: url('images/megamenu/megamenu-3.jpg');">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ul class="megamenu__links megamenu__links--level--0">
+                                            @foreach (var subcategory in Model)
+                                            {
+                                                @if (item.Id == subcategory.ParentId)
+                                                {
+                                                    <li class="megamenu__item megamenu__item--with-submenu">
+                                                        <a href="#">@subcategory.Name</a>
+                                                        <ul class="megamenu__links megamenu__links--level--1">
+                                                            @foreach (var marka in Model)
+                                                            {
+                                                                @if (subcategory.Id == marka.ParentId)
+                                                                {
+                                                                    <li class="megamenu__item">
+                                                                        <a href="#">@marka.Name</a>
+                                                                    </li>
+                                                                }
+                                                            }
+                                                        </ul>
+                                                    </li>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- .megamenu / end -->
+                    </div>
+                </li>
+            }
+        }
+
+    </ul>
