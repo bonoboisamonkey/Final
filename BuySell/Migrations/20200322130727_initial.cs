@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BuySell.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,7 +43,6 @@ namespace BuySell.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     UserSurname = table.Column<string>(maxLength: 100, nullable: false),
-                    Password = table.Column<string>(maxLength: 20, nullable: false),
                     City = table.Column<string>(maxLength: 50, nullable: false),
                     Address = table.Column<string>(maxLength: 50, nullable: false),
                     PostalCode = table.Column<string>(maxLength: 20, nullable: false),
@@ -61,14 +60,15 @@ namespace BuySell.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BlogTitle = table.Column<string>(maxLength: 100, nullable: false),
-                    BlogBody = table.Column<string>(maxLength: 300, nullable: false),
+                    BlogTitle = table.Column<string>(maxLength: 200, nullable: false),
+                    BlogBody = table.Column<string>(maxLength: 500, nullable: false),
                     AddedDate = table.Column<DateTime>(nullable: false),
                     ModifiedDate = table.Column<DateTime>(nullable: true),
                     DeletedDate = table.Column<DateTime>(nullable: true),
-                    AddedBy = table.Column<int>(maxLength: 20, nullable: false),
-                    ModifiedBy = table.Column<int>(maxLength: 20, nullable: false),
-                    DeletedBy = table.Column<int>(nullable: false)
+                    AddedBy = table.Column<int>(nullable: false),
+                    ModifiedBy = table.Column<int>(nullable: false),
+                    DeletedBy = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -210,6 +210,8 @@ namespace BuySell.Migrations
                     TrackingNumber = table.Column<string>(maxLength: 50, nullable: false),
                     OrderDate = table.Column<DateTime>(nullable: false),
                     OrderTotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    IsCanceled = table.Column<bool>(nullable: false),
+                    CancelationDate = table.Column<DateTime>(nullable: true),
                     CustomerId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -230,11 +232,17 @@ namespace BuySell.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryId = table.Column<int>(nullable: false),
-                    ProductName = table.Column<string>(maxLength: 50, nullable: false),
+                    ProductName = table.Column<string>(maxLength: 200, nullable: false),
                     ProductPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ProductDiscount = table.Column<int>(nullable: false),
                     ProductRating = table.Column<byte>(nullable: false),
-                    ProductDetails = table.Column<string>(maxLength: 500, nullable: false)
+                    ProductDetails = table.Column<string>(maxLength: 500, nullable: false),
+                    ProductCount = table.Column<int>(nullable: false),
+                    IsAvailable = table.Column<bool>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    AddedDate = table.Column<DateTime>(nullable: false),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
+                    DeletedDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -260,9 +268,10 @@ namespace BuySell.Migrations
                     AddedDate = table.Column<DateTime>(nullable: false),
                     ModifiedDate = table.Column<DateTime>(nullable: true),
                     DeletedDate = table.Column<DateTime>(nullable: true),
-                    AddedBy = table.Column<int>(maxLength: 20, nullable: false),
-                    ModifiedBy = table.Column<int>(maxLength: 20, nullable: false),
-                    DeletedBy = table.Column<int>(maxLength: 20, nullable: false),
+                    AddedBy = table.Column<int>(nullable: false),
+                    ModifiedBy = table.Column<int>(nullable: false),
+                    DeletedBy = table.Column<int>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
                     ProductId = table.Column<int>(nullable: true),
                     BlogId = table.Column<int>(nullable: true)
                 },
@@ -314,9 +323,16 @@ namespace BuySell.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PhotoPath = table.Column<string>(maxLength: 100, nullable: false),
+                    PhotoPath = table.Column<string>(nullable: false),
                     ProductId = table.Column<int>(nullable: true),
-                    BlogId = table.Column<int>(nullable: true)
+                    BlogId = table.Column<int>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    AddedDate = table.Column<DateTime>(nullable: false),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
+                    DeletedDate = table.Column<DateTime>(nullable: true),
+                    AddedBy = table.Column<int>(nullable: false),
+                    ModifiedBy = table.Column<int>(nullable: false),
+                    DeletedBy = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -333,27 +349,6 @@ namespace BuySell.Migrations
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Stocks",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Count = table.Column<int>(nullable: false),
-                    IsAvailable = table.Column<bool>(nullable: false),
-                    ProductId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Stocks", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Stocks_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -434,11 +429,6 @@ namespace BuySell.Migrations
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Stocks_ProductId",
-                table: "Stocks",
-                column: "ProductId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -466,9 +456,6 @@ namespace BuySell.Migrations
 
             migrationBuilder.DropTable(
                 name: "Photos");
-
-            migrationBuilder.DropTable(
-                name: "Stocks");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

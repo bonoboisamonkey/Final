@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+
+@model HomePageViewModel
 <!-- .block-slideshow -->
 <div class="block-slideshow block-slideshow--layout--with-departments block">
     <div class="container">
@@ -9,7 +11,26 @@
             <div class="col-12 col-lg-9">
                 <div class="block-slideshow__body">
                     <div class="owl-carousel">
-                        @await Component.InvokeAsync("Slider")
+                        @foreach (var item in Model.Slides)
+                        {
+                            <a class="block-slideshow__slide" href="#">
+                                <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('@item.Photos.Where(y=>y.BlogId==item.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()'); background-size:contain">
+                                </div>
+                                <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('@item.Photos.Where(y=>y.BlogId==item.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()'); background-size:contain"></div>
+                                <div class="block-slideshow__slide-content">
+                                    <div class="block-slideshow__slide-title">
+                                        @item.BlogTitle
+                                    </div>
+                                    <div class="block-slideshow__slide-text">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        <br>Etiam pharetra laoreet dui quis molestie.
+                                    </div>
+                                    <div class="block-slideshow__slide-button">
+                                        <span class="btn btn-primary btn-lg">Shop Now</span>
+                                    </div>
+                                </div>
+                            </a>
+                        }
                     </div>
                 </div>
             </div>
@@ -45,7 +66,95 @@
 <!-- .block-products-carousel -->
 <div class="block block-products-carousel" data-layout="grid-4">
     <div class="container">
-        @await Component.InvokeAsync("AllProducts")
+        <div class="block-header">
+            <h3 class="block-header__title">All Products</h3>
+            <div class="block-header__divider"></div>
+            <ul class="block-header__groups-list">
+                <li>
+                    <button type="button" class="block-header__group block-header__group--active">All</button>
+                </li>
+                @*@foreach (var item in Model)
+                    {
+                        <li>
+                            <button type="button" class="block-header__group">@item</button>
+                        </li>
+                    }*@
+            </ul>
+            <div class="block-header__arrows-list">
+                <button class="block-header__arrow block-header__arrow--left" type="button">
+                    <svg width="7px" height="11px">
+                        <use xlink:href="images/sprite.svg#arrow-rounded-left-7x11"></use>
+                    </svg>
+                </button>
+                <button class="block-header__arrow block-header__arrow--right" type="button">
+                    <svg width="7px" height="11px">
+                        <use xlink:href="images/sprite.svg#arrow-rounded-right-7x11"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="block-products-carousel__slider">
+            <div class="block-products-carousel__preloader"></div>
+            <div class="owl-carousel">
+                @foreach (var item in Model.AllProducts)
+                {
+                    <div class="block-products-carousel__column">
+                        <div class="block-products-carousel__cell">
+                            <div class="product-card">
+                                <div class="product-card__image">
+                                    <a asp-action="Index" asp-route-id="@item.Id">
+                                        <img src="@item.Photos.Where(y=>y.ProductId==item.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()" alt="@item.ProductName">
+                                    </a>
+                                </div>
+                                <div class="product-card__info">
+                                    <div class="product-card__name">
+                                        <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">@item.ProductName</a>
+                                    </div>
+                                    <div class="product-card__rating">
+                                        <div class="product-card__rating-stars">
+                                            <div class="rating">
+                                                <div class="rating__body">
+                                                    @for (int i = 0; i < item.ProductRating; i++)
+                                                    {
+                                                        <svg class="rating__star rating__star--active" width="13px" height="12px">
+                                                            <g class="rating__fill">
+                                                                <use xlink:href="images/sprite.svg#star-normal"></use>
+                                                            </g>
+                                                            <g class="rating__stroke">
+                                                                <use xlink:href="images/sprite.svg#star-normal-stroke"></use>
+                                                            </g>
+                                                        </svg>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-card__actions">
+                                    <div class="product-card__prices">$@item.ProductPrice</div>
+                                    <div class="product-card__buttons">
+                                        <button class="btn btn-primary product-card__addtocart" type="button">Add To Cart</button>
+                                        <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
+                                            <svg width="16px" height="16px">
+                                                <use xlink:href="images/sprite.svg#wishlist-16"></use>
+                                            </svg>
+                                            <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
+                                        </button>
+                                        <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button">
+                                            <svg width="16px" height="16px">
+                                                <use xlink:href="images/sprite.svg#compare-16"></use>
+                                            </svg>
+                                            <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
     </div>
 </div>
 <!-- .block-products-carousel / end -->
@@ -57,7 +166,81 @@
             <div class="block-header__divider"></div>
         </div>
         <div class="block-products__body">
-            @await  Component.InvokeAsync("BestRated")
+            @{var featuredList = Model.BestRatedProducts.ToArray(); }
+
+
+            <div class="block-products__featured">
+                <div class="block-products__featured-item">
+                    <div class="product-card">
+                        <div class="product-card__image">
+                            <a href="#">
+                                <img src="@featuredList[0].Photos.Where(y => y.ProductId == featuredList[0].Id).Select(x => x.PhotoPath).FirstOrDefault().ToString()" alt="@featuredList[0].ProductName">
+                            </a>
+                        </div>
+                        <div class="product-card__info">
+                            <div class="product-card__name">
+                                <a href="#">@featuredList[0].ProductName</a>
+                            </div>
+                        </div>
+                        <div class="product-card__actions">
+                            <div class="product-card__prices">$@featuredList[0].ProductPrice</div>
+                            <div class="product-card__buttons">
+                                <button class="btn btn-primary product-card__addtocart" type="button">Add To Cart</button>
+                                <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
+                                    <svg width="16px" height="16px">
+                                        <use xlink:href="images/sprite.svg#wishlist-16"></use>
+                                    </svg>
+                                    <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
+                                </button>
+                                <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button">
+                                    <svg width="16px" height="16px">
+                                        <use xlink:href="images/sprite.svg#compare-16"></use>
+                                    </svg>
+                                    <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block-products__list">
+                @for (int i = 1; i < 7; i++)
+                {
+                    <div class="block-products__list-item">
+                        <div class="product-card">
+                            <div class="product-card__image">
+                                <a href="product.html">
+                                    <img src="@featuredList[i].Photos.Where(y => y.ProductId == featuredList[i].Id).Select(x => x.PhotoPath).FirstOrDefault().ToString()" alt="@featuredList[i].ProductName">
+
+                                </a>
+                            </div>
+                            <div class="product-card__info">
+                                <div class="product-card__name">
+                                    <a href="#">@featuredList[i].ProductName</a>
+                                </div>
+                            </div>
+                            <div class="product-card__actions">
+                                <div class="product-card__prices">$@featuredList[i].ProductPrice</div>
+                                <div class="product-card__buttons">
+                                    <button class="btn btn-primary product-card__addtocart" type="button">Add To Cart</button>
+                                    <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
+                                        <svg width="16px" height="16px">
+                                            <use xlink:href="images/sprite.svg#wishlist-16"></use>
+                                        </svg>
+                                        <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
+                                    </button>
+                                    <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button">
+                                        <svg width="16px" height="16px">
+                                            <use xlink:href="images/sprite.svg#compare-16"></use>
+                                        </svg>
+                                        <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
         </div>
     </div>
 </div>
@@ -84,260 +267,44 @@
         <div class="block-products-carousel__slider">
             <div class="block-products-carousel__preloader"></div>
             <div class="owl-carousel">
-                @for (int i = 1; i < 7; i++)
+                @foreach (var item in Model.OnSaleProducts)
                 {
                     <div class="block-products-carousel__column">
                         <div class="block-products-carousel__cell">
                             <div class="product-card">
                                 <div class="product-card__image">
                                     <a href="product.html">
-                                        <img src="images/products/@i-product.jpeg" alt="">
+                                        <img src="@item.Photos.Where(y=>y.ProductId==item.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()" alt="@item.ProductName">
                                     </a>
                                 </div>
                                 <div class="product-card__info">
                                     <div class="product-card__name">
-                                        <a href="product.html">Brand New Electric</a>
+                                        <a href="#">@item.ProductName</a>
                                     </div>
                                     <div class="product-card__rating">
                                         <div class="product-card__rating-stars">
                                             <div class="rating">
                                                 <div class="rating__body">
-                                                    <svg class="rating__star rating__star--active" width="13px" height="12px">
-                                                        <g class="rating__fill">
-                                                            <use xlink:href="images/sprite.svg#star-normal"></use>
-                                                        </g>
-                                                        <g class="rating__stroke">
-                                                            <use xlink:href="images/sprite.svg#star-normal-stroke"></use>
-                                                        </g>
-                                                    </svg>
-                                                    <div class="rating__star rating__star--only-edge rating__star--active">
-                                                        <div class="rating__fill">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                        <div class="rating__stroke">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                    </div>
-                                                    <svg class="rating__star rating__star--active" width="13px" height="12px">
-                                                        <g class="rating__fill">
-                                                            <use xlink:href="images/sprite.svg#star-normal"></use>
-                                                        </g>
-                                                        <g class="rating__stroke">
-                                                            <use xlink:href="images/sprite.svg#star-normal-stroke"></use>
-                                                        </g>
-                                                    </svg>
-                                                    <div class="rating__star rating__star--only-edge rating__star--active">
-                                                        <div class="rating__fill">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                        <div class="rating__stroke">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                    </div>
-                                                    <svg class="rating__star rating__star--active" width="13px" height="12px">
-                                                        <g class="rating__fill">
-                                                            <use xlink:href="images/sprite.svg#star-normal"></use>
-                                                        </g>
-                                                        <g class="rating__stroke">
-                                                            <use xlink:href="images/sprite.svg#star-normal-stroke"></use>
-                                                        </g>
-                                                    </svg>
-                                                    <div class="rating__star rating__star--only-edge rating__star--active">
-                                                        <div class="rating__fill">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                        <div class="rating__stroke">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                    </div>
-                                                    <svg class="rating__star rating__star--active" width="13px" height="12px">
-                                                        <g class="rating__fill">
-                                                            <use xlink:href="images/sprite.svg#star-normal"></use>
-                                                        </g>
-                                                        <g class="rating__stroke">
-                                                            <use xlink:href="images/sprite.svg#star-normal-stroke"></use>
-                                                        </g>
-                                                    </svg>
-                                                    <div class="rating__star rating__star--only-edge rating__star--active">
-                                                        <div class="rating__fill">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                        <div class="rating__stroke">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                    </div>
-                                                    <svg class="rating__star" width="13px" height="12px">
-                                                        <g class="rating__fill">
-                                                            <use xlink:href="images/sprite.svg#star-normal"></use>
-                                                        </g>
-                                                        <g class="rating__stroke">
-                                                            <use xlink:href="images/sprite.svg#star-normal-stroke"></use>
-                                                        </g>
-                                                    </svg>
-                                                    <div class="rating__star rating__star--only-edge">
-                                                        <div class="rating__fill">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                        <div class="rating__stroke">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                    </div>
+                                                    @for (int i = 0; i < item.ProductRating; i++)
+                                                    {
+                                                        <svg class="rating__star rating__star--active" width="13px" height="12px">
+                                                            <g class="rating__fill">
+                                                                <use xlink:href="images/sprite.svg#star-normal"></use>
+                                                            </g>
+                                                            <g class="rating__stroke">
+                                                                <use xlink:href="images/sprite.svg#star-normal-stroke"></use>
+                                                            </g>
+                                                        </svg>
+                                                    }
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="product-card__rating-legend">9 Reviews</div>
                                     </div>
                                 </div>
                                 <div class="product-card__actions">
-                                    <div class="product-card__availability">
-                                        Availability:
-                                        <span class="text-success">In Stock</span>
-                                    </div>
-                                    <div class="product-card__prices">$749.00</div>
+                                    <div class="product-card__prices">$@item.ProductPrice</div>
                                     <div class="product-card__buttons">
                                         <button class="btn btn-primary product-card__addtocart" type="button">Add To Cart</button>
-                                        <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
-                                            <svg width="16px" height="16px">
-                                                <use xlink:href="images/sprite.svg#wishlist-16"></use>
-                                            </svg>
-                                            <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
-                                        </button>
-                                        <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button">
-                                            <svg width="16px" height="16px">
-                                                <use xlink:href="images/sprite.svg#compare-16"></use>
-                                            </svg>
-                                            <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="block-products-carousel__cell">
-                            <div class="product-card">
-                                <button class="product-card__quickview" type="button">
-                                    <svg width="16px" height="16px">
-                                        <use xlink:href="images/sprite.svg#quickview-16"></use>
-                                    </svg>
-                                    <span class="fake-svg-icon"></span>
-                                </button>
-                                <div class="product-card__badges-list">
-                                    <div class="product-card__badge product-card__badge--hot">Hot</div>
-                                </div>
-                                <div class="product-card__image">
-                                    <a href="product.html">
-                                        <img src="images/products/@i-product.jpeg" alt="">
-                                    </a>
-                                </div>
-                                <div class="product-card__info">
-                                    <div class="product-card__name">
-                                        <a href="product.html">Undefined Tool IRadix DPS3000SY 2700 Watts</a>
-                                    </div>
-                                    <div class="product-card__rating">
-                                        <div class="product-card__rating-stars">
-                                            <div class="rating">
-                                                <div class="rating__body">
-                                                    <svg class="rating__star rating__star--active" width="13px" height="12px">
-                                                        <g class="rating__fill">
-                                                            <use xlink:href="images/sprite.svg#star-normal"></use>
-                                                        </g>
-                                                        <g class="rating__stroke">
-                                                            <use xlink:href="images/sprite.svg#star-normal-stroke"></use>
-                                                        </g>
-                                                    </svg>
-                                                    <div class="rating__star rating__star--only-edge rating__star--active">
-                                                        <div class="rating__fill">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                        <div class="rating__stroke">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                    </div>
-                                                    <svg class="rating__star rating__star--active" width="13px" height="12px">
-                                                        <g class="rating__fill">
-                                                            <use xlink:href="images/sprite.svg#star-normal"></use>
-                                                        </g>
-                                                        <g class="rating__stroke">
-                                                            <use xlink:href="images/sprite.svg#star-normal-stroke"></use>
-                                                        </g>
-                                                    </svg>
-                                                    <div class="rating__star rating__star--only-edge rating__star--active">
-                                                        <div class="rating__fill">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                        <div class="rating__stroke">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                    </div>
-                                                    <svg class="rating__star rating__star--active" width="13px" height="12px">
-                                                        <g class="rating__fill">
-                                                            <use xlink:href="images/sprite.svg#star-normal"></use>
-                                                        </g>
-                                                        <g class="rating__stroke">
-                                                            <use xlink:href="images/sprite.svg#star-normal-stroke"></use>
-                                                        </g>
-                                                    </svg>
-                                                    <div class="rating__star rating__star--only-edge rating__star--active">
-                                                        <div class="rating__fill">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                        <div class="rating__stroke">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                    </div>
-                                                    <svg class="rating__star rating__star--active" width="13px" height="12px">
-                                                        <g class="rating__fill">
-                                                            <use xlink:href="images/sprite.svg#star-normal"></use>
-                                                        </g>
-                                                        <g class="rating__stroke">
-                                                            <use xlink:href="images/sprite.svg#star-normal-stroke"></use>
-                                                        </g>
-                                                    </svg>
-                                                    <div class="rating__star rating__star--only-edge rating__star--active">
-                                                        <div class="rating__fill">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                        <div class="rating__stroke">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                    </div>
-                                                    <svg class="rating__star rating__star--active" width="13px" height="12px">
-                                                        <g class="rating__fill">
-                                                            <use xlink:href="images/sprite.svg#star-normal"></use>
-                                                        </g>
-                                                        <g class="rating__stroke">
-                                                            <use xlink:href="images/sprite.svg#star-normal-stroke"></use>
-                                                        </g>
-                                                    </svg>
-                                                    <div class="rating__star rating__star--only-edge rating__star--active">
-                                                        <div class="rating__fill">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                        <div class="rating__stroke">
-                                                            <div class="fake-svg-icon"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-card__rating-legend">11 Reviews</div>
-                                    </div>
-                                    <ul class="product-card__features-list">
-                                        <li>Speed: 750 RPM</li>
-                                        <li>Power Source: Cordless-Electric</li>
-                                        <li>Battery Cell Type: Lithium</li>
-                                        <li>Voltage: 20 Volts</li>
-                                        <li>Battery Capacity: 2 Ah</li>
-                                    </ul>
-                                </div>
-                                <div class="product-card__actions">
-                                    <div class="product-card__availability">
-                                        Availability:
-                                        <span class="text-success">In Stock</span>
-                                    </div>
-                                    <div class="product-card__prices">$1,019.00</div>
-                                    <div class="product-card__buttons">
-                                        <button class="btn btn-primary product-card__addtocart" type="button">Add To Cart</button>
-                                        <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Add To Cart</button>
                                         <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
                                             <svg width="16px" height="16px">
                                                 <use xlink:href="images/sprite.svg#wishlist-16"></use>
@@ -355,7 +322,6 @@
                             </div>
                         </div>
                     </div>
-
                 }
             </div>
         </div>
@@ -383,206 +349,26 @@
         </div>
         <div class="block-posts__slider">
             <div class="owl-carousel">
-                <div class="post-card">
-                    <div class="post-card__image">
-                        <a href="#">
-                            <img src="~/images/posts/1-post.jpeg" alt="">
-                        </a>
-                    </div>
-                    <div class="post-card__info">
-                        <div class="post-card__category">
-                            <a href="#">Special Offers</a>
+                @foreach (var item in Model.Slides)
+                {
+                    <div class="post-card">
+                        <div class="post-card__image">
+                            <a href="#">
+                                <img src="@item.Photos.Where(y=>y.BlogId==item.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()" alt="Blog Photo">
+                            </a>
                         </div>
-                        <div class="post-card__name">
-                            <a href="#">Philosophy That Addresses Topics Such As Goodness</a>
-                        </div>
-                        <div class="post-card__date">October 19, 2019</div>
-                        <div class="post-card__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge. In that sense, all cultures...</div>
-                        <div class="post-card__read-more">
-                            <a href="#" class="btn btn-secondary btn-sm">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-card">
-                    <div class="post-card__image">
-                        <a href="#">
-                            <img src="~/images/posts/2-post.jpeg" alt="">
-                        </a>
-                    </div>
-                    <div class="post-card__info">
-                        <div class="post-card__category">
-                            <a href="#">Latest News</a>
-                        </div>
-                        <div class="post-card__name">
-                            <a href="#">Logic Is The Study Of Reasoning And Argument Part 2</a>
-                        </div>
-                        <div class="post-card__date">September 5, 2019</div>
-                        <div class="post-card__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge. In that sense, all cultures...</div>
-                        <div class="post-card__read-more">
-                            <a href="#" class="btn btn-secondary btn-sm">Read More</a>
+                        <div class="post-card__info">
+                            <div class="post-card__name">
+                                <a href="#">@item.BlogTitle</a>
+                            </div>
+                            <div class="post-card__date">@item.AddedDate</div>
+                            <div class="post-card__content">@item.BlogBody.Substring(0, 50)...</div>
+                            <div class="post-card__read-more">
+                                <a href="#" class="btn btn-secondary btn-sm">Read More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="post-card">
-                    <div class="post-card__image">
-                        <a href="#">
-                            <img src="images/posts/post-3.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="post-card__info">
-                        <div class="post-card__category">
-                            <a href="#">New Arrivals</a>
-                        </div>
-                        <div class="post-card__name">
-                            <a href="#">Some Philosophers Specialize In One Or More Historical Periods</a>
-                        </div>
-                        <div class="post-card__date">August 12, 2019</div>
-                        <div class="post-card__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge. In that sense, all cultures...</div>
-                        <div class="post-card__read-more">
-                            <a href="#" class="btn btn-secondary btn-sm">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-card">
-                    <div class="post-card__image">
-                        <a href="#">
-                            <img src="images/posts/post-4.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="post-card__info">
-                        <div class="post-card__category">
-                            <a href="#">Special Offers</a>
-                        </div>
-                        <div class="post-card__name">
-                            <a href="#">A Variety Of Other Academic And Non-Academic Approaches Have Been Explored</a>
-                        </div>
-                        <div class="post-card__date">Jule 30, 2019</div>
-                        <div class="post-card__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge. In that sense, all cultures...</div>
-                        <div class="post-card__read-more">
-                            <a href="#" class="btn btn-secondary btn-sm">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-card">
-                    <div class="post-card__image">
-                        <a href="#">
-                            <img src="images/posts/post-5.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="post-card__info">
-                        <div class="post-card__category">
-                            <a href="#">New Arrivals</a>
-                        </div>
-                        <div class="post-card__name">
-                            <a href="#">Germany Was The First Country To Professionalize Philosophy</a>
-                        </div>
-                        <div class="post-card__date">June 12, 2019</div>
-                        <div class="post-card__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge. In that sense, all cultures...</div>
-                        <div class="post-card__read-more">
-                            <a href="#" class="btn btn-secondary btn-sm">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-card">
-                    <div class="post-card__image">
-                        <a href="#">
-                            <img src="images/posts/post-6.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="post-card__info">
-                        <div class="post-card__category">
-                            <a href="#">Special Offers</a>
-                        </div>
-                        <div class="post-card__name">
-                            <a href="#">Logic Is The Study Of Reasoning And Argument Part 1</a>
-                        </div>
-                        <div class="post-card__date">May 21, 2019</div>
-                        <div class="post-card__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge. In that sense, all cultures...</div>
-                        <div class="post-card__read-more">
-                            <a href="#" class="btn btn-secondary btn-sm">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-card">
-                    <div class="post-card__image">
-                        <a href="#">
-                            <img src="images/posts/post-7.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="post-card__info">
-                        <div class="post-card__category">
-                            <a href="#">Special Offers</a>
-                        </div>
-                        <div class="post-card__name">
-                            <a href="#">Many Inquiries Outside Of Academia Are Philosophical In The Broad Sense</a>
-                        </div>
-                        <div class="post-card__date">April 3, 2019</div>
-                        <div class="post-card__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge. In that sense, all cultures...</div>
-                        <div class="post-card__read-more">
-                            <a href="#" class="btn btn-secondary btn-sm">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-card">
-                    <div class="post-card__image">
-                        <a href="#">
-                            <img src="images/posts/post-8.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="post-card__info">
-                        <div class="post-card__category">
-                            <a href="#">Latest News</a>
-                        </div>
-                        <div class="post-card__name">
-                            <a href="#">An Advantage Of Digital Circuits When Compared To Analog Circuits</a>
-                        </div>
-                        <div class="post-card__date">Mart 29, 2019</div>
-                        <div class="post-card__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge. In that sense, all cultures...</div>
-                        <div class="post-card__read-more">
-                            <a href="#" class="btn btn-secondary btn-sm">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-card">
-                    <div class="post-card__image">
-                        <a href="#">
-                            <img src="images/posts/post-9.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="post-card__info">
-                        <div class="post-card__category">
-                            <a href="#">New Arrivals</a>
-                        </div>
-                        <div class="post-card__name">
-                            <a href="#">A Digital Circuit Is Typically Constructed From Small Electronic Circuits</a>
-                        </div>
-                        <div class="post-card__date">February 10, 2019</div>
-                        <div class="post-card__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge. In that sense, all cultures...</div>
-                        <div class="post-card__read-more">
-                            <a href="#" class="btn btn-secondary btn-sm">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-card">
-                    <div class="post-card__image">
-                        <a href="#">
-                            <img src="images/posts/post-10.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="post-card__info">
-                        <div class="post-card__category">
-                            <a href="#">Special Offers</a>
-                        </div>
-                        <div class="post-card__name">
-                            <a href="#">Engineers Use Many Methods To Minimize Logic Functions</a>
-                        </div>
-                        <div class="post-card__date">January 1, 2019</div>
-                        <div class="post-card__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge. In that sense, all cultures...</div>
-                        <div class="post-card__read-more">
-                            <a href="#" class="btn btn-secondary btn-sm">Read More</a>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>

@@ -3,6 +3,7 @@
     ViewData["Title"] = "Index";
 }
 
+@model Product
 
 <div class="page-header">
     <div class="page-header__container container">
@@ -42,7 +43,7 @@
                             </button>
                             <div class="owl-carousel" id="product-image">
                                 <a href="images/products/product-16.jpg" target="_blank">
-                                    <img src="images/products/product-16.jpg" alt="">
+                                   <img src="@Model.Photos.Where(y=>y.ProductId==Model.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()" alt="">
                                 </a>
                                 <a href="images/products/product-16-1.jpg" target="_blank">
                                     <img src="images/products/product-16-1.jpg" alt="">
@@ -324,13 +325,6 @@
                 </div>
                 <!-- .product__end -->
                 <div class="product__footer">
-                    <div class="product__tags tags">
-                        <div class="tags__list">
-                            <a href="#">Mounts</a>
-                            <a href="#">Electrodes</a>
-                            <a href="#">Chainsaws</a>
-                        </div>
-                    </div>
                     <div class="product__share-links share-links">
                         <ul class="share-links__list">
                             <li class="share-links__item share-links__item--type--like">

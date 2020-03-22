@@ -5,18 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200213134111_init.cs" />
-    <Compile Remove="Migrations\20200213134111_init.Designer.cs" />
-    <Compile Remove="Migrations\20200216191612_fixbug2.cs" />
-    <Compile Remove="Migrations\20200216191612_fixbug2.Designer.cs" />
-    <Compile Remove="Migrations\20200320191458_product data-2.cs" />
-    <Compile Remove="Migrations\20200320191458_product data-2.Designer.cs" />
-    <Compile Remove="Migrations\20200320192039_data-adding-2.cs" />
-    <Compile Remove="Migrations\20200320192039_data-adding-2.Designer.cs" />
-    <Compile Remove="Migrations\20200320192444_data-adding-2.cs" />
-    <Compile Remove="Migrations\20200320192444_data-adding-2.Designer.cs" />
-    <Compile Remove="Migrations\20200320193140_data-adding-2.cs" />
-    <Compile Remove="Migrations\20200320193140_data-adding-2.Designer.cs" />
+    <Compile Remove="Migrations\20200322135446_data.cs" />
+    <Compile Remove="Migrations\20200322135446_data.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

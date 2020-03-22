@@ -53,6 +53,8 @@ namespace BuySell.Models
         public Product()
         {
             OrderDetails = new HashSet<OrderDetail>();
+            Photos = new HashSet<Photo>();
+            Comments = new HashSet<Comment>();
         }
     }
 }
