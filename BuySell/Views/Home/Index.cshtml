@@ -13,7 +13,7 @@
                     <div class="owl-carousel">
                         @foreach (var item in Model.Slides)
                         {
-                            <a class="block-slideshow__slide" href="#">
+                            <a class="block-slideshow__slide" asp-action="BlogPost" asp-route-id="@item.Id" asp-controller="Blog">
                                 <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('@item.Photos.Where(y=>y.BlogId==item.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()'); background-size:contain">
                                 </div>
                                 <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('@item.Photos.Where(y=>y.BlogId==item.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()'); background-size:contain"></div>
@@ -102,8 +102,8 @@
                         <div class="block-products-carousel__cell">
                             <div class="product-card">
                                 <div class="product-card__image">
-                                    <a asp-action="Index" asp-route-id="@item.Id">
-                                        <img src="@item.Photos.Where(y=>y.ProductId==item.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()" alt="@item.ProductName">
+                                    <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">
+                                        <img src="~/@item.Photos.Where(y=>y.ProductId==item.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()" alt="@item.ProductName">
                                     </a>
                                 </div>
                                 <div class="product-card__info">
@@ -173,13 +173,13 @@
                 <div class="block-products__featured-item">
                     <div class="product-card">
                         <div class="product-card__image">
-                            <a href="#">
-                                <img src="@featuredList[0].Photos.Where(y => y.ProductId == featuredList[0].Id).Select(x => x.PhotoPath).FirstOrDefault().ToString()" alt="@featuredList[0].ProductName">
+                            <a asp-controller="Product" asp-action="Index" asp-route-id="@featuredList[0].Id">
+                                <img src="~/@featuredList[0].Photos.Where(y => y.ProductId == featuredList[0].Id).Select(x => x.PhotoPath).FirstOrDefault().ToString()" alt="@featuredList[0].ProductName">
                             </a>
                         </div>
                         <div class="product-card__info">
                             <div class="product-card__name">
-                                <a href="#">@featuredList[0].ProductName</a>
+                                <a asp-controller="Product" asp-action="Index" asp-route-id="@featuredList[0].Id">@featuredList[0].ProductName</a>
                             </div>
                         </div>
                         <div class="product-card__actions">
@@ -209,14 +209,14 @@
                     <div class="block-products__list-item">
                         <div class="product-card">
                             <div class="product-card__image">
-                                <a href="product.html">
-                                    <img src="@featuredList[i].Photos.Where(y => y.ProductId == featuredList[i].Id).Select(x => x.PhotoPath).FirstOrDefault().ToString()" alt="@featuredList[i].ProductName">
+                                <a asp-controller="Product" asp-action="Index" asp-route-id="@featuredList[i].Id">
+                                    <img src="~/@featuredList[i].Photos.Where(y => y.ProductId == featuredList[i].Id).Select(x => x.PhotoPath).FirstOrDefault().ToString()" alt="@featuredList[i].ProductName">
 
                                 </a>
                             </div>
                             <div class="product-card__info">
                                 <div class="product-card__name">
-                                    <a href="#">@featuredList[i].ProductName</a>
+                                    <a asp-controller="Product" asp-action="Index" asp-route-id="@featuredList[i].Id">@featuredList[i].ProductName</a>
                                 </div>
                             </div>
                             <div class="product-card__actions">
@@ -273,13 +273,13 @@
                         <div class="block-products-carousel__cell">
                             <div class="product-card">
                                 <div class="product-card__image">
-                                    <a href="product.html">
-                                        <img src="@item.Photos.Where(y=>y.ProductId==item.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()" alt="@item.ProductName">
+                                    <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">
+                                        <img src="~/@item.Photos.Where(y=>y.ProductId==item.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()" alt="@item.ProductName">
                                     </a>
                                 </div>
                                 <div class="product-card__info">
                                     <div class="product-card__name">
-                                        <a href="#">@item.ProductName</a>
+                                        <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">@item.ProductName</a>
                                     </div>
                                     <div class="product-card__rating">
                                         <div class="product-card__rating-stars">
@@ -353,18 +353,18 @@
                 {
                     <div class="post-card">
                         <div class="post-card__image">
-                            <a href="#">
-                                <img src="@item.Photos.Where(y=>y.BlogId==item.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()" alt="Blog Photo">
+                            <a asp-action="BlogPost" asp-route-id="@item.Id" asp-controller="Blog">
+                                <img src="~/@item.Photos.Where(y=>y.BlogId==item.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()" alt="Blog Photo">
                             </a>
                         </div>
                         <div class="post-card__info">
                             <div class="post-card__name">
-                                <a href="#">@item.BlogTitle</a>
+                                <a asp-action="BlogPost" asp-route-id="@item.Id" asp-controller="Blog">@item.BlogTitle</a>
                             </div>
                             <div class="post-card__date">@item.AddedDate</div>
                             <div class="post-card__content">@item.BlogBody.Substring(0, 50)...</div>
                             <div class="post-card__read-more">
-                                <a href="#" class="btn btn-secondary btn-sm">Read More</a>
+                                <a asp-action="BlogPost" asp-route-id="@item.Id" asp-controller="Blog" class="btn btn-secondary btn-sm">Read More</a>
                             </div>
                         </div>
                     </div>

@@ -159,7 +159,7 @@ namespace BuySell.Migrations
                         {
                             Id = 1,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 23, 23, 56, 11, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 13, 0, 6, 30, 0, DateTimeKind.Local),
                             BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
                             BlogTitle = "Hələdə smartfonu ən sərfəli qiymətə haradan alacağını düşünürsən?",
                             DeletedBy = 0,
@@ -170,7 +170,7 @@ namespace BuySell.Migrations
                         {
                             Id = 2,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 15, 11, 19, 47, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 20, 14, 16, 18, 0, DateTimeKind.Local),
                             BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
                             BlogTitle = "Kampaniya başa çatana qədər yalnız bir neçə gün qaldı!",
                             DeletedBy = 0,
@@ -181,7 +181,7 @@ namespace BuySell.Migrations
                         {
                             Id = 3,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 29, 19, 37, 1, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 25, 2, 8, 0, 0, DateTimeKind.Local),
                             BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
                             BlogTitle = "Sifarişçilərin nəzərinə!",
                             DeletedBy = 0,
@@ -192,7 +192,7 @@ namespace BuySell.Migrations
                         {
                             Id = 4,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 23, 4, 58, 32, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 17, 3, 37, 21, 0, DateTimeKind.Local),
                             BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
                             BlogTitle = "Hörmətlə , saytın administrasiyası !",
                             DeletedBy = 0,
@@ -203,7 +203,7 @@ namespace BuySell.Migrations
                         {
                             Id = 5,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 26, 11, 37, 14, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 4, 20, 14, 16, 0, DateTimeKind.Local),
                             BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
                             BlogTitle = "Fiziki şəxslər üçün mobil telefonlu bağlamaların Gömrük idarəsi tərəfindən təhvil verilmə qaydaları dəyişdirilmişdir.",
                             DeletedBy = 0,
@@ -214,7 +214,7 @@ namespace BuySell.Migrations
                         {
                             Id = 6,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 21, 13, 28, 25, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 22, 1, 53, 17, 0, DateTimeKind.Local),
                             BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
                             BlogTitle = "Hər bir şəkildə gözəllik",
                             DeletedBy = 0,
@@ -225,7 +225,7 @@ namespace BuySell.Migrations
                         {
                             Id = 7,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 29, 7, 40, 4, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 17, 2, 22, 8, 0, DateTimeKind.Local),
                             BlogBody = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
                             BlogTitle = "Qutu açılımı çək - endirim qazan!",
                             DeletedBy = 0,
@@ -625,7 +625,7 @@ namespace BuySell.Migrations
                         {
                             Id = 1,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 23, 15, 3, 39, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 28, 19, 20, 57, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -636,7 +636,7 @@ namespace BuySell.Migrations
                         {
                             Id = 2,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 4, 20, 27, 3, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 13, 18, 42, 44, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -647,7 +647,7 @@ namespace BuySell.Migrations
                         {
                             Id = 3,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 21, 8, 4, 34, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 5, 17, 20, 15, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -658,7 +658,7 @@ namespace BuySell.Migrations
                         {
                             Id = 4,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 12, 13, 3, 53, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 18, 4, 18, 7, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -669,7 +669,7 @@ namespace BuySell.Migrations
                         {
                             Id = 5,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 7, 20, 0, 14, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 20, 4, 27, 21, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -680,7 +680,7 @@ namespace BuySell.Migrations
                         {
                             Id = 6,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 3, 10, 43, 25, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 5, 13, 54, 53, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -691,7 +691,7 @@ namespace BuySell.Migrations
                         {
                             Id = 7,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 14, 3, 53, 47, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 25, 15, 32, 58, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -702,7 +702,7 @@ namespace BuySell.Migrations
                         {
                             Id = 8,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 2, 17, 41, 57, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 4, 15, 38, 1, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -713,7 +713,7 @@ namespace BuySell.Migrations
                         {
                             Id = 9,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 5, 17, 2, 53, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 24, 17, 38, 0, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -724,7 +724,7 @@ namespace BuySell.Migrations
                         {
                             Id = 10,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 20, 11, 30, 40, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 17, 11, 30, 42, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -735,7 +735,7 @@ namespace BuySell.Migrations
                         {
                             Id = 11,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 22, 0, 37, 41, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 1, 18, 19, 29, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -746,7 +746,7 @@ namespace BuySell.Migrations
                         {
                             Id = 12,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 15, 7, 14, 13, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 10, 11, 18, 4, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -757,7 +757,7 @@ namespace BuySell.Migrations
                         {
                             Id = 13,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 22, 6, 10, 10, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 22, 13, 32, 52, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -768,7 +768,7 @@ namespace BuySell.Migrations
                         {
                             Id = 14,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 24, 7, 46, 27, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 5, 4, 41, 10, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -779,7 +779,7 @@ namespace BuySell.Migrations
                         {
                             Id = 15,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 22, 6, 49, 18, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 4, 17, 51, 45, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -790,7 +790,7 @@ namespace BuySell.Migrations
                         {
                             Id = 16,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 8, 17, 20, 55, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 16, 0, 4, 35, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -801,7 +801,7 @@ namespace BuySell.Migrations
                         {
                             Id = 17,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 16, 20, 57, 28, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 22, 12, 19, 34, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -812,7 +812,7 @@ namespace BuySell.Migrations
                         {
                             Id = 18,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 7, 21, 36, 8, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 5, 8, 31, 42, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -823,7 +823,7 @@ namespace BuySell.Migrations
                         {
                             Id = 19,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 22, 6, 9, 8, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 5, 15, 8, 32, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -834,7 +834,7 @@ namespace BuySell.Migrations
                         {
                             Id = 20,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 20, 4, 3, 30, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 8, 21, 15, 5, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -845,7 +845,7 @@ namespace BuySell.Migrations
                         {
                             Id = 21,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 3, 10, 57, 26, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 3, 16, 59, 33, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -856,7 +856,7 @@ namespace BuySell.Migrations
                         {
                             Id = 22,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 13, 4, 18, 59, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 12, 11, 9, 53, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -867,7 +867,7 @@ namespace BuySell.Migrations
                         {
                             Id = 23,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 13, 15, 44, 42, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 26, 6, 13, 30, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -878,7 +878,7 @@ namespace BuySell.Migrations
                         {
                             Id = 24,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 25, 0, 34, 44, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 28, 11, 23, 8, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -889,7 +889,7 @@ namespace BuySell.Migrations
                         {
                             Id = 25,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 14, 3, 46, 40, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 4, 8, 57, 21, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -900,7 +900,7 @@ namespace BuySell.Migrations
                         {
                             Id = 26,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 7, 8, 42, 57, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 14, 20, 28, 23, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -911,7 +911,7 @@ namespace BuySell.Migrations
                         {
                             Id = 27,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 22, 20, 48, 47, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 28, 19, 23, 51, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -922,7 +922,7 @@ namespace BuySell.Migrations
                         {
                             Id = 28,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 23, 0, 57, 8, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 21, 11, 42, 26, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -933,7 +933,7 @@ namespace BuySell.Migrations
                         {
                             Id = 29,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 9, 23, 38, 9, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 19, 11, 38, 1, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -944,7 +944,7 @@ namespace BuySell.Migrations
                         {
                             Id = 30,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 10, 23, 57, 48, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 2, 20, 1, 59, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -955,7 +955,7 @@ namespace BuySell.Migrations
                         {
                             Id = 31,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 1, 23, 9, 23, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 4, 10, 16, 27, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -966,7 +966,7 @@ namespace BuySell.Migrations
                         {
                             Id = 32,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 4, 2, 27, 38, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 3, 16, 56, 39, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -977,7 +977,7 @@ namespace BuySell.Migrations
                         {
                             Id = 33,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 15, 16, 59, 58, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 3, 7, 8, 24, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -988,7 +988,7 @@ namespace BuySell.Migrations
                         {
                             Id = 34,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 16, 21, 35, 20, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 11, 3, 51, 46, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -999,7 +999,7 @@ namespace BuySell.Migrations
                         {
                             Id = 35,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 10, 19, 51, 19, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 29, 1, 25, 22, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1010,7 +1010,7 @@ namespace BuySell.Migrations
                         {
                             Id = 36,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 14, 0, 59, 39, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 20, 17, 10, 5, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1021,7 +1021,7 @@ namespace BuySell.Migrations
                         {
                             Id = 37,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 7, 1, 4, 13, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 15, 8, 2, 53, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1032,7 +1032,7 @@ namespace BuySell.Migrations
                         {
                             Id = 38,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 16, 2, 44, 19, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 2, 19, 9, 36, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1043,7 +1043,7 @@ namespace BuySell.Migrations
                         {
                             Id = 39,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 24, 10, 14, 24, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 27, 18, 0, 17, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1054,7 +1054,7 @@ namespace BuySell.Migrations
                         {
                             Id = 40,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 20, 18, 23, 7, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 25, 7, 39, 9, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1065,7 +1065,7 @@ namespace BuySell.Migrations
                         {
                             Id = 41,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 22, 21, 58, 8, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 15, 2, 16, 20, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1076,7 +1076,7 @@ namespace BuySell.Migrations
                         {
                             Id = 42,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 25, 1, 32, 57, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 19, 12, 40, 43, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1087,7 +1087,7 @@ namespace BuySell.Migrations
                         {
                             Id = 43,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 27, 7, 59, 24, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 19, 13, 25, 47, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1098,7 +1098,7 @@ namespace BuySell.Migrations
                         {
                             Id = 44,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 22, 22, 49, 31, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 1, 3, 28, 41, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1109,7 +1109,7 @@ namespace BuySell.Migrations
                         {
                             Id = 45,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 23, 1, 53, 35, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 27, 13, 38, 51, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1120,7 +1120,7 @@ namespace BuySell.Migrations
                         {
                             Id = 46,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 25, 9, 13, 55, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 20, 2, 7, 19, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1131,7 +1131,7 @@ namespace BuySell.Migrations
                         {
                             Id = 47,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 26, 4, 57, 24, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 7, 11, 46, 8, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1142,7 +1142,7 @@ namespace BuySell.Migrations
                         {
                             Id = 48,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 10, 10, 16, 24, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 12, 3, 17, 42, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1153,7 +1153,7 @@ namespace BuySell.Migrations
                         {
                             Id = 49,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 5, 19, 0, 25, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 25, 23, 28, 14, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1164,7 +1164,7 @@ namespace BuySell.Migrations
                         {
                             Id = 50,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 10, 19, 51, 2, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 15, 19, 16, 54, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1175,7 +1175,7 @@ namespace BuySell.Migrations
                         {
                             Id = 51,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 15, 21, 9, 7, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 22, 6, 3, 44, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1186,7 +1186,7 @@ namespace BuySell.Migrations
                         {
                             Id = 52,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 22, 3, 51, 23, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 15, 7, 42, 31, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1197,7 +1197,7 @@ namespace BuySell.Migrations
                         {
                             Id = 53,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 23, 20, 2, 34, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 12, 18, 4, 6, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1208,7 +1208,7 @@ namespace BuySell.Migrations
                         {
                             Id = 54,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 1, 16, 42, 10, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 17, 15, 57, 6, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1219,7 +1219,7 @@ namespace BuySell.Migrations
                         {
                             Id = 55,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 23, 14, 27, 39, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 18, 16, 0, 51, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1230,7 +1230,7 @@ namespace BuySell.Migrations
                         {
                             Id = 56,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 12, 6, 31, 12, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 18, 3, 57, 37, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1241,7 +1241,7 @@ namespace BuySell.Migrations
                         {
                             Id = 57,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 22, 0, 29, 54, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 16, 7, 15, 47, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1252,7 +1252,7 @@ namespace BuySell.Migrations
                         {
                             Id = 58,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 24, 3, 16, 23, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 7, 2, 42, 39, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1263,7 +1263,7 @@ namespace BuySell.Migrations
                         {
                             Id = 59,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 27, 5, 3, 46, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 14, 15, 7, 19, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1274,7 +1274,7 @@ namespace BuySell.Migrations
                         {
                             Id = 60,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 1, 7, 4, 51, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 6, 3, 45, 31, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1285,7 +1285,7 @@ namespace BuySell.Migrations
                         {
                             Id = 61,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 11, 9, 40, 10, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 7, 13, 16, 35, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1296,7 +1296,7 @@ namespace BuySell.Migrations
                         {
                             Id = 62,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 20, 22, 42, 12, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 6, 23, 35, 5, 0, DateTimeKind.Local),
                             DeletedBy = 0,
                             IsDeleted = false,
                             ModifiedBy = 0,
@@ -1307,7 +1307,7 @@ namespace BuySell.Migrations
                         {
                             Id = 63,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 22, 13, 48, 21, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 16, 23, 45, 33, 0, DateTimeKind.Local),
                             BlogId = 1,
                             DeletedBy = 0,
                             IsDeleted = false,
@@ -1318,7 +1318,7 @@ namespace BuySell.Migrations
                         {
                             Id = 64,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 2, 25, 13, 50, 38, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 23, 16, 23, 34, 0, DateTimeKind.Local),
                             BlogId = 2,
                             DeletedBy = 0,
                             IsDeleted = false,
@@ -1329,7 +1329,7 @@ namespace BuySell.Migrations
                         {
                             Id = 65,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 20, 7, 6, 50, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 13, 20, 0, 47, 0, DateTimeKind.Local),
                             BlogId = 3,
                             DeletedBy = 0,
                             IsDeleted = false,
@@ -1340,7 +1340,7 @@ namespace BuySell.Migrations
                         {
                             Id = 66,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 18, 17, 56, 35, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 27, 21, 8, 22, 0, DateTimeKind.Local),
                             BlogId = 4,
                             DeletedBy = 0,
                             IsDeleted = false,
@@ -1351,7 +1351,7 @@ namespace BuySell.Migrations
                         {
                             Id = 67,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 1, 10, 0, 49, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 8, 23, 56, 13, 0, DateTimeKind.Local),
                             BlogId = 5,
                             DeletedBy = 0,
                             IsDeleted = false,
@@ -1362,7 +1362,7 @@ namespace BuySell.Migrations
                         {
                             Id = 68,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 7, 4, 20, 23, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 13, 5, 26, 39, 0, DateTimeKind.Local),
                             BlogId = 6,
                             DeletedBy = 0,
                             IsDeleted = false,
@@ -1373,7 +1373,7 @@ namespace BuySell.Migrations
                         {
                             Id = 69,
                             AddedBy = 0,
-                            AddedDate = new DateTime(2020, 3, 15, 7, 40, 41, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 5, 23, 1, 20, 0, DateTimeKind.Local),
                             BlogId = 7,
                             DeletedBy = 0,
                             IsDeleted = false,
@@ -1439,7 +1439,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 1,
-                            AddedDate = new DateTime(2020, 3, 5, 22, 2, 32, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 4, 16, 0, 19, 0, DateTimeKind.Local),
                             CategoryId = 5,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1453,7 +1453,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 2,
-                            AddedDate = new DateTime(2020, 3, 22, 10, 37, 26, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 4, 16, 44, 0, 0, DateTimeKind.Local),
                             CategoryId = 5,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1467,7 +1467,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 3,
-                            AddedDate = new DateTime(2020, 3, 12, 0, 49, 2, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 22, 1, 5, 23, 0, DateTimeKind.Local),
                             CategoryId = 5,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1481,7 +1481,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 4,
-                            AddedDate = new DateTime(2020, 3, 5, 23, 15, 6, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 10, 16, 9, 22, 0, DateTimeKind.Local),
                             CategoryId = 5,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1495,7 +1495,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 5,
-                            AddedDate = new DateTime(2020, 2, 26, 8, 23, 10, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 19, 15, 51, 59, 0, DateTimeKind.Local),
                             CategoryId = 5,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1509,7 +1509,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 6,
-                            AddedDate = new DateTime(2020, 3, 14, 19, 36, 52, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 11, 22, 11, 22, 0, DateTimeKind.Local),
                             CategoryId = 6,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1523,7 +1523,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 7,
-                            AddedDate = new DateTime(2020, 2, 25, 23, 33, 14, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 14, 23, 14, 28, 0, DateTimeKind.Local),
                             CategoryId = 6,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1537,7 +1537,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 8,
-                            AddedDate = new DateTime(2020, 3, 7, 10, 6, 16, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 22, 2, 15, 58, 0, DateTimeKind.Local),
                             CategoryId = 6,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1551,7 +1551,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 9,
-                            AddedDate = new DateTime(2020, 2, 27, 11, 13, 18, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 24, 5, 35, 57, 0, DateTimeKind.Local),
                             CategoryId = 6,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1565,7 +1565,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 10,
-                            AddedDate = new DateTime(2020, 3, 1, 23, 51, 55, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 29, 2, 23, 4, 0, DateTimeKind.Local),
                             CategoryId = 6,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1579,7 +1579,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 11,
-                            AddedDate = new DateTime(2020, 3, 5, 22, 0, 2, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 19, 17, 23, 11, 0, DateTimeKind.Local),
                             CategoryId = 7,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1593,7 +1593,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 12,
-                            AddedDate = new DateTime(2020, 3, 1, 5, 32, 6, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 2, 15, 56, 5, 0, DateTimeKind.Local),
                             CategoryId = 7,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1607,7 +1607,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 13,
-                            AddedDate = new DateTime(2020, 2, 26, 14, 16, 24, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 17, 6, 58, 56, 0, DateTimeKind.Local),
                             CategoryId = 9,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1621,7 +1621,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 14,
-                            AddedDate = new DateTime(2020, 3, 3, 18, 22, 59, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 16, 9, 16, 44, 0, DateTimeKind.Local),
                             CategoryId = 9,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1635,7 +1635,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 15,
-                            AddedDate = new DateTime(2020, 2, 27, 19, 14, 23, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 21, 11, 19, 52, 0, DateTimeKind.Local),
                             CategoryId = 8,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1649,7 +1649,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 16,
-                            AddedDate = new DateTime(2020, 3, 14, 1, 49, 36, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 8, 22, 44, 38, 0, DateTimeKind.Local),
                             CategoryId = 10,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1663,7 +1663,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 17,
-                            AddedDate = new DateTime(2020, 3, 18, 0, 49, 55, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 10, 2, 42, 44, 0, DateTimeKind.Local),
                             CategoryId = 11,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1677,7 +1677,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 18,
-                            AddedDate = new DateTime(2020, 3, 9, 18, 59, 22, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 19, 10, 11, 7, 0, DateTimeKind.Local),
                             CategoryId = 12,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1691,7 +1691,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 19,
-                            AddedDate = new DateTime(2020, 3, 18, 9, 41, 12, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 5, 21, 20, 0, 0, DateTimeKind.Local),
                             CategoryId = 12,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1705,7 +1705,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 20,
-                            AddedDate = new DateTime(2020, 3, 3, 17, 52, 57, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 22, 16, 6, 23, 0, DateTimeKind.Local),
                             CategoryId = 13,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1719,7 +1719,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 21,
-                            AddedDate = new DateTime(2020, 2, 26, 3, 9, 19, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 3, 9, 55, 23, 0, DateTimeKind.Local),
                             CategoryId = 13,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1733,7 +1733,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 22,
-                            AddedDate = new DateTime(2020, 3, 9, 12, 44, 54, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 5, 14, 12, 27, 0, DateTimeKind.Local),
                             CategoryId = 14,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1747,7 +1747,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 23,
-                            AddedDate = new DateTime(2020, 3, 5, 12, 57, 35, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 4, 11, 54, 37, 0, DateTimeKind.Local),
                             CategoryId = 14,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1761,7 +1761,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 24,
-                            AddedDate = new DateTime(2020, 3, 12, 21, 13, 34, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 10, 21, 15, 11, 0, DateTimeKind.Local),
                             CategoryId = 15,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1775,7 +1775,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 25,
-                            AddedDate = new DateTime(2020, 3, 7, 13, 19, 41, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 21, 16, 27, 14, 0, DateTimeKind.Local),
                             CategoryId = 15,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1789,7 +1789,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 26,
-                            AddedDate = new DateTime(2020, 3, 13, 20, 43, 34, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 4, 21, 10, 28, 0, DateTimeKind.Local),
                             CategoryId = 16,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1803,7 +1803,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 27,
-                            AddedDate = new DateTime(2020, 2, 24, 13, 23, 18, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 17, 0, 31, 17, 0, DateTimeKind.Local),
                             CategoryId = 16,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1817,7 +1817,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 28,
-                            AddedDate = new DateTime(2020, 2, 29, 14, 40, 14, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 24, 5, 46, 11, 0, DateTimeKind.Local),
                             CategoryId = 17,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1831,7 +1831,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 29,
-                            AddedDate = new DateTime(2020, 3, 14, 14, 48, 10, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 23, 3, 41, 34, 0, DateTimeKind.Local),
                             CategoryId = 17,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1845,7 +1845,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 30,
-                            AddedDate = new DateTime(2020, 2, 24, 10, 31, 47, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 13, 6, 39, 46, 0, DateTimeKind.Local),
                             CategoryId = 18,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1859,7 +1859,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 31,
-                            AddedDate = new DateTime(2020, 3, 11, 10, 33, 54, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 25, 3, 49, 22, 0, DateTimeKind.Local),
                             CategoryId = 19,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1873,7 +1873,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 32,
-                            AddedDate = new DateTime(2020, 2, 23, 4, 42, 42, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 2, 7, 51, 37, 0, DateTimeKind.Local),
                             CategoryId = 20,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1887,7 +1887,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 33,
-                            AddedDate = new DateTime(2020, 2, 24, 4, 17, 25, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 13, 6, 15, 17, 0, DateTimeKind.Local),
                             CategoryId = 20,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1901,7 +1901,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 34,
-                            AddedDate = new DateTime(2020, 2, 24, 23, 19, 32, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 14, 12, 50, 36, 0, DateTimeKind.Local),
                             CategoryId = 21,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1915,7 +1915,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 35,
-                            AddedDate = new DateTime(2020, 3, 20, 10, 15, 45, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 20, 13, 30, 19, 0, DateTimeKind.Local),
                             CategoryId = 23,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1929,7 +1929,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 36,
-                            AddedDate = new DateTime(2020, 2, 26, 21, 18, 59, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 18, 16, 27, 24, 0, DateTimeKind.Local),
                             CategoryId = 23,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1943,7 +1943,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 37,
-                            AddedDate = new DateTime(2020, 3, 10, 3, 33, 17, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 15, 0, 52, 11, 0, DateTimeKind.Local),
                             CategoryId = 23,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1957,7 +1957,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 38,
-                            AddedDate = new DateTime(2020, 2, 27, 9, 5, 48, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 22, 10, 57, 35, 0, DateTimeKind.Local),
                             CategoryId = 23,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1971,7 +1971,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 39,
-                            AddedDate = new DateTime(2020, 3, 18, 14, 7, 14, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 19, 11, 37, 11, 0, DateTimeKind.Local),
                             CategoryId = 23,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1985,7 +1985,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 40,
-                            AddedDate = new DateTime(2020, 3, 3, 22, 13, 32, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 25, 5, 48, 29, 0, DateTimeKind.Local),
                             CategoryId = 24,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -1999,7 +1999,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 41,
-                            AddedDate = new DateTime(2020, 3, 12, 6, 28, 20, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 1, 21, 20, 4, 0, DateTimeKind.Local),
                             CategoryId = 24,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2013,7 +2013,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 42,
-                            AddedDate = new DateTime(2020, 3, 3, 15, 9, 25, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 28, 0, 0, 46, 0, DateTimeKind.Local),
                             CategoryId = 24,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2027,7 +2027,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 43,
-                            AddedDate = new DateTime(2020, 3, 17, 1, 41, 9, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 2, 15, 6, 15, 0, DateTimeKind.Local),
                             CategoryId = 24,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2041,7 +2041,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 44,
-                            AddedDate = new DateTime(2020, 2, 27, 14, 23, 14, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 19, 6, 36, 35, 0, DateTimeKind.Local),
                             CategoryId = 24,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2055,7 +2055,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 45,
-                            AddedDate = new DateTime(2020, 2, 26, 20, 2, 39, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 19, 4, 41, 10, 0, DateTimeKind.Local),
                             CategoryId = 25,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2069,7 +2069,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 46,
-                            AddedDate = new DateTime(2020, 3, 1, 11, 29, 5, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 17, 3, 42, 5, 0, DateTimeKind.Local),
                             CategoryId = 25,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2083,7 +2083,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 47,
-                            AddedDate = new DateTime(2020, 3, 22, 9, 20, 58, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 29, 1, 47, 29, 0, DateTimeKind.Local),
                             CategoryId = 27,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2097,7 +2097,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 48,
-                            AddedDate = new DateTime(2020, 3, 6, 4, 6, 21, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 10, 22, 2, 45, 0, DateTimeKind.Local),
                             CategoryId = 27,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2111,7 +2111,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 49,
-                            AddedDate = new DateTime(2020, 2, 26, 23, 28, 21, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 22, 7, 32, 11, 0, DateTimeKind.Local),
                             CategoryId = 28,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2125,7 +2125,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 50,
-                            AddedDate = new DateTime(2020, 3, 2, 5, 15, 44, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 13, 11, 17, 14, 0, DateTimeKind.Local),
                             CategoryId = 28,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2139,7 +2139,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 51,
-                            AddedDate = new DateTime(2020, 3, 13, 14, 33, 38, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 17, 19, 12, 50, 0, DateTimeKind.Local),
                             CategoryId = 29,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2153,7 +2153,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 52,
-                            AddedDate = new DateTime(2020, 3, 15, 5, 44, 43, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 27, 12, 12, 47, 0, DateTimeKind.Local),
                             CategoryId = 29,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2167,7 +2167,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 53,
-                            AddedDate = new DateTime(2020, 3, 10, 21, 42, 35, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 28, 18, 39, 49, 0, DateTimeKind.Local),
                             CategoryId = 30,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2181,7 +2181,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 54,
-                            AddedDate = new DateTime(2020, 3, 19, 15, 21, 1, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 28, 5, 33, 27, 0, DateTimeKind.Local),
                             CategoryId = 30,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2195,7 +2195,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 55,
-                            AddedDate = new DateTime(2020, 3, 3, 22, 16, 18, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 16, 12, 12, 18, 0, DateTimeKind.Local),
                             CategoryId = 32,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2209,7 +2209,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 56,
-                            AddedDate = new DateTime(2020, 2, 26, 6, 3, 10, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 28, 21, 34, 25, 0, DateTimeKind.Local),
                             CategoryId = 32,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2223,7 +2223,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 57,
-                            AddedDate = new DateTime(2020, 3, 18, 17, 26, 24, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 29, 0, 35, 56, 0, DateTimeKind.Local),
                             CategoryId = 32,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2237,7 +2237,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 58,
-                            AddedDate = new DateTime(2020, 2, 29, 22, 21, 2, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 14, 23, 36, 45, 0, DateTimeKind.Local),
                             CategoryId = 33,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2251,7 +2251,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 59,
-                            AddedDate = new DateTime(2020, 2, 27, 5, 42, 58, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 19, 19, 27, 41, 0, DateTimeKind.Local),
                             CategoryId = 33,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2265,7 +2265,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 60,
-                            AddedDate = new DateTime(2020, 3, 14, 7, 26, 9, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 16, 14, 27, 5, 0, DateTimeKind.Local),
                             CategoryId = 34,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2279,7 +2279,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 61,
-                            AddedDate = new DateTime(2020, 3, 20, 1, 59, 7, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 2, 23, 17, 26, 38, 0, DateTimeKind.Local),
                             CategoryId = 34,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -2293,7 +2293,7 @@ namespace BuySell.Migrations
                         new
                         {
                             Id = 62,
-                            AddedDate = new DateTime(2020, 2, 26, 5, 39, 32, 0, DateTimeKind.Local),
+                            AddedDate = new DateTime(2020, 3, 20, 14, 14, 51, 0, DateTimeKind.Local),
                             CategoryId = 34,
                             IsAvailable = true,
                             IsDeleted = false,

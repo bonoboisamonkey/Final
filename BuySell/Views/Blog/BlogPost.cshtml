@@ -1,0 +1,117 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = Model.BlogTitle;
+}
+
+<div class="page-header">
+    <div class="page-header__container container">
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-lg-9 col-xl-8">
+            <div class="block post post--layout--full">
+                <div class="post__header post-header post-header--layout--full">
+                    <h1 class="post-header__title">@Model.BlogTitle</h1>
+                    <div class="post-header__meta">
+                        <div class="post-header__meta-item">
+                            By
+                            <a href="#">@Model.AddedBy</a>
+                        </div>
+                        <div class="post-header__meta-item">
+                            <a href="#">@Model.AddedDate</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="post__featured">
+                    <a href="#">
+                        <img src="~/@Model.Photos.Where(y => y.BlogId == Model.Id).Select(x => x.PhotoPath).FirstOrDefault().ToString()" alt="Post Photo">
+                    </a>
+                </div>
+                <div class="post__content typography typography--expanded">
+                    @Model.BlogBody
+                </div>
+                <div class="post__footer">
+                    <div class="post__tags-share-links">
+                        <div class="post__share-links share-links">
+                            <ul class="share-links__list">
+                                <li class="share-links__item share-links__item--type--like">
+                                    <a href="#">Like</a>
+                                </li>
+                                <li class="share-links__item share-links__item--type--tweet">
+                                    <a href="#">Tweet</a>
+                                </li>
+                                <li class="share-links__item share-links__item--type--pin">
+                                    <a href="#">Pin It</a>
+                                </li>
+                                <li class="share-links__item share-links__item--type--counter">
+                                    <a href="#">4K</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <section class="post__section">
+                    <ol class="comments-list comments-list--level--0">
+                        @{ var comments = Model.Comments;
+                            foreach (var item in Model.Comments)
+                            {
+                                <li class="comments-list__item">
+                                    <div class="comment">
+                                        <div class="comment__content">
+                                            <div class="comment__header">
+                                                <div class="comment__author">
+                                                    <a href="#">@item.CommentatorName</a>
+                                                </div>
+                                                <div class="comment__reply">
+                                                    <button type="button" class="btn btn-xs btn-light">Reply</button>
+                                                </div>
+                                            </div>
+                                            <div class="comment__text">@item.CommentBody</div>
+                                            <div class="comment__date">@item.AddedDate</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    </ol>
+                </section>
+                @*<section class="post__section">
+                        <h4 class="post__section-title">Write A Comment</h4>
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="comment-first-name">First Name</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="comment-first-name"
+                                           placeholder="First Name">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="comment-last-name">Last Name</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="comment-last-name"
+                                           placeholder="Last Name">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="comment-email">Email Address</label>
+                                    <input type="email"
+                                           class="form-control"
+                                           id="comment-email"
+                                           placeholder="Email Address">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="comment-content">Comment</label>
+                                <textarea class="form-control" id="comment-content" rows="6"></textarea>
+                            </div>
+                            <div class="form-group mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg">Post Comment</button>
+                            </div>
+                        </form>
+                    </section>*@
+            </div>
+        </div>
+    </div>
+</div>
