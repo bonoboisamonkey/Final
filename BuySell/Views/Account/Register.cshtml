@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Register";
 }
-@model AppUser
+@model RegisterViewModel
 
 <div class="block">
     <div class="container">
@@ -46,7 +46,7 @@
                             <input asp-for="PostalCode" class="form-control" />
                             <span asp-validation-for="PostalCode" class="text-danger"></span>
                         </div>
-                        <input asp-for="RegistredDate" class="form-control" value="@DateTime.Now" hidden/>
+                        <input asp-for="RegistredDate" class="form-control" value="@DateTime.Now" hidden />
                         <button type="submit" class="btn btn-primary mt-4">Register</button>
                     </form>
                 </div>
@@ -54,3 +54,7 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

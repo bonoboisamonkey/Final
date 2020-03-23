@@ -17,8 +17,8 @@ namespace BuySell.Controllers
         private readonly IPasswordValidator<AppUser> _passwordValidator;
 
         public AccountController(SignInManager<AppUser> signInManager
-                                    ,UserManager<AppUser> userManager
-                                        ,IPasswordValidator<AppUser> passwordValidator)
+                                    , UserManager<AppUser> userManager
+                                        , IPasswordValidator<AppUser> passwordValidator)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -32,10 +32,22 @@ namespace BuySell.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(AppUser user)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
+                AppUser user = new AppUser()
+                {
+                    Email = model.Email,
+                    Password = model.Password,
+                    PostalCode = model.PostalCode,
+                    RegistredDate = model.RegistredDate,
+                    UserName = model.UserName,
+                    UserSurname = model.UserSurname,
+                    City = model.City,
+                    ConfirmPassword = model.ConfirmPassword
+                };
+
                 IdentityResult identityResult = await _userManager.CreateAsync(user, user.Password);
 
                 if (identityResult.Succeeded)
