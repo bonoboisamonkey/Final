@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+@model AppUser
+
+<div class="block">
+    <div class="container">
+        <div class="d-flex flex-column mt-4 mt-md-0">
+            <div class="card flex-grow-1 mb-0">
+                <div class="card-body">
+                    <h3 class="card-title">Register</h3>
+                    <form asp-action="Register">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="UserName" class="control-label"></label>
+                            <input asp-for="UserName" class="form-control" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="UserSurname" class="control-label"></label>
+                            <input asp-for="UserSurname" class="form-control" />
+                            <span asp-validation-for="UserSurname" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password" class="control-label"></label>
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ConfirmPassword" class="control-label"></label>
+                            <input asp-for="ConfirmPassword" class="form-control" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="City" class="control-label"></label>
+                            <input asp-for="City" class="form-control" />
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PostalCode" class="control-label"></label>
+                            <input asp-for="PostalCode" class="form-control" />
+                            <span asp-validation-for="PostalCode" class="text-danger"></span>
+                        </div>
+                        <input asp-for="RegistredDate" class="form-control" value="@DateTime.Now" hidden/>
+                        <button type="submit" class="btn btn-primary mt-4">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

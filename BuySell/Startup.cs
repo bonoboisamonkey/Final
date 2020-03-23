@@ -30,7 +30,10 @@ namespace BuySell
         {
             services.AddControllersWithViews();
             services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(Configuration["connections:dbConnection"]));
-            services.AddIdentity<AppUser, IdentityRole<int>>().AddDefaultTokenProviders().AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<AppUser, IdentityRole<int>>()
+                        .AddDefaultTokenProviders()
+                            .AddEntityFrameworkStores<ApplicationDbContext>();
+
             //services.AddMvc(options =>
             //{
             //    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();

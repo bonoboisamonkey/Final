@@ -12,35 +12,95 @@ namespace BuySell.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-        //private readonly RoleManager<IdentityUser> _roleManager;
+        private readonly IPasswordValidator<AppUser> _passwordValidator;
 
         public AccountController(SignInManager<AppUser> signInManager
-                                //,RoleManager<IdentityUser> roleManager
-                                )
+                                    ,UserManager<AppUser> userManager
+                                        ,IPasswordValidator<AppUser> passwordValidator)
         {
             _signInManager = signInManager;
-            //_roleManager = roleManager;
+            _userManager = userManager;
+            _passwordValidator = passwordValidator;
         }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(AppUser user)
+        {
+            if (ModelState.IsValid)
+            {
+                IdentityResult identityResult = await _userManager.CreateAsync(user, user.Password);
+
+                if (identityResult.Succeeded)
+                {
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    foreach (IdentityError error in identityResult.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                    return View();
+                }
+            }
+            else
+                return View();
+        }
+
         [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(model.Name, model.Password, false, false);
-                if (result.Succeeded)
+                var currentUser = await _userManager.FindByEmailAsync(model.Email);
+                if (currentUser == null)
                 {
-                    return RedirectToAction("index", "Admin");
+                    ModelState.AddModelError("", "Given email is not exists");
+                    return View();
                 }
+                else
+                {
+                    IdentityResult identityResult = await _passwordValidator.ValidateAsync(_userManager, currentUser, model.Password);
 
-                ModelState.AddModelError(String.Empty, "You are not my Admin");
+                    if (!identityResult.Succeeded)
+                    {
+                        foreach (IdentityError error in identityResult.Errors)
+                        {
+                            ModelState.AddModelError("", error.Description);
+                        }
+                        return View();
+                    }
+                    else
+                    {
+                        await _signInManager.SignInAsync(currentUser, false);
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
             }
-            return View(model);
+            else
+                return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Login");
+        }
+
     }
 }

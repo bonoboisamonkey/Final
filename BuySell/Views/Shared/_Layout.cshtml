@@ -197,6 +197,33 @@
                                                 </div>
                                             </a>
                                         </li>
+                                        <li class="nav-links__item nav-links__item--has-submenu">
+                                            <a class="nav-links__item-link">
+                                                <div class="nav-links__item-body">
+                                                    Login/Register
+                                                    <svg class="nav-links__item-arrow" width="9px" height="6px">
+                                                        <use xlink:href="images/sprite.svg#arrow-rounded-down-9x6"></use>
+                                                    </svg>
+                                                </div>
+                                            </a>
+                                            <div class="nav-links__submenu nav-links__submenu--type--menu">
+                                                <!-- .menu -->
+                                                <div class="menu menu--layout--classic">
+                                                    <div class="menu__submenus-container"></div>
+                                                    <ul class="menu__list">
+                                                        <li class="menu__item">
+                                                            <div class="menu__item-submenu-offset"></div>
+                                                            <a class="menu__item-link" asp-controller="Account" asp-action="Login">Login</a>
+                                                        </li>
+                                                        <li class="menu__item">
+                                                            <div class="menu__item-submenu-offset"></div>
+                                                            <a class="menu__item-link" asp-controller="Account" asp-action="Register">Register</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <!-- .menu / end -->
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                                 <!-- .nav-links / end -->
