@@ -18,19 +18,19 @@ namespace BuySell.Controllers
         }
         public async Task<IActionResult> Index(int id)
         {
-            var product =  _context.Products
-                            .Include(x=>x.Photos)
-                                .Include(y=>y.Comments)
-                                    .FirstOrDefault(x => x.Id == id);
+            var product = await _context.Products
+                            .Include(x => x.Photos)
+                                .Include(y => y.Comments)
+                                    .FirstOrDefaultAsync(x => x.Id == id);
 
-            var categoryId = _context.Products
-                                .Where(t=>t.Id==id)
+            var categoryId = await _context.Products
+                                .Where(t => t.Id == id)
                                     .Select(x => x.CategoryId)
-                                        .FirstOrDefault();
+                                        .FirstOrDefaultAsync();
 
             var relatedProducts = await _context.Products
                                     .Include(x => x.Photos)
-                                        .Where(t => t.CategoryId== categoryId).ToListAsync();
+                                        .Where(t => t.CategoryId == categoryId).ToListAsync();
 
             var model = new ProductViewModel()
             {

@@ -57,7 +57,7 @@ namespace BuySell
                         LockoutEnabled = false,
                         RegistredDate = DateTime.Now
                     };
-                    IdentityResult result = userManager.CreateAsync(admin, "Admin@1234").GetAwaiter().GetResult();
+                    IdentityResult result = userManager.CreateAsync(admin, admin.Password).GetAwaiter().GetResult();
                     if (result.Succeeded)
                     {
                         userManager.AddToRoleAsync(admin, "Admin").GetAwaiter().GetResult();

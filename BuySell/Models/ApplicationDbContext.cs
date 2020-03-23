@@ -233,9 +233,9 @@ namespace BuySell.Models
                 , new Product { Id = 58, CategoryId = 33, ProductName = "Microsoft Xbox One Wireless Controller ", ProductPrice = 43, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 150, IsDeleted = false, ProductDetails = "", AddedDate = RandomTime() }
                 , new Product { Id = 59, CategoryId = 33, ProductName = "Sony PlayStation 4 DualShock 4 Wireless ", ProductPrice = 53, ProductDiscount = 0, ProductRating = 5, IsAvailable = true, ProductCount = 150, IsDeleted = false, ProductDetails = "", AddedDate = RandomTime() }
 
-                , new Product { Id = 60, CategoryId = 34, ProductName = "Battle Chasers: Nightwar for PlayStation 4 (R2) ", ProductPrice = 27, ProductDiscount = 0, ProductRating = 3, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "", AddedDate = RandomTime() }
-                , new Product { Id = 61, CategoryId = 34, ProductName = "For Honor Deluxe Edition for PlayStation 4 (R2) ", ProductPrice = 27, ProductDiscount = 0, ProductRating = 3, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "", AddedDate = RandomTime() }
-                , new Product { Id = 62, CategoryId = 34, ProductName = "Cartoon Network: Battle Crashers for PlayStation 4 ", ProductPrice = 27, ProductDiscount = 0, ProductRating = 3, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "", AddedDate = RandomTime() }
+                , new Product { Id = 60, CategoryId = 34, ProductName = "Sony :Battle Chasers: Nightwar for PlayStation 4 (R2) ", ProductPrice = 27, ProductDiscount = 0, ProductRating = 3, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "", AddedDate = RandomTime() }
+                , new Product { Id = 61, CategoryId = 34, ProductName = "Sony :For Honor Deluxe Edition for PlayStation 4 (R2) ", ProductPrice = 27, ProductDiscount = 0, ProductRating = 3, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "", AddedDate = RandomTime() }
+                , new Product { Id = 62, CategoryId = 34, ProductName = "Sony :Cartoon Network: Battle Crashers for PlayStation 4 ", ProductPrice = 27, ProductDiscount = 0, ProductRating = 3, IsAvailable = true, ProductCount = 50, IsDeleted = false, ProductDetails = "", AddedDate = RandomTime() }
 
                 );
             builder.Entity<Photo>().HasData(

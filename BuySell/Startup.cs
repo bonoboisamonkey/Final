@@ -33,12 +33,6 @@ namespace BuySell
             services.AddIdentity<AppUser, IdentityRole<int>>()
                         .AddDefaultTokenProviders()
                             .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            //services.AddMvc(options =>
-            //{
-            //    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-            //    options.Filters.Add(new AuthorizeFilter(policy));
-            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

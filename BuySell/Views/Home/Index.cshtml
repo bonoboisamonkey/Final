@@ -73,12 +73,15 @@
                 <li>
                     <button type="button" class="block-header__group block-header__group--active">All</button>
                 </li>
-                @*@foreach (var item in Model)
+                @foreach (var item in Model.Categories)
+                {
+                    if (item.ParentId == null)
                     {
                         <li>
-                            <button type="button" class="block-header__group">@item</button>
+                            <button type="button" class="block-header__group">@item.Name</button>
                         </li>
-                    }*@
+                    }
+                }
             </ul>
             <div class="block-header__arrows-list">
                 <button class="block-header__arrow block-header__arrow--left" type="button">

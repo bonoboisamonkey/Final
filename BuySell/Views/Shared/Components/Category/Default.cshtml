@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Category>
+@{List<int> parents = new List<int>(); }
 
 <ul class="departments__links">
     @foreach (var item in Model)
@@ -6,7 +7,7 @@
         @if (item.ParentId == null)
         {
             <li class="departments__item">
-                <a class="departments__item-link" href="#">
+                <a class="departments__item-link" asp-controller="Shop" asp-action="Index">
                     @item.Name
                     <svg class="departments__item-arrow" width="6px" height="9px">
                         <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
@@ -15,28 +16,44 @@
                 <div class="departments__submenu departments__submenu--type--megamenu departments__submenu--size--nl">
                     <!-- .megamenu -->
                     <div class="megamenu megamenu--departments">
-                        <div class="megamenu__body" style="background-image: url('images/megamenu/megamenu-3.jpg');">
+                        <div class="megamenu__body">
                             <div class="row">
                                 <div class="col-12">
                                     <ul class="megamenu__links megamenu__links--level--0">
-                                        @foreach (var subcategory in Model)
+                                        @foreach (var child in Model)
                                         {
-                                            @if (item.Id == subcategory.ParentId)
+                                            if (child.ParentId != null)
                                             {
-                                                <li class="megamenu__item megamenu__item--with-submenu">
-                                                    <a href="#">@subcategory.Name</a>
-                                                    <ul class="megamenu__links megamenu__links--level--1">
-                                                        @foreach (var marka in Model)   
-                                                        {
-                                                            @if (subcategory.Id == marka.ParentId)
+                                                parents.Add((int)child.ParentId);
+                                            }
+
+                                            if (item.Id == child.ParentId)
+                                            {
+                                                if (parents.Contains(child.Id))
+                                                {
+                                                    <li class="megamenu__item megamenu__item--with-submenu">
+                                                        <a href="#">@child.Name</a>
+                                                        <ul class="megamenu__links megamenu__links--level--1">
+                                                            @foreach (var marka in Model)
                                                             {
-                                                                <li class="megamenu__item">
-                                                                    <a href="#">@marka.Name</a>
-                                                                </li>
+                                                                @if (child.Id == marka.ParentId)
+                                                                {
+                                                                    <li class="megamenu__item">
+                                                                        <a href="#">@marka.Name</a>
+                                                                    </li>
+                                                                }
                                                             }
-                                                        }
-                                                    </ul>
-                                                </li>
+                                                        </ul>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li class="megamenu__item megamenu__item--with-submenu ">
+                                                        <a href="#">@child.Name</a>
+                                                        <ul class="megamenu__links megamenu__links--level--1">
+                                                        </ul>
+                                                    </li>
+                                                }
                                             }
                                         }
                                     </ul>

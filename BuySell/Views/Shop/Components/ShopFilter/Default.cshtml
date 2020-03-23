@@ -1,0 +1,138 @@
+﻿@model ShopFilterViewModel
+@{
+    var categories = Model.Categories;
+    var products = Model.Products;
+    var brands = Model.Brands;
+    List<int> parents = new List<int>();
+}
+
+<div class="widget-filters__item">
+    <div class="filter filter--opened" data-collapse-item>
+        <button type="button" class="filter__title" data-collapse-trigger>
+            Categories
+            <svg class="filter__arrow" width="12px" height="7px">
+                <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
+            </svg>
+        </button>
+        <div class="filter__body" data-collapse-content>
+            <div class="filter__container">
+                <div class="filter-categories-alt">
+                    <ul class="filter-categories-alt__list filter-categories-alt__list--level--1" data-collapse-opened-class="filter-categories-alt__item--open">
+                        @foreach (var item in categories)
+                        {
+                            if (item.ParentId == null)
+                            {
+                                <li class="filter-categories-alt__item filter-categories-alt__item--open filter-categories-alt__item--current" data-collapse-item>
+                                    <button class="filter-categories-alt__expander" data-collapse-trigger></button>
+                                    <a href="#">@item.Name</a>
+                                    <div class="filter-categories-alt__children" data-collapse-content>
+                                        <ul class="filter-categories-alt__list filter-categories-alt__list--level--2">
+                                            @foreach (var child in categories)
+                                            {
+                                                if (child.ParentId != null)
+                                                {
+                                                    parents.Add((int)child.ParentId);
+                                                }
+
+                                                if (child.ParentId == item.Id)
+                                                {
+                                                    if (parents.Contains(child.Id))
+                                                    {
+                                                        <li class="filter-categories-alt__item filter-categories-alt__item--current" data-collapse-item>
+                                                            <button class="filter-categories-alt__expander" data-collapse-trigger></button>
+                                                            <a href="#">@child.Name</a>
+                                                            <div class="filter-categories-alt__children" data-collapse-content>
+                                                                <ul class="filter-categories-alt__list filter-categories-alt__list--level--3">
+                                                                    @foreach (var last in categories)
+                                                                    {
+                                                                        if (last.ParentId == child.Id)
+                                                                        {
+                                                                            <li class="filter-categories-alt__item" data-collapse-item>
+                                                                                <a href="#">@last.Name</a>
+                                                                            </li>
+                                                                        }
+                                                                    }
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li class="filter-categories-alt__item" data-collapse-item>
+                                                            <a href="#">@child.Name</a>
+                                                        </li>
+                                                    }
+                                                }
+                                            }
+
+                                        </ul>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="widget-filters__item">
+    <div class="filter filter--opened" data-collapse-item>
+        <button type="button" class="filter__title" data-collapse-trigger>
+            Price
+            <svg class="filter__arrow" width="12px" height="7px">
+                <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
+            </svg>
+        </button>
+        <div class="filter__body" data-collapse-content>
+            <div class="filter__container">
+                <div class="filter-price"
+                     data-min="500"
+                     data-max="1500"
+                     data-from="590"
+                     data-to="1130">
+                    <div class="filter-price__slider"></div>
+                    <div class="filter-price__title">
+                        Price: $
+                        <span class="filter-price__min-value"></span> – $
+                        <span class="filter-price__max-value"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="widget-filters__item">
+    <div class="filter filter--opened" data-collapse-item>
+        <button type="button" class="filter__title" data-collapse-trigger>
+            Brand
+            <svg class="filter__arrow" width="12px" height="7px">
+                <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
+            </svg>
+        </button>
+        <div class="filter__body" data-collapse-content>
+            <div class="filter__container">
+                <div class="filter-list">
+                    <div class="filter-list__list">
+                        @foreach (var item in brands)
+                        {
+                            <label class="filter-list__item">
+                                <span class="filter-list__input input-check">
+                                    <span class="input-check__body">
+                                        <input class="input-check__input" type="checkbox">
+                                        <span class="input-check__box"></span>
+                                        <svg class="input-check__icon" width="9px" height="7px">
+                                            <use xlink:href="images/sprite.svg#check-9x7"></use>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <span class="filter-list__title">@item.Key</span>
+                                <span class="filter-list__counter">@item.Value</span>
+                            </label>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

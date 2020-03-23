@@ -25,7 +25,6 @@
     <None Include="wwwroot\dist\js\pages\dashboard.js" />
     <None Include="wwwroot\dist\js\pages\dashboard2.js" />
     <None Include="wwwroot\dist\js\pages\dashboard3.js" />
-    <None Include="wwwroot\fonts\stroyka\stroyka.svg" />
     <None Include="wwwroot\images\sprite.svg" />
     <None Include="wwwroot\js\header.js" />
     <None Include="wwwroot\js\main.js" />

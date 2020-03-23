@@ -1,0 +1,197 @@
+﻿@{
+    ViewData["Title"] = "Shop";
+}
+@model  IEnumerable<Product>
+
+<div class="container">
+    <div class="shop-layout shop-layout--sidebar--start">
+        <div class="shop-layout__sidebar">
+            <div class="block block-sidebar block-sidebar--offcanvas--mobile">
+                <div class="block-sidebar__backdrop"></div>
+                <div class="block-sidebar__body">
+                    <div class="block-sidebar__item">
+                        <div class="widget-filters widget widget-filters--offcanvas--mobile" data-collapse data-collapse-opened-class="filter--opened">
+                            <h4 class="widget-filters__title widget__title">Filters</h4>
+                            <div class="widget-filters__list">
+                                @await Component.InvokeAsync("ShopFilter")
+                            </div>
+                            <div class="widget-filters__actions d-flex">
+                                <button class="btn btn-primary btn-sm">Filter</button>
+                                <button class="btn btn-secondary btn-sm">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shop-layout__content">
+            <div class="block">
+                <div class="products-view">
+                    <div class="products-view__options">
+                        <div class="view-options view-options--offcanvas--mobile">
+                            <div class="view-options__filters-button">
+                                <button type="button" class="filters-button">
+                                    <svg class="filters-button__icon" width="16px" height="16px">
+                                        <use xlink:href="images/sprite.svg#filters-16"></use>
+                                    </svg>
+                                    <span class="filters-button__title">Filters</span>
+                                    <span class="filters-button__counter">3</span>
+                                </button>
+                            </div>
+                            <div class="view-options__layout">
+                                <div class="layout-switcher">
+                                    <div class="layout-switcher__list">
+                                        <button data-layout="grid-3-sidebar"
+                                                data-with-features="false"
+                                                title="Grid"
+                                                type="button"
+                                                class="layout-switcher__button layout-switcher__button--active">
+                                            <svg width="16px" height="16px">
+                                                <use xlink:href="images/sprite.svg#layout-grid-16x16"></use>
+                                            </svg>
+                                        </button>
+                                        <button data-layout="grid-3-sidebar"
+                                                data-with-features="true"
+                                                title="Grid With Features"
+                                                type="button"
+                                                class="layout-switcher__button">
+                                            <svg width="16px" height="16px">
+                                                <use xlink:href="images/sprite.svg#layout-grid-with-details-16x16"></use>
+                                            </svg>
+                                        </button>
+                                        <button data-layout="list"
+                                                data-with-features="false"
+                                                title="List"
+                                                type="button"
+                                                class="layout-switcher__button">
+                                            <svg width="16px" height="16px">
+                                                <use xlink:href="images/sprite.svg#layout-list-16x16"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="view-options__legend">Showing 6 of 98 products</div>
+                            <div class="view-options__divider"></div>
+                            <div class="view-options__control">
+                                <label for="">Sort By</label>
+                                <div>
+                                    <select class="form-control form-control-sm" name="" id="">
+                                        <option value="">Default</option>
+                                        <option value="">Name (A-Z)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="view-options__control">
+                                <label for="">Show</label>
+                                <div>
+                                    <select class="form-control form-control-sm" name="" id="">
+                                        <option value="">12</option>
+                                        <option value="">24</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="products-view__list products-list"
+                         data-layout="grid-3-sidebar"
+                         data-with-features="false"
+                         data-mobile-grid-columns="2">
+                        <div class="products-list__body">
+                            @foreach (var item in Model)
+                            {
+                                <div class="products-list__item">
+                                    <div class="product-card">
+                                        <div class="product-card__image">
+                                            <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">
+                                                <img src="~/@item.Photos.Where(y=>y.ProductId==item.Id).Select(x=>x.PhotoPath).FirstOrDefault().ToString()" alt="@item.ProductName">
+                                            </a>
+                                        </div>
+                                        <div class="product-card__info">
+                                            <div class="product-card__name">
+                                                <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">@item.ProductName</a>
+                                            </div>
+                                            <div class="product-card__rating">
+                                                <div class="product-card__rating-stars">
+                                                    <div class="rating">
+                                                        <div class="rating__body">
+                                                            @for (int i = 0; i < item.ProductRating; i++)
+                                                            {
+                                                                <svg class="rating__star rating__star--active" width="13px" height="12px">
+                                                                    <g class="rating__fill">
+                                                                        <use xlink:href="images/sprite.svg#star-normal"></use>
+                                                                    </g>
+                                                                    <g class="rating__stroke">
+                                                                        <use xlink:href="images/sprite.svg#star-normal-stroke"></use>
+                                                                    </g>
+                                                                </svg>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-card__actions">
+                                            <div class="product-card__prices">$@item.ProductPrice</div>
+                                            <div class="product-card__buttons">
+                                                <button class="btn btn-primary product-card__addtocart" type="button">Add To Cart</button>
+                                                <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
+                                                    <svg width="16px" height="16px">
+                                                        <use xlink:href="images/sprite.svg#wishlist-16"></use>
+                                                    </svg>
+                                                    <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
+                                                </button>
+                                                <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button">
+                                                    <svg width="16px" height="16px">
+                                                        <use xlink:href="images/sprite.svg#compare-16"></use>
+                                                    </svg>
+                                                    <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="products-view__pagination">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link page-link--with-arrow" href="#" aria-label="Previous">
+                                    <svg class="page-link__arrow page-link__arrow--left"
+                                         aria-hidden="true"
+                                         width="8px"
+                                         height="13px">
+                                        <use xlink:href="images/sprite.svg#arrow-rounded-left-8x13"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">
+                                    2
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link page-link--with-arrow" href="#" aria-label="Next">
+                                    <svg class="page-link__arrow page-link__arrow--right"
+                                         aria-hidden="true"
+                                         width="8px"
+                                         height="13px">
+                                        <use xlink:href="images/sprite.svg#arrow-rounded-right-8x13"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

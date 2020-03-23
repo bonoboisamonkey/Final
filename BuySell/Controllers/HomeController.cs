@@ -26,11 +26,12 @@ namespace BuySell.Controllers
             Random random = new Random();
             int skip = random.Next(0, count - 7);
 
+
             var allProducts = new HomePageViewModel()
             {
                 AllProducts = await _context.Products
-                                    .Include(y => y.Photos)
-                                        .Where(x => x.IsDeleted == false).ToListAsync(),
+                                        .Include(y => y.Photos)
+                                            .Where(x => x.IsDeleted == false).ToListAsync(),
                 BestRatedProducts = await _context.Products
                                   .Include(p => p.Photos)
                                     .Where(x => x.ProductRating == 5)
@@ -41,7 +42,8 @@ namespace BuySell.Controllers
                                     .Where(y => y.IsDeleted == false).ToListAsync(),
                 OnSaleProducts = await _context.Products
                                     .Include(x => x.Photos)
-                                        .Where(s => s.ProductDiscount != 0).ToListAsync()
+                                        .Where(s => s.ProductDiscount != 0).ToListAsync(),
+                Categories = await _context.Categories.ToListAsync()
             };
 
             return View(allProducts);

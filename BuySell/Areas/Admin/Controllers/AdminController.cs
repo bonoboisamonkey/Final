@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BuySell.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     [Area("Admin")]
     public class AdminController : Controller
     {
