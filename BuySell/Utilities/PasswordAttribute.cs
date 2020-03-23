@@ -15,6 +15,8 @@ namespace BuySell.Utilities
 
         public override bool IsValid(object value)
         {
+            if (value == null)
+                return false;
 
             string password = value.ToString();
 

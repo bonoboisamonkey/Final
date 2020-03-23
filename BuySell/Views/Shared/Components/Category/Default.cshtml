@@ -7,7 +7,7 @@
         @if (item.ParentId == null)
         {
             <li class="departments__item">
-                <a class="departments__item-link" asp-controller="Shop" asp-action="Index">
+                <a class="departments__item-link" asp-controller="Shop" asp-action="Index" asp-route-id="@item.Id">
                     @item.Name
                     <svg class="departments__item-arrow" width="6px" height="9px">
                         <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
@@ -32,14 +32,14 @@
                                                 if (parents.Contains(child.Id))
                                                 {
                                                     <li class="megamenu__item megamenu__item--with-submenu">
-                                                        <a href="#">@child.Name</a>
+                                                        <a asp-controller="Shop" asp-action="Index" asp-route-id="@child.Id">@child.Name</a>
                                                         <ul class="megamenu__links megamenu__links--level--1">
                                                             @foreach (var marka in Model)
                                                             {
                                                                 @if (child.Id == marka.ParentId)
                                                                 {
                                                                     <li class="megamenu__item">
-                                                                        <a href="#">@marka.Name</a>
+                                                                        <a asp-controller="Shop" asp-action="Index" asp-route-id="@marka.Id">@marka.Name</a>
                                                                     </li>
                                                                 }
                                                             }
@@ -49,7 +49,7 @@
                                                 else
                                                 {
                                                     <li class="megamenu__item megamenu__item--with-submenu ">
-                                                        <a href="#">@child.Name</a>
+                                                        <a asp-controller="Shop" asp-action="Index" asp-route-id="@child.Id">@child.Name</a>
                                                         <ul class="megamenu__links megamenu__links--level--1">
                                                         </ul>
                                                     </li>
