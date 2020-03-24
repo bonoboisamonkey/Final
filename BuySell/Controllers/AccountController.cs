@@ -74,6 +74,7 @@ namespace BuySell.Controllers
 
                 if (identityResult.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user, "User");
                     return RedirectToAction("Login");
                 }
                 else

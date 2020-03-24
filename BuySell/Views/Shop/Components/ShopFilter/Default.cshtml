@@ -24,7 +24,7 @@
                             {
                                 <li class="filter-categories-alt__item filter-categories-alt__item--open filter-categories-alt__item--current" data-collapse-item>
                                     <button class="filter-categories-alt__expander" data-collapse-trigger></button>
-                                    <a href="#">@item.Name</a>
+                                    <a asp-controller="Shop" asp-action="Index" asp-route-id="@item.Id">@item.Name</a>
                                     <div class="filter-categories-alt__children" data-collapse-content>
                                         <ul class="filter-categories-alt__list filter-categories-alt__list--level--2">
                                             @foreach (var child in categories)
@@ -40,7 +40,7 @@
                                                     {
                                                         <li class="filter-categories-alt__item filter-categories-alt__item--current" data-collapse-item>
                                                             <button class="filter-categories-alt__expander" data-collapse-trigger></button>
-                                                            <a href="#">@child.Name</a>
+                                                            <a asp-controller="Shop" asp-action="Index" asp-route-id="@child.Id">@child.Name</a>
                                                             <div class="filter-categories-alt__children" data-collapse-content>
                                                                 <ul class="filter-categories-alt__list filter-categories-alt__list--level--3">
                                                                     @foreach (var last in categories)
@@ -48,7 +48,7 @@
                                                                         if (last.ParentId == child.Id)
                                                                         {
                                                                             <li class="filter-categories-alt__item" data-collapse-item>
-                                                                                <a href="#">@last.Name</a>
+                                                                                <a asp-controller="Shop" asp-action="Index" asp-route-id="@last.Id">@last.Name</a>
                                                                             </li>
                                                                         }
                                                                     }
@@ -59,7 +59,7 @@
                                                     else
                                                     {
                                                         <li class="filter-categories-alt__item" data-collapse-item>
-                                                            <a href="#">@child.Name</a>
+                                                            <a asp-controller="Shop" asp-action="Index" asp-route-id="@child.Id">@child.Name</a>
                                                         </li>
                                                     }
                                                 }
@@ -119,7 +119,7 @@
                             <label class="filter-list__item">
                                 <span class="filter-list__input input-check">
                                     <span class="input-check__body">
-                                        <input class="input-check__input" type="checkbox">
+                                        <input class="input-check__input" type="checkbox" value="@item.Key">
                                         <span class="input-check__box"></span>
                                         <svg class="input-check__icon" width="9px" height="7px">
                                             <use xlink:href="images/sprite.svg#check-9x7"></use>

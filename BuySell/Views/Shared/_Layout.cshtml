@@ -29,7 +29,7 @@
                                     <use xlink:href="images/sprite.svg#menu-18x14"></use>
                                 </svg>
                             </button>
-                            <a class="mobile-header__logo" href="index.html">
+                            <a class="mobile-header__logo" asp-controller="Home">
                                 <img src="~/images/logo.png" alt="logo" width="120" height="42" />
                             </a>
                             <div class="search search--location--mobile-header mobile-header__search">
@@ -98,7 +98,7 @@
             <div class="site-header">
                 <div class="site-header__middle container">
                     <div class="site-header__logo">
-                        <a href="index.html">
+                        <a asp-controller="Home">
                             <img src="~/images/logo.png" alt="logo" width="150" height="62" />
                         </a>
                     </div>
@@ -282,55 +282,7 @@
                                                 </a>
                                                 <div class="menu menu--layout--classic nav-links__submenu" style="width:auto">
                                                     <div class="menu__submenus-container"></div>
-                                                    <div class="account-menu dropcart__body">
-                                                        <form class="account-menu__form">
-                                                            <div class="account-menu__form-title">Log In to Your Account</div>
-                                                            <div class="form-group">
-                                                                <label for="header-signin-email" class="sr-only">Email address</label>
-                                                                <input id="header-signin-email"
-                                                                       type="email"
-                                                                       class="form-control form-control-sm"
-                                                                       placeholder="Email address">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="header-signin-password" class="sr-only">Password</label>
-                                                                <div class="account-menu__form-forgot">
-                                                                    <input id="header-signin-password"
-                                                                           type="password"
-                                                                           class="form-control form-control-sm"
-                                                                           placeholder="Password">
-                                                                    <a href="#" class="account-menu__form-forgot-link">Forgot?</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group account-menu__form-button">
-                                                                <button type="submit" class="btn btn-primary btn-sm">Login</button>
-                                                            </div>
-                                                            <div class="account-menu__form-link">
-                                                                <a href="account-login.html">Create An Account</a>
-                                                            </div>
-                                                        </form>
-                                                        <div class="account-menu__divider"></div>
-                                                        <ul class="account-menu__links">
-                                                            <li>
-                                                                <a href="account-profile.html">Edit Profile</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="account-orders.html">Order History</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="account-addresses.html">Addresses</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="account-password.html">Password</a>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="account-menu__divider"></div>
-                                                        <ul class="account-menu__links">
-                                                            <li>
-                                                                <a href="account-login.html">Logout</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                    @await Component.InvokeAsync("MiniAccount")
                                                 </div>
                                             </li>
                                         </ul>
