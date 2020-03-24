@@ -10,7 +10,7 @@ namespace BuySell.Models
     public class AppUser : IdentityUser<int>
     {
         [Required]
-        [StringLength(maximumLength: 20)]
+        [MaxLength(50)]
         public string UserSurname { get; set; }
         [Required]
         [Password]

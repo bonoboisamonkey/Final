@@ -33,6 +33,13 @@ namespace BuySell
             services.AddIdentity<AppUser, IdentityRole<int>>()
                         .AddDefaultTokenProviders()
                             .AddEntityFrameworkStores<ApplicationDbContext>();
+            
+            services.ConfigureApplicationCookie(x =>
+            {
+                x.SlidingExpiration = true;
+                x.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

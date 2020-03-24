@@ -13,7 +13,6 @@ namespace BuySell.ViewModels
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        [Password]
         public string Password { get; set; }
     }
 }

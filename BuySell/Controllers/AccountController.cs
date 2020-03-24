@@ -7,6 +7,7 @@ using BuySell.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace BuySell.Controllers
 {
@@ -17,12 +18,10 @@ namespace BuySell.Controllers
         private readonly IPasswordValidator<AppUser> _passwordValidator;
 
         public AccountController(SignInManager<AppUser> signInManager
-                                    , UserManager<AppUser> userManager
-                                        , IPasswordValidator<AppUser> passwordValidator)
+                                    , UserManager<AppUser> userManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
-            _passwordValidator = passwordValidator;
         }
 
         [HttpGet]
@@ -36,6 +35,13 @@ namespace BuySell.Controllers
         {
             if (ModelState.IsValid)
             {
+                var currentUser = await _userManager.FindByEmailAsync(model.Email);
+                if (currentUser != null)
+                {
+                    ModelState.AddModelError("", "Email is in use already");
+                    return View();
+                }
+
                 AppUser user = new AppUser()
                 {
                     Email = model.Email,
@@ -86,19 +92,26 @@ namespace BuySell.Controllers
                 }
                 else
                 {
-                    IdentityResult identityResult = await _passwordValidator.ValidateAsync(_userManager, currentUser, model.Password);
+                    //IdentityResult identityResult = await _passwordValidator.ValidateAsync(_userManager, currentUser, model.Password);
+                    SignInResult signInResult = await _signInManager.PasswordSignInAsync(currentUser, model.Password, true, true);
 
-                    if (!identityResult.Succeeded)
+                    if (!signInResult.Succeeded)
                     {
-                        foreach (IdentityError error in identityResult.Errors)
-                        {
-                            ModelState.AddModelError("", error.Description);
-                        }
+                        ModelState.AddModelError("", "Wrong Password");
+                        return View();
+                    }
+                    else
+                        if (signInResult.IsLockedOut)
+                    {
+                        ModelState.AddModelError("", "User locked out!");
                         return View();
                     }
                     else
                     {
-                        await _signInManager.SignInAsync(currentUser, false);
+                        if(currentUser.Email=="admin@shop.az" && currentUser.Password == "Admin@1234")
+                        {
+                            return RedirectToAction("Index", "Admin", new { Area = "Admin" });
+                        }
                         return RedirectToAction("Index", "Home");
                     }
                 }
@@ -112,6 +125,11 @@ namespace BuySell.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login");
+        }
+
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
 
     }

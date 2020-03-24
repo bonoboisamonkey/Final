@@ -10,13 +10,13 @@ namespace BuySell.ViewModels
     public class RegisterViewModel
     {
         [Required]
-        [StringLength(maximumLength: 20, MinimumLength = 6)]
+        [StringLength(maximumLength: 20, MinimumLength = 3)]
         public string UserName { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        [StringLength(maximumLength: 20, MinimumLength = 6)]
+        [StringLength(maximumLength: 20, MinimumLength = 3)]
         public string UserSurname { get; set; }
         [Required]
         [Password]
@@ -25,12 +25,12 @@ namespace BuySell.ViewModels
         [Compare("Password")]
         public string ConfirmPassword { get; set; }
         [Required]
-        [MaxLength(50)]
+        [StringLength(maximumLength: 50, MinimumLength = 3)]
         public string City { get; set; }
         [Required]
-        [MaxLength(20)]
+        [StringLength(maximumLength: 20, MinimumLength = 3)]
         public string PostalCode { get; set; }
         [Required]
-        public DateTime RegistredDate { get; set; }
+        public DateTime RegistredDate { get; set; } = DateTime.Now;
     }
 }
