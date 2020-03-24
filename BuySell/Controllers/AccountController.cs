@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using BuySell.Models;
 using BuySell.ViewModels;
@@ -15,7 +16,6 @@ namespace BuySell.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-        private readonly IPasswordValidator<AppUser> _passwordValidator;
 
         public AccountController(SignInManager<AppUser> signInManager
                                     , UserManager<AppUser> userManager)
@@ -23,10 +23,26 @@ namespace BuySell.Controllers
             _signInManager = signInManager;
             _userManager = userManager;
         }
+        
+        public async Task<IActionResult> Index()
+        {
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+            if (user == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            return View(user);
+        }
 
         [HttpGet]
-        public IActionResult Register()
+        public async Task<IActionResult> Register()
         {
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+            if (user != null)
+            {
+                return RedirectToAction("Index");
+            }
             return View();
         }
 
@@ -74,8 +90,14 @@ namespace BuySell.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public async Task<IActionResult> Login()
         {
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+            if (user != null)
+            {
+                return RedirectToAction("Index");
+            }
+
             return View();
         }
 
@@ -92,8 +114,8 @@ namespace BuySell.Controllers
                 }
                 else
                 {
-                    //IdentityResult identityResult = await _passwordValidator.ValidateAsync(_userManager, currentUser, model.Password);
-                    SignInResult signInResult = await _signInManager.PasswordSignInAsync(currentUser, model.Password, true, true);
+                    SignInResult signInResult = await _signInManager.
+                                                        PasswordSignInAsync(currentUser, model.Password, true, true);
 
                     if (!signInResult.Succeeded)
                     {
@@ -120,7 +142,7 @@ namespace BuySell.Controllers
                 return View();
         }
 
-        [HttpPost]
+        
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();

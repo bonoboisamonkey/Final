@@ -37,7 +37,7 @@ namespace BuySell
             services.ConfigureApplicationCookie(x =>
             {
                 x.SlidingExpiration = true;
-                x.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+                x.ExpireTimeSpan = TimeSpan.FromMinutes(20);
             });
 
         }

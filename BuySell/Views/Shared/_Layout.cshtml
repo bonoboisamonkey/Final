@@ -124,8 +124,7 @@
                         </div>
                     </div>
                     <div class="site-header__phone">
-                        <div class="site-header__phone-title">Customer Service</div>
-                        <div class="site-header__phone-number">(050) 415-1469</div>
+                        @await Component.InvokeAsync("User")
                     </div>
                 </div>
                 <div class="site-header__nav-panel">
@@ -309,7 +308,7 @@
                                                             <div class="account-menu__form-link">
                                                                 <a href="account-login.html">Create An Account</a>
                                                             </div>
-                                                        </form>                                                        
+                                                        </form>
                                                         <div class="account-menu__divider"></div>
                                                         <ul class="account-menu__links">
                                                             <li>
@@ -341,6 +340,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </header>
         <!-- desktop site__header / end -->
         <!-- site__body -->

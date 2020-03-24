@@ -1,0 +1,11 @@
+﻿@model AppUser
+@if (Model != null)
+{
+    <div class="site-header__phone-title">Welcome to our Shop</div>
+    <div class="site-header__phone-number">@Model.UserName!</div>
+}
+else
+{
+    <div class="site-header__phone-title">You have to Login</div>
+    <div class="site-header__phone-number">If you can't see your name here</div>
+}
