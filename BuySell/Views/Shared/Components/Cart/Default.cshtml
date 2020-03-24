@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Product>
+
+@if (Model != null)
+{
+    @foreach (var item in Model)
+    {
+        <div class="dropcart__product">
+            <div class="dropcart__product-image">
+                <a href="product.html">
+                    <img src="~/@item.Photos.Where(x => x.ProductId == item.Id).Select(x => x.PhotoPath).FirstOrDefault().ToString()" alt="@item.ProductName">
+                </a>
+            </div>
+            <div class="dropcart__product-info">
+                <div class="dropcart__product-name">
+                    <a href="product.html">@item.ProductName</a>
+                </div>
+                <ul class="dropcart__product-options">
+                    <li>Color: Yellow</li>
+                    <li>Material: Aluminium</li>
+                </ul>
+                <div class="dropcart__product-meta">
+                    <span class="dropcart__product-quantity">2</span> ×
+                    <span class="dropcart__product-price">$699.00</span>
+                </div>
+            </div>
+            <button type="button" class="dropcart__product-remove btn btn-light btn-sm btn-svg-icon">
+                <svg width="10px" height="10px">
+                    <use xlink:href="images/sprite.svg#cross-10"></use>
+                </svg>
+            </button>
+        </div>
+    }
+}
+else
+{
+    <div class="dropcart__product">
+       no items in your cart
+    </div>
+}

@@ -50,11 +50,13 @@ namespace BuySell.Models
         public ICollection<Photo> Photos { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; }
+        public ICollection<Cart> Carts { get; set; }
         public Product()
         {
             OrderDetails = new HashSet<OrderDetail>();
             Photos = new HashSet<Photo>();
             Comments = new HashSet<Comment>();
+            Carts = new HashSet<Cart>();
         }
     }
 }

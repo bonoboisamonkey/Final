@@ -245,6 +245,9 @@
                                                 <div class="menu menu--layout--classic nav-links__submenu" style="width:290px">
                                                     <div class="menu__submenus-container"></div>
                                                     <div class="dropcart__body">
+                                                        <div class="dropcart__products-list">
+                                                            @await  Component.InvokeAsync("Cart",2)
+                                                        </div>
                                                         <div class="dropcart__totals">
                                                             <table>
                                                                 <tr>

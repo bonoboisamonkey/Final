@@ -20,7 +20,7 @@
                             </button>
                             <div class="owl-carousel" id="product-image">
                                 @{
-                                    List<Photo> photos = Model.Product.Photos.Where(y => y.ProductId == Model.Product.Id).ToList();
+                                    List<Photo> photos = Model.Product.Photos.Where(y => y.ProductId == Model.Product.Id).Where(x=>x.IsDeleted==false).ToList();
                                     foreach (var item in photos)
                                     {
                                         <a href="~/@item.PhotoPath" target="_blank">
@@ -33,7 +33,8 @@
                         <div class="product-gallery__carousel">
                             <div class="owl-carousel" id="product-carousel">
                                 @{
-                                    foreach (var item in photos)
+                                    List<Photo> subPhotos = Model.Product.Photos.Where(y => y.ProductId == Model.Product.Id).Where(x=>x.IsDeleted==false).ToList();
+                                    foreach (var item in subPhotos)
                                     {
                                         <a href="~/@item.PhotoPath" class="product-gallery__carousel-item">
                                             <img class="product-gallery__carousel-image" src="~/@item.PhotoPath" alt="">

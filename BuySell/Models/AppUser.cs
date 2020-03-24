@@ -27,5 +27,12 @@ namespace BuySell.Models
         [Required]
         public DateTime RegistredDate { get; set; }
         public ICollection<Order> Orders { get; set; }
+        public ICollection<Cart> Carts { get; set; }
+
+        public AppUser()
+        {
+            Orders = new HashSet<Order>();
+            Carts = new HashSet<Cart>();
+        }
     }
 }

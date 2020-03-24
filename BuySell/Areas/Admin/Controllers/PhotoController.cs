@@ -225,7 +225,7 @@ namespace BuySell.Areas.Admin.Controllers
                     else
                     {
                         var uniqueFileName = Guid.NewGuid().ToString() + "_" + model.PhotoPath.FileName;
-                        var uploads = Path.Combine(hostingEnvironment.WebRootPath, "uploads");
+                        var uploads = Path.Combine(hostingEnvironment.WebRootPath, "images");
                         var filePath = Path.Combine(uploads, uniqueFileName);
                         using (var fileStream = new FileStream(filePath, FileMode.Create))
                         {
@@ -234,7 +234,7 @@ namespace BuySell.Areas.Admin.Controllers
 
                         _context.Photos.Add(new Photo()
                         {
-                            PhotoPath = uniqueFileName,
+                            PhotoPath = "images/" + uniqueFileName,
                             ProductId = model.ProductId,
                             BlogId = model.BlogId,
                             AddedDate = DateTime.Now

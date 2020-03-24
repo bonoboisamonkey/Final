@@ -32,9 +32,22 @@ namespace BuySell.Models
         {
             base.OnModelCreating(builder);
             builder.Entity<OrderDetail>()
-                .HasKey(x => new { x.OrderId, x.ProductId });
-            builder.Entity<OrderDetail>().HasOne(x => x.Product).WithMany(x => x.OrderDetails);
-            builder.Entity<OrderDetail>().HasOne(x => x.Order).WithMany(x => x.OrderDetails);
+                        .HasKey(x => new { x.OrderId, x.ProductId });
+            builder.Entity<OrderDetail>()
+                        .HasOne(x => x.Product)
+                            .WithMany(x => x.OrderDetails);
+            builder.Entity<OrderDetail>()
+                        .HasOne(x => x.Order)
+                            .WithMany(x => x.OrderDetails);
+
+            builder.Entity<Cart>()
+                       .HasKey(x => new { x.CostumerId, x.ProductId });
+            builder.Entity<Cart>()
+                        .HasOne(x => x.Product)
+                            .WithMany(x => x.Carts);
+            builder.Entity<Cart>()
+                        .HasOne(x => x.Costumer)
+                            .WithMany(x => x.Carts);
 
             builder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Elektronika", ParentId = null }
