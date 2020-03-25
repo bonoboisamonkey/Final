@@ -34,7 +34,7 @@ namespace BuySell.Controllers
                                             .Where(x => x.IsDeleted == false).ToListAsync(),
                 BestRatedProducts = await _context.Products
                                   .Include(p => p.Photos)
-                                    .Where(x => x.ProductRating == 5)
+                                    .Where(x => x.ProductRating == 5 && x.IsDeleted==false)
                                         .Skip(skip)
                                             .Take(7).ToListAsync(),
                 Slides = await _context.Blogs
@@ -42,7 +42,7 @@ namespace BuySell.Controllers
                                     .Where(y => y.IsDeleted == false).ToListAsync(),
                 OnSaleProducts = await _context.Products
                                     .Include(x => x.Photos)
-                                        .Where(s => s.ProductDiscount != 0).ToListAsync(),
+                                        .Where(s => s.ProductDiscount != 0 && s.IsDeleted == false).ToListAsync(),
                 Categories = await _context.Categories.ToListAsync()
             };
 

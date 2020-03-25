@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Product>
+
+@{
+    decimal total = 0;
+    foreach (var item in Model)
+    {
+        total += item.ProductPrice;
+    }
+}
+<div class="cart block">
+    <div class="container">
+        <table class="cart__table cart-table">
+            <thead class="cart-table__head">
+                <tr class="cart-table__row">
+                    <th class="cart-table__column cart-table__column--image">Image</th>
+                    <th class="cart-table__column cart-table__column--product">Product</th>
+                    <th class="cart-table__column cart-table__column--price">Price</th>
+                    <th class="cart-table__column cart-table__column--quantity">Quantity</th>
+                    <th class="cart-table__column cart-table__column--total">Total</th>
+                    <th class="cart-table__column cart-table__column--remove"></th>
+                </tr>
+            </thead>
+            <tbody class="cart-table__body">
+                @foreach (var item in Model)
+                {
+
+                    <tr class="cart-table__row">
+                        <td class="cart-table__column cart-table__column--image">
+                            <a href="#">
+                                <img src="~/images/products/product-id-1.jpeg" alt="@item.ProductName">
+                            </a>
+                        </td>
+                        <td class="cart-table__column cart-table__column--product">
+                            <a href="#" class="cart-table__product-name">@item.ProductName</a>
+                            <ul class="cart-table__options">
+                                <li>@item.ProductDetails</li>
+                            </ul>
+                        </td>
+                        <td class="cart-table__column cart-table__column--price" data-title="Price">$@item.ProductPrice</td>
+                        
+                        <td class="cart-table__column cart-table__column--remove">
+                            <a asp-controller="Cart" asp-action="Remove" asp-route-id="@item.Id" class="btn btn-light btn-sm btn-svg-icon">
+                                <svg width="12px" height="12px">
+                                    <use xlink:href="images/sprite.svg#cross-12"></use>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        
+        <div class="row justify-content-end pt-5">
+            <div class="col-12 col-md-7 col-lg-6 col-xl-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Cart Totals</h3>
+                        <table class="cart__totals">
+                            <thead class="cart__totals-header">
+                                <tr>
+                                    <th>Subtotal</th>
+                                    <td>$@total</td>
+                                </tr>
+                            </thead>
+                            <tbody class="cart__totals-body">
+                                <tr>
+                                    <th>Shipping</th>
+                                    <td>
+                                        $25.00
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Tax</th>
+                                    <td>$0.00</td>
+                                </tr>
+                            </tbody>
+                            <tfoot class="cart__totals-footer">
+                                <tr>
+                                    <th>Total</th>
+                                    <td>$@total</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <a class="btn btn-primary btn-xl btn-block cart__checkout-button" href="checkout.html">Proceed to checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

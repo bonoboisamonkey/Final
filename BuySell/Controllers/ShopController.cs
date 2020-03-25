@@ -73,7 +73,7 @@ namespace BuySell.Controllers
             {
                 var products = await _context.Products
                                        .Include(x => x.Photos)
-                                           .Where(x => x.CategoryId == item).ToListAsync();
+                                           .Where(x => x.IsDeleted == false && x.CategoryId == item).ToListAsync();
                 allFeatures.AddRange(products);
             }
            

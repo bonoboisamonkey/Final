@@ -21,10 +21,10 @@ namespace BuySell.Controllers
             var product = await _context.Products
                             .Include(x => x.Photos)
                                 .Include(y => y.Comments)
-                                    .FirstOrDefaultAsync(x => x.Id == id);
+                                    .FirstOrDefaultAsync(x => x.Id == id && x.IsDeleted==false);
 
             var categoryId = await _context.Products
-                                .Where(t => t.Id == id)
+                                .Where(x => x.IsDeleted == false && x.Id==id)
                                     .Select(x => x.CategoryId)
                                         .FirstOrDefaultAsync();
 

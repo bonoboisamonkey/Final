@@ -20,6 +20,7 @@ namespace BuySell.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Photo> Photos { get; set; }
+        public DbSet<Cart> Carts { get; set; }
 
         private static DateTime RandomTime()
         {
@@ -40,14 +41,14 @@ namespace BuySell.Models
                         .HasOne(x => x.Order)
                             .WithMany(x => x.OrderDetails);
 
-            builder.Entity<Cart>()
-                       .HasKey(x => new { x.CostumerId, x.ProductId });
-            builder.Entity<Cart>()
-                        .HasOne(x => x.Product)
-                            .WithMany(x => x.Carts);
-            builder.Entity<Cart>()
-                        .HasOne(x => x.Costumer)
-                            .WithMany(x => x.Carts);
+            //builder.Entity<Cart>()
+            //           .HasKey(x => new { x.CostumerId, x.ProductId });
+            //builder.Entity<Cart>()
+            //            .HasOne(x => x.Product)
+            //                .WithMany(x => x.Carts);
+            //builder.Entity<Cart>()
+            //            .HasOne(x => x.Costumer)
+            //                .WithMany(x => x.Carts);
 
             builder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Elektronika", ParentId = null }
